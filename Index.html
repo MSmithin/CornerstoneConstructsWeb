@@ -48,7 +48,7 @@
             list-style: none;
             gap: 2.8rem;
             align-items: center;
-            margin: 0 3rem;
+            margin: 0 2.5rem;        /* Slightly reduced to allow buttons closer */
         }
         nav a {
             text-decoration: none;
@@ -99,12 +99,13 @@
             margin-left: 8px;
         }
         
-        /* Buttons - Call Now on top, Get An Estimate stacked underneath */
+        /* Buttons - Slightly closer to nav, stacked vertically */
         .header-buttons {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;     /* Aligns buttons to the right */
+            align-items: flex-end;
             gap: 0.8rem;
+            margin-left: 1.5rem;     /* Reduced margin = buttons closer to nav */
         }
         .btn {
             padding: 0.85rem 2.2rem;
@@ -115,7 +116,7 @@
             transition: all 0.3s;
             white-space: nowrap;
             font-size: 1.02rem;
-            width: 180px;              /* Consistent button width */
+            width: 190px;            /* Slightly wider for better text fit */
         }
         .btn-call {
             background: white;
@@ -139,7 +140,7 @@
             cursor: pointer;
         }
         
-        /* Hero - Image background */
+        /* Hero */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
             color: white;
@@ -154,6 +155,21 @@
             max-width: 720px;
             margin: 0 auto 1.5rem;
             font-size: 1.25rem;
+        }
+        
+        /* Fixed Hero Button - Wider padding + centered text */
+        .hero .btn-estimate {
+            font-size: 1.2rem;
+            padding: 1.1rem 3rem;     /* Increased horizontal padding */
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+            border-radius: 8px;
+            white-space: normal;
+            text-align: center;
+            max-width: 320px;
+            margin: 0 auto;
+            line-height: 1.4;
         }
         
         /* Services */
@@ -258,9 +274,15 @@
             .header-container { padding: 1rem 1.5rem; }
             .header-buttons { 
                 align-items: center; 
-                width: auto;
             }
-            .btn { width: 160px; }
+            .btn { 
+                width: 170px; 
+            }
+            /* Mobile Hero Button Fix */
+            .hero .btn-estimate {
+                padding: 1rem 2.5rem;
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -269,12 +291,10 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-            <!-- Logo - Far Left -->
             <div class="logo">
                 <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
             </div>
             
-            <!-- Navigation with good spacing -->
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -318,7 +338,7 @@
                 </ul>
             </nav>
             
-            <!-- Buttons stacked vertically on the right -->
+            <!-- Buttons slightly closer to nav -->
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
@@ -333,7 +353,11 @@
         <h1>Exclusive Euroshield Rubber Roofing Installation</h1>
         <p>We are the only roofing contractor in the North Bay area proudly offering Euroshield — a revolutionary rubber shingle system made from recycled materials.</p>
         <p>Euroshield delivers unmatched durability, Class 4 impact resistance, excellent wind resistance, and a 50-year transferable warranty. It’s eco-friendly, energy-efficient, and beautifully designed to protect and enhance your home for decades.</p>
-        <a href="roofing.html"><button class="btn btn-estimate" style="font-size: 1.2rem; padding: 1rem 2.5rem; background: white; color: var(--primary-orange);">Learn More About Euroshield</button></a>
+        
+        <!-- Fixed wider button with centered text -->
+        <a href="roofing.html">
+            <button class="btn-estimate">Learn More About Euroshield</button>
+        </a>
     </section>
 
     <!-- SERVICES -->
@@ -410,7 +434,6 @@
     </footer>
 
     <script>
-        // Testimonial slider
         let current = 0;
         const testimonials = document.querySelectorAll('.testimonial');
         const dots = document.querySelectorAll('.dot');
