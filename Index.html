@@ -30,10 +30,10 @@
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;           /* Reduced right padding to shift everything left */
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;  /* Helps with left shift */
         }
         
         /* Logo */
@@ -41,6 +41,7 @@
             height: 120px;
             width: 360px;
             object-fit: contain;
+            margin-right: 3rem;
         }
         
         nav ul {
@@ -48,7 +49,7 @@
             list-style: none;
             gap: 2.8rem;
             align-items: center;
-            margin: 0 2.5rem;        /* Slightly reduced to allow buttons closer */
+            margin-right: 3rem;
         }
         nav a {
             text-decoration: none;
@@ -99,24 +100,24 @@
             margin-left: 8px;
         }
         
-        /* Buttons - Slightly closer to nav, stacked vertically */
+        /* Buttons - Stacked vertically */
         .header-buttons {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 0.8rem;
-            margin-left: 1.5rem;     /* Reduced margin = buttons closer to nav */
+            margin-left: auto;        /* Keeps buttons on right but with overall left shift */
         }
         .btn {
             padding: 0.85rem 2.2rem;
             border: none;
             border-radius: 6px;
-            font-weight: 600;
+            font-weight: 700;         /* Bold */
             cursor: pointer;
             transition: all 0.3s;
             white-space: nowrap;
             font-size: 1.02rem;
-            width: 190px;            /* Slightly wider for better text fit */
+            width: 190px;
         }
         .btn-call {
             background: white;
@@ -138,6 +139,7 @@
             font-size: 2rem;
             color: white;
             cursor: pointer;
+            margin-left: 1.5rem;
         }
         
         /* Hero */
@@ -157,10 +159,11 @@
             font-size: 1.25rem;
         }
         
-        /* Fixed Hero Button - Wider padding + centered text */
+        /* Hero Button - Bold + proper fit */
         .hero .btn-estimate {
             font-size: 1.2rem;
-            padding: 1.1rem 3rem;     /* Increased horizontal padding */
+            font-weight: 700;         /* Bold like the header buttons */
+            padding: 1.1rem 3rem;
             background: white;
             color: var(--primary-orange);
             border: 2px solid white;
@@ -271,18 +274,9 @@
             nav ul { display: none; }
             .hamburger { display: block; }
             .hero h1 { font-size: 2.4rem; }
-            .header-container { padding: 1rem 1.5rem; }
-            .header-buttons { 
-                align-items: center; 
-            }
-            .btn { 
-                width: 170px; 
-            }
-            /* Mobile Hero Button Fix */
-            .hero .btn-estimate {
-                padding: 1rem 2.5rem;
-                max-width: 280px;
-            }
+            .header-container { padding: 1rem 1.2rem; }
+            .btn { width: 170px; }
+            .hero .btn-estimate { padding: 1rem 2.8rem; max-width: 290px; }
         }
     </style>
 </head>
@@ -291,10 +285,12 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
+            <!-- Logo -->
             <div class="logo">
                 <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
             </div>
             
+            <!-- Navigation -->
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -338,7 +334,7 @@
                 </ul>
             </nav>
             
-            <!-- Buttons slightly closer to nav -->
+            <!-- Buttons -->
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
@@ -354,7 +350,6 @@
         <p>We are the only roofing contractor in the North Bay area proudly offering Euroshield — a revolutionary rubber shingle system made from recycled materials.</p>
         <p>Euroshield delivers unmatched durability, Class 4 impact resistance, excellent wind resistance, and a 50-year transferable warranty. It’s eco-friendly, energy-efficient, and beautifully designed to protect and enhance your home for decades.</p>
         
-        <!-- Fixed wider button with centered text -->
         <a href="roofing.html">
             <button class="btn-estimate">Learn More About Euroshield</button>
         </a>
