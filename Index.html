@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Cornerstone Construction</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); /* Fallback - replace with Garet Bold when hosted */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         
         :root {
             --primary-orange: #FF914D;
@@ -35,15 +35,19 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-orange);
+        
+        /* Logo as Image */
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
         }
+        
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
         nav a {
             text-decoration: none;
@@ -53,7 +57,7 @@
         }
         nav a:hover { color: var(--primary-orange); }
         
-        /* Dropdown */
+        /* Improved Dropdown - Only show sub-items on hover */
         .dropdown {
             position: relative;
         }
@@ -63,32 +67,39 @@
             background: white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             min-width: 220px;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             border-radius: 8px;
             z-index: 100;
+            top: 100%;
         }
-        .dropdown:hover .dropdown-content,
-        .dropdown-content:hover {
+        .dropdown:hover > .dropdown-content {
             display: block;
-        }
-        .dropdown-content a {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: #333;
         }
         
-        /* Buttons */
+        /* Sub-dropdown (Exterior / Interior / Landscaping) */
+        .dropdown .dropdown-content .dropdown {
+            position: relative;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: 0;
+            margin-left: 5px;
+        }
+        
+        /* Buttons - Pushed further right and centered vertically */
         .header-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
+            align-items: center;
         }
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.8rem;
             border: none;
             border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            white-space: nowrap;
         }
         .btn-call {
             background: white;
@@ -103,16 +114,16 @@
             transform: translateY(-2px);
         }
         
-        /* Mobile Menu */
+        /* Mobile */
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
         }
         
-        /* Hero */
+        /* Hero Banner - Primary Orange */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            background: var(--primary-orange);
             color: white;
             text-align: center;
             padding: 160px 20px 100px;
@@ -122,8 +133,8 @@
             margin-bottom: 1rem;
         }
         .hero p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            max-width: 720px;
+            margin: 0 auto 1.5rem;
             font-size: 1.25rem;
         }
         
@@ -165,10 +176,6 @@
             color: var(--primary-orange);
             font-size: 1.4rem;
         }
-        .service-card a {
-            text-decoration: none;
-            color: inherit;
-        }
         
         /* Testimonials */
         .testimonials {
@@ -180,7 +187,6 @@
         .testimonial-slider {
             max-width: 700px;
             margin: 0 auto;
-            position: relative;
         }
         .testimonial {
             display: none;
@@ -226,10 +232,10 @@
             flex-wrap: wrap;
             gap: 2rem;
         }
-        .footer-section {
-            min-width: 250px;
-        }
         
+        @media (max-width: 992px) {
+            .header-buttons { margin-left: auto; }
+        }
         @media (max-width: 768px) {
             nav ul { display: none; }
             .hamburger { display: block; }
@@ -242,7 +248,10 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">Cornerstone Construction</div>
+            <!-- Logo as Image -->
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
+            </div>
             
             <nav>
                 <ul>
@@ -251,10 +260,9 @@
                     <li class="dropdown">
                         <a href="#">Services ▼</a>
                         <div class="dropdown-content">
-                            <!-- Exterior -->
                             <div class="dropdown">
                                 <a href="#">Exterior ▼</a>
-                                <div class="dropdown-content" style="left: 100%; top: 0;">
+                                <div class="dropdown-content">
                                     <a href="roofing.html">Roofing</a>
                                     <a href="siding.html">Siding</a>
                                     <a href="soffit-fascia.html">Soffit & Fascia</a>
@@ -263,10 +271,9 @@
                                     <a href="foundations.html">Foundations</a>
                                 </div>
                             </div>
-                            <!-- Interior -->
                             <div class="dropdown">
                                 <a href="#">Interior ▼</a>
-                                <div class="dropdown-content" style="left: 100%; top: 0;">
+                                <div class="dropdown-content">
                                     <a href="carpentry.html">Carpentry</a>
                                     <a href="drywall.html">Drywall</a>
                                     <a href="flooring.html">Flooring</a>
@@ -274,10 +281,9 @@
                                     <a href="insulation.html">Insulation</a>
                                 </div>
                             </div>
-                            <!-- Landscaping -->
                             <div class="dropdown">
                                 <a href="#">Landscaping ▼</a>
-                                <div class="dropdown-content" style="left: 100%; top: 0;">
+                                <div class="dropdown-content">
                                     <a href="hardscaping.html">Hardscaping</a>
                                     <a href="softscaping.html">Softscaping</a>
                                 </div>
@@ -290,6 +296,7 @@
                 </ul>
             </nav>
             
+            <!-- Buttons pushed further right -->
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
@@ -299,11 +306,11 @@
         </div>
     </header>
 
-    <!-- HERO BANNER -->
+    <!-- HERO BANNER - Now Primary Orange -->
     <section class="hero">
         <h1>Exclusive Euroshield Rubber Roofing Installation</h1>
         <p>We are the only roofing contractor in the North Bay area proudly offering Euroshield — a revolutionary rubber shingle system made from recycled materials.</p>
-        <p>Euroshield delivers unmatched durability, Class 4 impact resistance, wind resistance, and a 50-year transferable warranty. It’s eco-friendly, energy-efficient, and beautifully designed to make your home stand out while protecting it for decades.</p>
+        <p>Euroshield delivers unmatched durability, Class 4 impact resistance, excellent wind resistance, and a 50-year transferable warranty. It’s eco-friendly, energy-efficient, and beautifully designed to protect and enhance your home for decades.</p>
         <a href="roofing.html"><button class="btn btn-estimate" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Learn More About Euroshield</button></a>
     </section>
 
@@ -311,7 +318,6 @@
     <section class="services">
         <h2>Our Services</h2>
         <div class="service-grid">
-            <!-- Exterior -->
             <a href="roofing.html" class="service-card"><img src="https://picsum.photos/id/1015/600/400" alt="Roofing"><h3>Roofing</h3></a>
             <a href="siding.html" class="service-card"><img src="https://picsum.photos/id/201/600/400" alt="Siding"><h3>Siding</h3></a>
             <a href="soffit-fascia.html" class="service-card"><img src="https://picsum.photos/id/251/600/400" alt="Soffit & Fascia"><h3>Soffit & Fascia</h3></a>
@@ -319,14 +325,12 @@
             <a href="eavestroughs.html" class="service-card"><img src="https://picsum.photos/id/180/600/400" alt="Eavestroughs"><h3>Eavestroughs</h3></a>
             <a href="foundations.html" class="service-card"><img src="https://picsum.photos/id/106/600/400" alt="Foundations"><h3>Foundations</h3></a>
             
-            <!-- Interior -->
             <a href="carpentry.html" class="service-card"><img src="https://picsum.photos/id/201/600/400" alt="Carpentry"><h3>Carpentry</h3></a>
             <a href="drywall.html" class="service-card"><img src="https://picsum.photos/id/251/600/400" alt="Drywall"><h3>Drywall</h3></a>
             <a href="flooring.html" class="service-card"><img src="https://picsum.photos/id/133/600/400" alt="Flooring"><h3>Flooring</h3></a>
             <a href="surface-aesthetics.html" class="service-card"><img src="https://picsum.photos/id/180/600/400" alt="Surface Finishes"><h3>Surface Finishes & Aesthetics</h3></a>
             <a href="insulation.html" class="service-card"><img src="https://picsum.photos/id/106/600/400" alt="Insulation"><h3>Insulation</h3></a>
             
-            <!-- Landscaping -->
             <a href="hardscaping.html" class="service-card"><img src="https://picsum.photos/id/1016/600/400" alt="Hardscaping"><h3>Hardscaping</h3></a>
             <a href="softscaping.html" class="service-card"><img src="https://picsum.photos/id/201/600/400" alt="Softscaping"><h3>Softscaping</h3></a>
         </div>
@@ -378,14 +382,13 @@
                 <p><a href="contact.html" style="color: #FF914D; text-decoration: none;">Get in touch for a free consultation</a></p>
             </div>
             <div class="footer-section">
-                <p>&copy; 2026 Cornerstone Construction. All rights reserved.<br>
-                North Bay, Ontario</p>
+                <p>© 2026 Cornerstone Construction. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple testimonial slider
+        // Testimonial slider
         let current = 0;
         const testimonials = document.querySelectorAll('.testimonial');
         const dots = document.querySelectorAll('.dot');
@@ -402,15 +405,14 @@
             showSlide(current);
         }
         
-        // Auto-slide every 6 seconds
         setInterval(() => {
             current = (current + 1) % testimonials.length;
             showSlide(current);
         }, 6000);
         
-        // Hamburger menu (basic alert for now - expand later with JS menu)
+        // Hamburger (placeholder)
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would expand here with full navigation.');
+            alert('Mobile menu would appear here with full navigation.');
         });
     </script>
 </body>
