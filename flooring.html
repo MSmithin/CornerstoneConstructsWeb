@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flooring | Cornerstone Construction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        /* HEADER - Consistent with all previous pages */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover { color: #222; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+        
+        /* Dropdown - Stays open while hovering */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 0.8rem 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover { display: block; }
+        
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100% !important;
+            top: 0;
+            margin-left: 8px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
+        .btn-estimate { background: white; color: var(--primary-orange); }
+        
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+        
+        /* Page Content */
+        .hero-flooring {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/133/2000/800') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 140px 20px 80px;
+        }
+        .hero-flooring h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .section h2 {
+            font-size: 2.4rem;
+            color: #222;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .section p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+        
+        /* Flooring Types Showcase */
+        .flooring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .flooring-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .flooring-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .flooring-card h4 {
+            padding: 1.2rem 0.8rem;
+            color: var(--primary-orange);
+            font-size: 1.25rem;
+        }
+        
+        /* Process Steps */
+        .process-step {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .step-number {
+            background: var(--primary-orange);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Estimate Form */
+        .estimate-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="tel"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .required { color: #e74c3c; }
+        .optional { font-size: 0.95rem; color: #666; }
+        
+        button[type="submit"] {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .contact-options {
+            text-align: center;
+            margin: 2.5rem 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: block; }
+            .hero-flooring h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <section class="hero-flooring">
+        <h1>Premium Flooring Installation</h1>
+        <p>Beautiful floors that transform your home</p>
+    </section>
+
+    <div class="section">
+        <h2>Flooring That Fits Your Lifestyle</h2>
+        <p>From durable luxury vinyl to elegant hardwood and everything in between, we install high-quality flooring with expert craftsmanship and attention to detail.</p>
+    </div>
+
+    <!-- FLOORING TYPES SHOWCASE -->
+    <div class="section">
+        <h2>Our Flooring Options</h2>
+        <div class="flooring-grid">
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/133/600/400" alt="Luxury Vinyl Plank">
+                <h4>Luxury Vinyl Plank (LVP)</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/201/600/400" alt="Laminate">
+                <h4>Laminate Flooring</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/251/600/400" alt="Hardwood Solid">
+                <h4>Hardwood - Solid</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/180/600/400" alt="Hardwood Engineered">
+                <h4>Hardwood - Engineered</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/106/600/400" alt="Ceramic Tile">
+                <h4>Ceramic Tile</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/1016/600/400" alt="Porcelain Tile">
+                <h4>Porcelain Tile</h4>
+            </div>
+            <div class="flooring-card">
+                <img src="https://picsum.photos/id/180/600/400" alt="Carpet">
+                <h4>Carpet</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS STEPS -->
+    <div class="section">
+        <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Choose Your Flooring Material</h3>
+            <p>Select from Luxury Vinyl Plank (LVP), Laminate, Solid or Engineered Hardwood, Ceramic or Porcelain Tile, or Carpet. We’ll help you pick the perfect material based on your lifestyle, traffic levels, moisture concerns, and design preferences.</p>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Request a Flooring Estimate</h3>
+            
+            <form class="estimate-form" id="flooringForm">
+                <!-- Contact Essentials -->
+                <div class="form-group">
+                    <label>Contact Essentials <span class="required">*</span></label>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="tel" placeholder="Phone Number" required style="margin-top: 10px;">
+                    <input type="email" placeholder="Email Address" required style="margin-top: 10px;">
+                </div>
+
+                <!-- Service Address -->
+                <div class="form-group">
+                    <label>Service Address</label>
+                    <input type="text" placeholder="Building Number and Street Name">
+                    <input type="text" placeholder="City" style="margin-top: 10px;">
+                    <input type="text" placeholder="Province" style="margin-top: 10px;">
+                    <input type="text" placeholder="Postal Code" required style="margin-top: 10px;">
+                </div>
+
+                <!-- Material Type -->
+                <div class="form-group">
+                    <label>Material Type <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select Material Type</option>
+                        <option value="LVP">Luxury Vinyl Plank (LVP)</option>
+                        <option value="Laminate">Laminate Flooring</option>
+                        <option value="Hardwood Solid">Hardwood - Solid</option>
+                        <option value="Hardwood Engineered">Hardwood - Engineered</option>
+                        <option value="Ceramic Tile">Tiles - Ceramic</option>
+                        <option value="Porcelain Tile">Tiles - Porcelain</option>
+                        <option value="Carpet">Carpet</option>
+                        <option value="Repair only">Repair Only</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+
+                <!-- Project Urgency -->
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select Urgency</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="1month">Within 1 Month</option>
+                        <option value="3-6months">3–6 Months</option>
+                        <option value="6-12months">6 Months – 1 Year</option>
+                        <option value="researching">Just Researching</option>
+                    </select>
+                </div>
+
+                <!-- Brief Description -->
+                <div class="form-group">
+                    <label>Anything else we should know? <span class="optional">(Optional)</span></label>
+                    <textarea rows="4" placeholder="Describe your project or any specific concerns..."></textarea>
+                </div>
+
+                <!-- Photo Upload -->
+                <div class="form-group">
+                    <label>Upload Photos <span class="optional">(Optional)</span></label>
+                    <input type="file" accept="image/*" multiple>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Upload photos of your current flooring or the space to be updated.</p>
+                </div>
+
+                <button type="submit">Submit Flooring Estimate Request</button>
+            </form>
+
+            <div class="contact-options">
+                If you're unsure about which material is best or have any questions, our team is here to help.<br>
+                Feel free to call us directly, or <a href="knowledge-center/The-Ultimate-Flooring-Guide-Which-Material-Fits-Your-Lifestyle.html" style="color: var(--primary-orange);">read our guide: The Ultimate Flooring Guide – Which Material Fits Your Lifestyle?</a>.
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>House Consultation & Final Measurements</h3>
+            <p>Once your request is received, we schedule a detailed on-site consultation. Our team takes precise measurements and evaluates the subfloor to provide accurate pricing while discussing the best flooring options for your home and lifestyle.</p>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Ongoing Support & Warranty</h3>
+            <p>Our commitment to your satisfaction continues long after installation. We provide excellent after-sales communication and ensure you fully understand your manufacturer’s warranty. Your peace of mind is our priority, and we remain available to support you every step of the way.</p>
+        </div>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('flooringForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your flooring estimate request has been received. We will contact you shortly.');
+            this.reset();
+        });
+
+        // Hamburger menu
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            alert('Mobile menu would appear here.');
+        });
+    </script>
+</body>
+</html>
