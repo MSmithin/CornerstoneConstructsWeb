@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
             background-color: #f8f8f8;
         }
         
-        /* Header - Primary Orange */
+        /* HEADER */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -30,20 +30,17 @@
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;           /* Reduced right padding to shift everything left */
+            padding: 1rem 2rem;
             display: flex;
             align-items: center;
-            justify-content: flex-start;  /* Helps with left shift */
+            justify-content: flex-start;
         }
-        
-        /* Logo */
         .logo img {
             height: 120px;
             width: 360px;
             object-fit: contain;
             margin-right: 3rem;
         }
-        
         nav ul {
             display: flex;
             list-style: none;
@@ -57,15 +54,16 @@
             font-weight: 600;
             font-size: 1.05rem;
             white-space: nowrap;
-            transition: color 0.3s;
         }
         nav a:hover { 
             color: #222; 
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         
-        /* Improved Dropdown - Stays open while hovering over any part */
-        .dropdown { position: relative; }
+        /* Dropdown - Stays open while hovering over any part */
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -79,18 +77,31 @@
             top: 100%;
             left: 0;
         }
+        /* Keep open when hovering on the content itself */
         .dropdown:hover > .dropdown-content,
         .dropdown-content:hover {
             display: block;
         }
         
-        /* Sub-dropdowns slide to the right */
+        /* Sub-dropdowns appear to the right, vertical single file */
         .dropdown .dropdown-content .dropdown-content {
             left: 100% !important;
             top: 0;
             margin-left: 8px;
         }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
         
+        /* Buttons - Stacked on the right */
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -108,11 +119,27 @@
             font-size: 1.02rem;
             width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         
-        /* Mobile */
-        .hamburger { display: none; font-size: 2rem; color: white; cursor: pointer; margin-left: 1.5rem; }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
         
         /* Hero */
         .hero {
@@ -129,22 +156,6 @@
             max-width: 720px;
             margin: 0 auto 1.5rem;
             font-size: 1.25rem;
-        }
-        
-        /* Hero Button - Bold + proper fit */
-        .hero .btn-estimate {
-            font-size: 1.2rem;
-            font-weight: 700;         /* Bold like the header buttons */
-            padding: 1.1rem 3rem;
-            background: white;
-            color: var(--primary-orange);
-            border: 2px solid white;
-            border-radius: 8px;
-            white-space: normal;
-            text-align: center;
-            max-width: 320px;
-            margin: 0 auto;
-            line-height: 1.4;
         }
         
         /* Services */
@@ -246,9 +257,6 @@
             nav ul { display: none; }
             .hamburger { display: block; }
             .hero h1 { font-size: 2.4rem; }
-            .header-container { padding: 1rem 1.2rem; }
-            .btn { width: 170px; }
-            .hero .btn-estimate { padding: 1rem 2.8rem; max-width: 290px; }
         }
     </style>
 </head>
@@ -257,10 +265,11 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
+            <!-- Logo -->
             <div class="logo">
                 <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
             </div>
-
+            
             <!-- Navigation -->
             <nav>
                 <ul>
@@ -269,6 +278,7 @@
                     <li class="dropdown">
                         <a href="#">Services ▼</a>
                         <div class="dropdown-content">
+                            <!-- Exterior -->
                             <div class="dropdown">
                                 <a href="#">Exterior ▼</a>
                                 <div class="dropdown-content">
@@ -280,6 +290,7 @@
                                     <a href="foundations.html">Foundations</a>
                                 </div>
                             </div>
+                            <!-- Interior -->
                             <div class="dropdown">
                                 <a href="#">Interior ▼</a>
                                 <div class="dropdown-content">
@@ -290,6 +301,7 @@
                                     <a href="insulation.html">Insulation</a>
                                 </div>
                             </div>
+                            <!-- Landscaping -->
                             <div class="dropdown">
                                 <a href="#">Landscaping ▼</a>
                                 <div class="dropdown-content">
@@ -304,7 +316,7 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-
+            
             <!-- Buttons -->
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
@@ -321,8 +333,9 @@
         <p>We are the only roofing contractor in the North Bay area proudly offering Euroshield — a revolutionary rubber shingle system made from recycled materials.</p>
         <p>Euroshield delivers unmatched durability, Class 4 impact resistance, excellent wind resistance, and a 50-year transferable warranty. It’s eco-friendly, energy-efficient, and beautifully designed to protect and enhance your home for decades.</p>
         
-        <a href="roofing.html">
-            <button class="btn-estimate">Learn More About Euroshield</button>
+        <!-- Updated Euroshield link -->
+        <a href="knowledge-center/TheLastRoofYoullEverBuy.html">
+            <button class="btn-estimate" style="font-size: 1.2rem; padding: 1.1rem 3rem; background: white; color: var(--primary-orange);">Learn More About Euroshield</button>
         </a>
     </section>
 
@@ -400,6 +413,7 @@
     </footer>
 
     <script>
+        // Testimonial slider
         let current = 0;
         const testimonials = document.querySelectorAll('.testimonial');
         const dots = document.querySelectorAll('.dot');
@@ -421,8 +435,9 @@
             showSlide(current);
         }, 6000);
         
+        // Hamburger menu placeholder
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would appear here.');
+            alert('Mobile menu would appear here with full navigation.');
         });
     </script>
 </body>
