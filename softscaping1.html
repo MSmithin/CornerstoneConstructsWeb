@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softscaping Services | Cornerstone Construction - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* HEADER - Exact copy from provided code */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+       
+        /* Dropdown - Stays open while hovering over any part */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 0.8rem 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        /* Keep open when hovering on the content itself */
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+       
+        /* Sub-dropdowns appear to the right, vertical single file */
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100% !important;
+            top: 0;
+            margin-left: 8px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+       
+        /* Buttons - Stacked on the right */
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+       
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* HERO */
+        .hero-softscaping {
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://via.placeholder.com/1920x650/222/FF914D?text=Beautiful+Softscaping+Project+in+North+Bay') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* SECTION STYLING */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #222;
+        }
+        .section p {
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #444;
+        }
+
+        /* SHOWCASE - 5 large after photos in one row / collage style */
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .showcase-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .showcase-card:hover {
+            transform: translateY(-10px);
+        }
+        .showcase-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .showcase-card h3 {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.25rem;
+            background: white;
+        }
+
+        /* SERVICES LIST */
+        .services-container {
+            max-width: 1100px;
+            margin: 4rem auto;
+        }
+        .subcategory {
+            margin-bottom: 3.5rem;
+        }
+        .subcategory h3 {
+            font-size: 1.85rem;
+            color: var(--primary-orange);
+            margin-bottom: 1.2rem;
+            border-bottom: 3px solid var(--primary-orange);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.2rem;
+        }
+        .service-item {
+            background: white;
+            padding: 1.4rem 1.8rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 1.1rem;
+        }
+
+        /* PROCESS STEPS */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .process-step {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-orange);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .process-step h3 {
+            font-size: 1.55rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ESTIMATE FORM */
+        .estimate-form {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+        .estimate-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.05rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto 0;
+        }
+        .btn-submit:hover {
+            background: #e67e2e;
+        }
+
+        /* CONTACT OPTIONS */
+        .contact-options {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #444;
+        }
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER - Exact as provided -->
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
+            </div>
+           
+            <!-- Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <!-- Exterior -->
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <!-- Interior -->
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <!-- Landscaping -->
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+           
+            <!-- Buttons -->
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+           
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-softscaping">
+        <div class="hero-content">
+            <h1>Softscaping Services in North Bay</h1>
+            <p>Transform your outdoor space with beautiful lawns, lush plantings, garden features, and expert soil preparation. Professional softscaping that brings your vision to life.</p>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <div class="section">
+        <h2>Expert Softscaping for Your North Bay Home</h2>
+        <p>At Cornerstone Construction, our softscaping services create vibrant, functional, and low-maintenance outdoor living spaces. From lush lawns to stunning garden beds and specialized features, we handle every detail with care and expertise.</p>
+    </div>
+
+    <!-- SHOWCASE - Top 5 completed projects (after photos) -->
+    <div class="section" style="background:#fff; padding-top:2rem;">
+        <h2 style="text-align:center; margin-bottom:2.5rem;">Recent Softscaping Projects</h2>
+        <div class="showcase">
+            <div class="showcase-card">
+                <img src="https://via.placeholder.com/600x400/4CAF50/FFFFFF?text=Lush+Lawn+Installation" alt="Beautiful sodded lawn in North Bay">
+                <h3>Lush Lawn Installation</h3>
+            </div>
+            <div class="showcase-card">
+                <img src="https://via.placeholder.com/600x400/8BC34A/FFFFFF?text=Tree+and+Shrub+Planting" alt="Mature tree and shrub planting">
+                <h3>Tree & Shrub Planting</h3>
+            </div>
+            <div class="showcase-card">
+                <img src="https://via.placeholder.com/600x400/FF9800/FFFFFF?text=Colorful+Flower+Beds" alt="Vibrant flower beds">
+                <h3>Vibrant Flower Beds</h3>
+            </div>
+            <div class="showcase-card">
+                <img src="https://via.placeholder.com/600x400/009688/FFFFFF?text=Xeriscaping+Feature" alt="Water-wise xeriscaping">
+                <h3>Xeriscaping Design</h3>
+            </div>
+            <div class="showcase-card">
+                <img src="https://via.placeholder.com/600x400/795548/FFFFFF?text=Mulched+Garden+Beds" alt="Professional mulching and garden definition">
+                <h3>Mulched Garden Beds</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES - 15 services organized by 4 subcategories -->
+    <div class="section">
+        <h2>Our Softscaping Services</h2>
+        <div class="services-container">
+
+            <div class="subcategory">
+                <h3>Lawn Installation and Care</h3>
+                <div class="service-list">
+                    <div class="service-item">Sodding</div>
+                    <div class="service-item">Seeding</div>
+                    <div class="service-item">Grading</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>Planting</h3>
+                <div class="service-list">
+                    <div class="service-item">Tree Planting</div>
+                    <div class="service-item">Shrub Planting</div>
+                    <div class="service-item">Perennial & Annual Flowers</div>
+                    <div class="service-item">Flower Beds</div>
+                    <div class="service-item">Hedges & Screening</div>
+                    <div class="service-item">Garden Bed Definition</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>Garden Features & Specialized</h3>
+                <div class="service-list">
+                    <div class="service-item">Mulching</div>
+                    <div class="service-item">Vertical Gardening</div>
+                    <div class="service-item">Xeriscaping</div>
+                    <div class="service-item">Ground Covers</div>
+                    <div class="service-item">Soil Amendment</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3>Soil and Site Preparation</h3>
+                <div class="service-list">
+                    <div class="service-item">Land Clearing</div>
+                    <div class="service-item">Excavating</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PROCESS STEPS -->
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Softscaping Process Works</h2>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Service</h3>
+                <p>Select the softscaping service you need. Not sure where to start? <a href="knowledge-center.html#softscaping-guide" style="color:var(--primary-orange); text-decoration:underline;">Read our guide</a> — <strong>The Master Guide to Softscaping: Designing Your Living Sanctuary</strong> — or call/email us for expert advice.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below with your details. We'll review your project and provide a clear, competitive quote tailored to your North Bay property.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once your project is confirmed, our team visits your home to take precise measurements, discuss options, and ensure everything fits your vision and budget perfectly.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our experienced crew completes the work with care, using quality materials. You'll enjoy a beautiful, ready-to-enjoy outdoor space.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESTIMATE FORM -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Softscaping Estimate</h2>
+            <form id="softscapingForm" onsubmit="handleSubmit(event)">
+                
+                <div class="form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Address (optional)</label>
+                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Postal Code <span class="required">*</span></label>
+                        <input type="text" id="postal" required placeholder="P1B 1A1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Category <span class="required">*</span></label>
+                    <select id="category" required>
+                        <option value="">-- Select Category --</option>
+                        <option value="Lawn Installation and Care">Lawn Installation and Care</option>
+                        <option value="Planting">Planting</option>
+                        <option value="Garden Features & Specialized">Garden Features & Specialized</option>
+                        <option value="Soil and Site Preparation">Soil and Site Preparation</option>
+                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select id="urgency" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea id="description" rows="4" placeholder="Project details, preferences, timeline, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Help us understand your space better by uploading current photos of your yard.</p>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROCESS CONTINUATION / CONSULTATION -->
+    <div class="section">
+        <h2>Our House Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After confirmation, our team will schedule an on-site consultation to take final measurements and ensure accurate, competitive pricing. We’ll walk through all available softscaping options together so you can make the most informed decisions for your property.
+        </p>
+    </div>
+
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            Our dedication to exceptional service continues long after the project is complete. We stay in touch to ensure everything meets your expectations, and our trusted manufacturers back every installation with strong warranties. Your ongoing satisfaction remains our top priority — we’re here to support you every step of the way.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Ready to get started? <a href="knowledge-center.html#softscaping-guide">Read The Master Guide to Softscaping: Designing Your Living Sanctuary</a> for helpful insights, or contact us directly by phone or email. We look forward to creating your perfect outdoor sanctuary.
+        </p>
+    </div>
+
+    <!-- FOOTER (simple placeholder - copy full footer from other pages if available) -->
+    <footer>
+        <p><strong>Cornerstone Construction</strong> — North Bay, Ontario</p>
+        <p>Professional Roofing, Siding, and Landscaping Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Construction. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            if (!name) {
+                alert("Please fill in your name.");
+                return;
+            }
+            
+            alert(`Thank you, ${name}! Your softscaping estimate request has been received. We'll contact you shortly.`);
+            document.getElementById('softscapingForm').reset();
+        }
+        
+        // Mobile hamburger placeholder (as in original)
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            alert('Mobile menu coming soon. Call us at (705) 123-4567');
+        });
+    </script>
+</body>
+</html>
