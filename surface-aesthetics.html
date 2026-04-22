@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surface Finishes & Aesthetics | Cornerstone Construction</title>
+    <title>Surface & Aesthetics | Cornerstone Construction - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
         :root {
             --primary-orange: #FF914D;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* HEADER - Consistent with all previous pages */
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -55,10 +59,15 @@
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover { color: #222; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        
-        /* Dropdown - Stays open while hovering */
-        .dropdown { position: relative; }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Dropdown with fixed gap flickering */
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -66,31 +75,33 @@
             color: #222;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             min-width: 240px;
-            padding: 0.8rem 0;
+            padding: 12px 0;
             border-radius: 8px;
             z-index: 100;
             top: 100%;
             left: 0;
         }
         .dropdown:hover > .dropdown-content,
-        .dropdown-content:hover { display: block; }
-        
+        .dropdown-content:hover {
+            display: block;
+        }
         .dropdown .dropdown-content .dropdown-content {
-            left: 100% !important;
-            top: 0;
-            margin-left: 8px;
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
         }
         .dropdown-content a {
             display: block;
             padding: 0.75rem 1.5rem;
             color: #222;
             text-decoration: none;
+            white-space: nowrap;
         }
         .dropdown-content a:hover {
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-        
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -108,9 +119,19 @@
             font-size: 1.02rem;
             width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
-        
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -118,146 +139,188 @@
             cursor: pointer;
             margin-left: 1.5rem;
         }
-        
-        /* Page Content */
-        .hero-surface {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/251/2000/800') center/cover no-repeat;
+
+        /* ==================== PAGE STYLES ==================== */
+        .hero-aesthetics {
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('https://via.placeholder.com/1920x650/222/FF914D?text=Beautiful+Interior+Finishes') center/cover no-repeat;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
-            padding: 140px 20px 80px;
         }
-        .hero-surface h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section {
-            max-width: 1100px;
-            margin: 4rem auto;
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
         .section h2 {
-            font-size: 2.4rem;
-            color: #222;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 1.5rem;
         }
         .section p {
             font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             text-align: center;
+            color: #444;
         }
-        
-        /* Services Showcase */
+
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            max-width: 1200px;
+            margin: 3rem auto;
         }
         .service-card {
             background: white;
+            padding: 2rem;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
             text-align: center;
+            transition: transform 0.3s;
         }
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .service-card:hover {
+            transform: translateY(-8px);
         }
-        .service-card h4 {
-            padding: 1.2rem 0.8rem;
+        .service-card h3 {
             color: var(--primary-orange);
-            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
-        
+
         /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
         .process-step {
             background: white;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .step-number {
+            width: 70px;
+            height: 70px;
             background: var(--primary-orange);
             color: white;
-            width: 50px;
-            height: 50px;
+            font-size: 2rem;
+            font-weight: 700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
         }
-        
+
         /* Estimate Form */
         .estimate-form {
             background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 3rem auto;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
         }
         .form-group {
             margin-bottom: 1.8rem;
         }
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 0.6rem;
             font-weight: 600;
         }
-        input[type="text"], input[type="tel"], input[type="email"], textarea, select {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 1rem;
             border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
         }
-        .required { color: #e74c3c; }
-        .optional { font-size: 0.95rem; color: #666; }
-        
-        button[type="submit"] {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
             background: var(--primary-orange);
             color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 6px;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 1rem;
+            display: block;
+            margin: 2rem auto 0;
         }
-        
+
         .contact-options {
             text-align: center;
-            margin: 2.5rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #444;
         }
-        
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hamburger { display: block; }
-            .hero-surface h1 { font-size: 2.3rem; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
             </div>
-            
+           
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -300,169 +363,218 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-            
+           
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-            
+           
             <div class="hamburger">☰</div>
         </div>
     </header>
 
-    <!-- HERO IMAGE -->
-    <section class="hero-surface">
-        <h1>Surface Finishes & Aesthetics</h1>
-        <p>The finishing touches that make your home extraordinary</p>
+    <!-- HERO -->
+    <section class="hero-aesthetics">
+        <div class="hero-content">
+            <h1>Surface & Aesthetics Services</h1>
+            <p>Transform your interior with beautiful finishes and custom details. From elegant paint to stunning tile and countertops — we bring your vision to life.</p>
+        </div>
     </section>
 
+    <!-- INTRO + SHOWCASE -->
     <div class="section">
-        <h2>Elevate Every Surface</h2>
-        <p>From elegant paint finishes to custom tile work and architectural details, we transform ordinary spaces into stunning interiors with expert craftsmanship and premium materials.</p>
+        <h2>The Art of the Finishing Touch</h2>
+        <p>Our Surface & Aesthetics services add the final polish that makes a house feel like a home. We specialize in high-quality interior finishes that combine beauty, durability, and functionality.</p>
+        
+        <!-- After photo showcase -->
+        <div style="max-width:1100px; margin:3rem auto; text-align:center;">
+            <img src="https://via.placeholder.com/1200x600/555/FFFFFF?text=Beautiful+Completed+Bathroom+with+Tile%2C+Countertops%2C+Paint+and+Moldings" 
+                 alt="Completed interior with surface and aesthetics finishes" 
+                 style="width:100%; max-width:1100px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+            <p style="margin-top:1rem; font-style:italic; color:#555;">Example of a beautifully finished bathroom featuring multiple surface & aesthetics services</p>
+        </div>
     </div>
 
-    <!-- SERVICES SHOWCASE -->
-    <div class="section">
+    <!-- SERVICES -->
+    <div class="section" style="background:#fff;">
         <h2>Our Surface & Aesthetics Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img src="https://picsum.photos/id/201/600/400" alt="Paint Finishes">
-                <h4>Paint Finishes</h4>
+                <h3>Paint Finishes</h3>
+                <p>Premium interior painting with a wide selection of colors, sheens, and specialty techniques.</p>
             </div>
             <div class="service-card">
-                <img src="https://picsum.photos/id/251/600/400" alt="Wall Treatments & Moldings">
-                <h4>Wall Treatments & Moldings</h4>
+                <h3>Wall Treatments & Moldings</h3>
+                <p>Crown molding, wainscoting, chair rails, and decorative wall treatments that add character and elegance.</p>
             </div>
             <div class="service-card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Wall Textures">
-                <h4>Wall Textures</h4>
+                <h3>Wall Textures</h3>
+                <p>Custom textured finishes including knockdown, orange peel, smooth, and decorative patterns.</p>
             </div>
             <div class="service-card">
-                <img src="https://picsum.photos/id/180/600/400" alt="Countertop Surfaces">
-                <h4>Countertop Surfaces</h4>
+                <h3>Countertop Surfaces</h3>
+                <p>Beautiful and durable countertops in quartz, granite, marble, laminate, and more.</p>
             </div>
             <div class="service-card">
-                <img src="https://picsum.photos/id/106/600/400" alt="Tile & Backsplash">
-                <h4>Tile & Backsplash</h4>
+                <h3>Tile & Backsplash</h3>
+                <p>Expert tile installation for floors, walls, showers, and stylish kitchen backsplashes.</p>
             </div>
             <div class="service-card">
-                <img src="https://picsum.photos/id/1016/600/400" alt="Architectural Metal Finishes">
-                <h4>Architectural Metal Finishes</h4>
+                <h3>Architectural Metal Finishes</h3>
+                <p>Modern metal accents, trim, and decorative elements that add contemporary flair.</p>
             </div>
         </div>
-
-        <p style="text-align: center; margin-top: 2rem;">
-            Not sure which service is right for your project? 
-            <a href="knowledge-center/Surface-Aesthetics-The-Art-of-the-Finishing-Touch.html" style="color: var(--primary-orange); font-weight: 600;">
-                Read our guide: Surface & Aesthetics – The Art of the Finishing Touch
-            </a>
-        </p>
     </div>
 
     <!-- PROCESS STEPS -->
-    <div class="section">
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Choose Your Service</h3>
-            <p>Select from our range of surface and aesthetic services including Paint Finishes, Wall Treatments & Moldings, Wall Textures, Countertop Surfaces, Tile & Backsplash, or Architectural Metal Finishes. Our experts will help you choose the perfect combination to achieve your desired look.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Request a Surface & Aesthetics Estimate</h3>
-            
-            <form class="estimate-form" id="surfaceForm">
-                <!-- Contact Essentials -->
-                <div class="form-group">
-                    <label>Contact Essentials <span class="required">*</span></label>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="tel" placeholder="Phone Number" required style="margin-top: 10px;">
-                    <input type="email" placeholder="Email Address" required style="margin-top: 10px;">
-                </div>
-
-                <!-- Service Address -->
-                <div class="form-group">
-                    <label>Service Address</label>
-                    <input type="text" placeholder="Building Number and Street Name">
-                    <input type="text" placeholder="City" style="margin-top: 10px;">
-                    <input type="text" placeholder="Province" style="margin-top: 10px;">
-                    <input type="text" placeholder="Postal Code" required style="margin-top: 10px;">
-                </div>
-
-                <!-- Service Type -->
-                <div class="form-group">
-                    <label>Service Type <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Service Type</option>
-                        <option value="Paint Finishes">Paint Finishes</option>
-                        <option value="Wall Treatments">Wall Treatments & Moldings</option>
-                        <option value="Wall Textures">Wall Textures</option>
-                        <option value="Countertop Surfaces">Countertop Surfaces</option>
-                        <option value="Tile Backsplash">Tile & Backsplash</option>
-                        <option value="Architectural Metal">Architectural Metal Finishes</option>
-                        <option value="Not Sure">Not Sure / Consultation Needed</option>
-                    </select>
-                </div>
-
-                <!-- Project Urgency -->
-                <div class="form-group">
-                    <label>Project Urgency <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Urgency</option>
-                        <option value="Emergency">Emergency</option>
-                        <option value="1month">Within 1 Month</option>
-                        <option value="3-6months">3–6 Months</option>
-                        <option value="6-12months">6 Months – 1 Year</option>
-                        <option value="researching">Just Researching</option>
-                    </select>
-                </div>
-
-                <!-- Brief Description -->
-                <div class="form-group">
-                    <label>Anything else we should know? <span class="optional">(Optional)</span></label>
-                    <textarea rows="4" placeholder="Describe your project or any specific concerns..."></textarea>
-                </div>
-
-                <!-- Photo Upload -->
-                <div class="form-group">
-                    <label>Upload Photos <span class="optional">(Optional)</span></label>
-                    <input type="file" accept="image/*" multiple>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Upload photos of the space or areas you want to enhance.</p>
-                </div>
-
-                <button type="submit">Submit Surface & Aesthetics Estimate Request</button>
-            </form>
-
-            <div class="contact-options">
-                If you're unsure which service best suits your vision or have any questions, our team is ready to assist.<br>
-                Feel free to call us directly, or <a href="knowledge-center/Surface-Aesthetics-The-Art-of-the-Finishing-Touch.html" style="color: var(--primary-orange);">read our guide: Surface & Aesthetics – The Art of the Finishing Touch</a>.
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Surface & Aesthetics Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Service</h3>
+                <p>Select from Paint Finishes, Wall Treatments & Moldings, Wall Textures, Countertop Surfaces, Tile & Backsplash, or Architectural Metal Finishes. 
+                Not sure which option is best? <a href="knowledge-center.html#surface-aesthetics-guide" style="color:var(--primary-orange);">Read our guide</a> — 
+                <strong>Surface & Aesthetics: The Art of the Finishing Touch</strong> — to learn about each service and how to choose the perfect combination for your space. 
+                Or contact us directly — we're happy to help you decide.</p>
             </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>House Consultation & Final Measurements</h3>
-            <p>Once your request is received, we schedule an on-site consultation. Our team takes detailed measurements and discusses your vision to provide accurate pricing and recommend the best combination of surface finishes and aesthetic options for your space.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Ongoing Support & Warranty</h3>
-            <p>Our commitment to your satisfaction continues long after the project is complete. We maintain excellent after-sales communication and ensure you fully understand your manufacturer’s warranty. Your peace of mind is our priority, and we remain available to support you every step of the way.</p>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below with your project details. We'll provide a clear, competitive quote tailored to your vision.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once confirmed, our team visits your home to take precise measurements and discuss material options, colors, and design details to ensure everything matches your style and budget.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our skilled craftsmen complete the work with care and attention to detail, leaving you with beautiful, high-quality finishes you'll enjoy for years.</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Form submission
-        document.getElementById('surfaceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your Surface & Aesthetics estimate request has been received. We will contact you shortly.');
-            this.reset();
-        });
+    <!-- ESTIMATE FORM -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Surface & Aesthetics Estimate</h2>
+            <form id="aestheticsForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" id="name" required>
+                </div>
 
-        // Hamburger menu
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Address (optional)</label>
+                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Postal Code <span class="required">*</span></label>
+                        <input type="text" id="postal" required placeholder="P1B 1A1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Type <span class="required">*</span></label>
+                    <select id="serviceType" required>
+                        <option value="">-- Select Service --</option>
+                        <option value="Paint Finishes">Paint Finishes</option>
+                        <option value="Wall treatments & Moldings">Wall Treatments & Moldings</option>
+                        <option value="Wall Textures">Wall Textures</option>
+                        <option value="Countertop Surfaces">Countertop Surfaces</option>
+                        <option value="Tile & Backsplash">Tile & Backsplash</option>
+                        <option value="Architectural Metal Finishes">Architectural Metal Finishes</option>
+                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select id="urgency" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea id="description" rows="4" placeholder="Project scope, preferred colors, style references, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Current photos of the space help us understand your project better.</p>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONSULTATION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After your project is confirmed, our team will conduct a detailed on-site consultation. We take precise measurements and work with you to explore the full range of surface and aesthetic options to ensure the final result perfectly matches your vision and budget.
+        </p>
+    </div>
+
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We provide exceptional after-service support to ensure you remain completely satisfied long after the project is complete. Our trusted manufacturers back every finish with strong warranties, giving you lasting peace of mind.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Unsure which surface and aesthetic services are right for your home? 
+            <a href="knowledge-center.html#surface-aesthetics-guide">Read our guide: Surface & Aesthetics – The Art of the Finishing Touch</a> 
+            for expert advice on choosing the perfect combination. Or simply contact us by phone or email — our team is here to help you every step of the way.
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Construction</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Interior Finishing Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Construction. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (!name) return alert("Please enter your name.");
+            
+            alert(`Thank you, ${name}! Your surface & aesthetics estimate request has been received. We'll contact you shortly.`);
+            document.getElementById('aestheticsForm').reset();
+        }
+
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would appear here.');
+            alert('Mobile menu coming soon. Call us at (705) 123-4567');
         });
     </script>
 </body>
