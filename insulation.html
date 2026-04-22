@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insulation | Cornerstone Construction</title>
+    <title>Insulation Services | Cornerstone Construction - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
         :root {
             --primary-orange: #FF914D;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* HEADER - Consistent with all previous pages */
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -55,10 +59,15 @@
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover { color: #222; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        
-        /* Dropdown - Stays open while hovering */
-        .dropdown { position: relative; }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Dropdown with fixed gap flickering */
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -66,31 +75,33 @@
             color: #222;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             min-width: 240px;
-            padding: 0.8rem 0;
+            padding: 12px 0;
             border-radius: 8px;
             z-index: 100;
             top: 100%;
             left: 0;
         }
         .dropdown:hover > .dropdown-content,
-        .dropdown-content:hover { display: block; }
-        
+        .dropdown-content:hover {
+            display: block;
+        }
         .dropdown .dropdown-content .dropdown-content {
-            left: 100% !important;
-            top: 0;
-            margin-left: 8px;
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
         }
         .dropdown-content a {
             display: block;
             padding: 0.75rem 1.5rem;
             color: #222;
             text-decoration: none;
+            white-space: nowrap;
         }
         .dropdown-content a:hover {
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-        
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -108,9 +119,19 @@
             font-size: 1.02rem;
             width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
-        
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -118,146 +139,194 @@
             cursor: pointer;
             margin-left: 1.5rem;
         }
-        
-        /* Page Content */
+
+        /* ==================== PAGE STYLES ==================== */
         .hero-insulation {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/106/2000/800') center/cover no-repeat;
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('https://via.placeholder.com/1920x650/222/FF914D?text=Professional+Insulation+Installation') center/cover no-repeat;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
-            padding: 140px 20px 80px;
         }
-        .hero-insulation h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section {
-            max-width: 1100px;
-            margin: 4rem auto;
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
         .section h2 {
-            font-size: 2.4rem;
-            color: #222;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 1.5rem;
         }
         .section p {
             font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             text-align: center;
+            color: #444;
         }
-        
+
         /* Insulation Types Showcase */
-        .insulation-grid {
+        .insulation-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1200px;
+            margin: 3rem auto;
         }
         .insulation-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .insulation-card:hover {
+            transform: translateY(-8px);
         }
         .insulation-card img {
             width: 100%;
-            height: 200px;
+            height: 240px;
             object-fit: cover;
         }
-        .insulation-card h4 {
-            padding: 1.2rem 0.8rem;
-            color: var(--primary-orange);
+        .insulation-card h3 {
+            padding: 1.2rem;
+            text-align: center;
             font-size: 1.25rem;
+            color: #222;
         }
-        
+
         /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
         .process-step {
             background: white;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .step-number {
+            width: 70px;
+            height: 70px;
             background: var(--primary-orange);
             color: white;
-            width: 50px;
-            height: 50px;
+            font-size: 2rem;
+            font-weight: 700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
         }
-        
+
         /* Estimate Form */
         .estimate-form {
             background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 3rem auto;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
         }
         .form-group {
             margin-bottom: 1.8rem;
         }
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 0.6rem;
             font-weight: 600;
         }
-        input[type="text"], input[type="tel"], input[type="email"], textarea, select {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 1rem;
             border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
         }
-        .required { color: #e74c3c; }
-        .optional { font-size: 0.95rem; color: #666; }
-        
-        button[type="submit"] {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
             background: var(--primary-orange);
             color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 6px;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 1rem;
+            display: block;
+            margin: 2rem auto 0;
         }
-        
+
         .contact-options {
             text-align: center;
-            margin: 2.5rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #444;
         }
-        
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hamburger { display: block; }
-            .hero-insulation h1 { font-size: 2.3rem; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
             </div>
-            
+           
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -300,157 +369,200 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-            
+           
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-            
+           
             <div class="hamburger">☰</div>
         </div>
     </header>
 
-    <!-- HERO IMAGE -->
+    <!-- HERO -->
     <section class="hero-insulation">
-        <h1>Expert Insulation Solutions</h1>
-        <p>Stay comfortable and save on energy bills year-round</p>
+        <div class="hero-content">
+            <h1>Insulation Services in North Bay</h1>
+            <p>Stay warmer in winter and cooler in summer while lowering your energy bills. Professional insulation installation with quality materials.</p>
+        </div>
     </section>
 
+    <!-- INTRO -->
     <div class="section">
-        <h2>Energy-Efficient Insulation for Your Home</h2>
-        <p>Proper insulation reduces energy costs, improves comfort, and helps control moisture and sound. We install a wide range of high-performance insulation materials tailored to your home’s needs.</p>
+        <h2>Expert Insulation Solutions for Your Home</h2>
+        <p>Proper insulation is one of the smartest investments you can make in your North Bay home. Our team installs a full range of high-performance insulation materials to maximize comfort and energy efficiency.</p>
     </div>
 
     <!-- INSULATION TYPES SHOWCASE -->
-    <div class="section">
-        <h2>Our Insulation Options</h2>
-        <div class="insulation-grid">
+    <div class="section" style="background:#fff;">
+        <h2>Our Insulation Materials</h2>
+        <div class="insulation-showcase">
             <div class="insulation-card">
-                <img src="https://picsum.photos/id/106/600/400" alt="Fiberglass Batt">
-                <h4>Fiberglass Batt</h4>
+                <img src="https://via.placeholder.com/600x400/4CAF50/FFFFFF?text=Fiberglass+Batt" alt="Fiberglass Batt Insulation">
+                <h3>Fiberglass Batt</h3>
             </div>
             <div class="insulation-card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Mineral Wool">
-                <h4>Mineral Wool</h4>
+                <img src="https://via.placeholder.com/600x400/FF9800/FFFFFF?text=Mineral+Wool" alt="Mineral Wool Insulation">
+                <h3>Mineral Wool</h3>
             </div>
             <div class="insulation-card">
-                <img src="https://picsum.photos/id/180/600/400" alt="Blown Cellulose">
-                <h4>Blown Cellulose</h4>
+                <img src="https://via.placeholder.com/600x400/2196F3/FFFFFF?text=Blown+Cellulose" alt="Blown Cellulose Insulation">
+                <h3>Blown Cellulose</h3>
             </div>
             <div class="insulation-card">
-                <img src="https://picsum.photos/id/251/600/400" alt="Closed-Cell Foam">
-                <h4>Closed-Cell Foam</h4>
+                <img src="https://via.placeholder.com/600x400/9C27B0/FFFFFF?text=Closed-Cell+Foam" alt="Closed-Cell Spray Foam">
+                <h3>Closed-Cell Foam</h3>
             </div>
             <div class="insulation-card">
-                <img src="https://picsum.photos/id/201/600/400" alt="Rigid XPS">
-                <h4>Rigid XPS (Blue)</h4>
+                <img src="https://via.placeholder.com/600x400/607D8B/FFFFFF?text=Rigid+XPS" alt="Rigid XPS Foam Board">
+                <h3>Rigid XPS (Blue)</h3>
             </div>
         </div>
     </div>
 
     <!-- PROCESS STEPS -->
-    <div class="section">
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Choose Your Insulation Type</h3>
-            <p>Select from Fiberglass Batt, Mineral Wool, Blown Cellulose, Closed-Cell Foam, or Rigid XPS. Our team will recommend the best solution based on your home’s structure, climate, energy goals, and budget.</p>
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Insulation Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Insulation Type</h3>
+                <p>Select from Fiberglass Batt, Mineral Wool, Blown Cellulose, Closed-Cell Foam, Rigid XPS, or let our experts guide you. If you're unsure which option is best for your home, <a href="knowledge-center.html#insulation-guide" style="color:var(--primary-orange);">read our guide</a> — <strong>Insulation 101: How to Lower Your Bills and Stay Cozy Year-Round</strong> — or contact us directly. We're here to help you make the right choice.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below. We'll review your needs and provide a clear, competitive quote.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once your project is confirmed, our team will visit your home to take accurate measurements and discuss the best insulation options for your specific situation and budget.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our experienced crew installs your chosen insulation cleanly and efficiently, ensuring maximum performance and comfort.</p>
+            </div>
         </div>
+    </div>
 
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Request an Insulation Estimate</h3>
-            
-            <form class="estimate-form" id="insulationForm">
-                <!-- Contact Essentials -->
+    <!-- ESTIMATE FORM -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Insulation Estimate</h2>
+            <form id="insulationForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
-                    <label>Contact Essentials <span class="required">*</span></label>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="tel" placeholder="Phone Number" required style="margin-top: 10px;">
-                    <input type="email" placeholder="Email Address" required style="margin-top: 10px;">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" id="name" required>
                 </div>
 
-                <!-- Service Address -->
-                <div class="form-group">
-                    <label>Service Address</label>
-                    <input type="text" placeholder="Building Number and Street Name">
-                    <input type="text" placeholder="City" style="margin-top: 10px;">
-                    <input type="text" placeholder="Province" style="margin-top: 10px;">
-                    <input type="text" placeholder="Postal Code" required style="margin-top: 10px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
                 </div>
 
-                <!-- Material Type -->
                 <div class="form-group">
-                    <label>Material Type <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Material Type</option>
+                    <label>Service Address (optional)</label>
+                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Postal Code <span class="required">*</span></label>
+                        <input type="text" id="postal" required placeholder="P1B 1A1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Insulation Material <span class="required">*</span></label>
+                    <select id="material" required>
+                        <option value="">-- Select Material --</option>
                         <option value="Fiberglass Batt">Fiberglass Batt</option>
                         <option value="Mineral Wool">Mineral Wool</option>
                         <option value="Blown Cellulose">Blown Cellulose</option>
                         <option value="Closed-Cell Foam">Closed-Cell Foam</option>
-                        <option value="Rigid XPS">Rigid XPS (Blue)</option>
-                        <option value="Not Sure">Not Sure / Consultation Needed</option>
+                        <option value="Rigid XPS (Blue)">Rigid XPS (Blue)</option>
+                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
                     </select>
                 </div>
 
-                <!-- Project Urgency -->
                 <div class="form-group">
                     <label>Project Urgency <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Urgency</option>
+                    <select id="urgency" required>
+                        <option value="">-- Select Urgency --</option>
                         <option value="Emergency">Emergency</option>
-                        <option value="1month">Within 1 Month</option>
-                        <option value="3-6months">3–6 Months</option>
-                        <option value="6-12months">6 Months – 1 Year</option>
-                        <option value="researching">Just Researching</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
                     </select>
                 </div>
 
-                <!-- Brief Description -->
                 <div class="form-group">
-                    <label>Anything else we should know? <span class="optional">(Optional)</span></label>
-                    <textarea rows="4" placeholder="Describe your project or any specific concerns..."></textarea>
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea id="description" rows="4" placeholder="Project details, areas to insulate, existing conditions, etc."></textarea>
                 </div>
 
-                <!-- Photo Upload -->
                 <div class="form-group">
-                    <label>Upload Photos <span class="optional">(Optional)</span></label>
-                    <input type="file" accept="image/*" multiple>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Upload photos of the area needing insulation.</p>
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Photos of your attic, walls, or crawl space help us provide a more accurate quote.</p>
                 </div>
 
-                <button type="submit">Submit Insulation Estimate Request</button>
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
             </form>
-
-            <div class="contact-options">
-                If you're unsure which insulation type is best for your home or have any questions, our team is here to help.<br>
-                Feel free to call us directly, or <a href="knowledge-center/Insulation-101-How-to-Lower-Your-Bills-and-Stay-Cozy-Year-Round.html" style="color: var(--primary-orange);">read our guide: Insulation 101 – How to Lower Your Bills and Stay Cozy Year-Round</a>.
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>House Consultation & Final Measurements</h3>
-            <p>Once your request is received, we schedule a detailed on-site consultation. Our team performs precise measurements and evaluates your current insulation to provide accurate pricing and recommend the most effective solution for your home.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Ongoing Support & Warranty</h3>
-            <p>Our commitment to your satisfaction continues long after installation. We provide excellent after-sales communication and ensure you fully understand your manufacturer’s warranty. Your peace of mind is our priority, and we remain available to support you every step of the way.</p>
         </div>
     </div>
 
-    <script>
-        // Form submission
-        document.getElementById('insulationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your insulation estimate request has been received. We will contact you shortly.');
-            this.reset();
-        });
+    <!-- CONSULTATION SECTION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After confirmation, our team will schedule a detailed on-site assessment. We take precise measurements and review all available insulation materials and options to ensure you receive the most effective and cost-efficient solution for your home.
+        </p>
+    </div>
 
-        // Hamburger menu
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We stand behind every installation with exceptional after-service support. Our trusted manufacturers also provide excellent warranties, giving you lasting peace of mind. Your comfort and satisfaction remain our top priority long after the job is done.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Not sure which insulation material is right for your home? <a href="knowledge-center.html#insulation-guide">Read our guide: Insulation 101 – How to Lower Your Bills and Stay Cozy Year-Round</a>, or contact us by phone or email. Our experienced team is ready to answer your questions and help you choose the best solution.
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Construction</strong> — North Bay, Ontario</p>
+        <p>Professional Construction &amp; Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Construction. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (!name) return alert("Please enter your name.");
+            
+            alert(`Thank you, ${name}! Your insulation estimate request has been received. We'll contact you shortly.`);
+            document.getElementById('insulationForm').reset();
+        }
+
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would appear here.');
+            alert('Mobile menu coming soon. Call us at (705) 123-4567');
         });
     </script>
 </body>
