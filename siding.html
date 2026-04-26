@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siding | Cornerstone Construction</title>
+    <title>Siding Services | Cornerstone Constructs - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
         :root {
             --primary-orange: #FF914D;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* HEADER - Same as Home & Roofing */
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -55,10 +59,15 @@
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover { color: #222; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        
-        /* Dropdown - Stays open while hovering */
-        .dropdown { position: relative; }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Dropdown with fixed gap flickering */
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -66,31 +75,33 @@
             color: #222;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             min-width: 240px;
-            padding: 0.8rem 0;
+            padding: 12px 0;
             border-radius: 8px;
             z-index: 100;
             top: 100%;
             left: 0;
         }
         .dropdown:hover > .dropdown-content,
-        .dropdown-content:hover { display: block; }
-        
+        .dropdown-content:hover {
+            display: block;
+        }
         .dropdown .dropdown-content .dropdown-content {
-            left: 100% !important;
-            top: 0;
-            margin-left: 8px;
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
         }
         .dropdown-content a {
             display: block;
             padding: 0.75rem 1.5rem;
             color: #222;
             text-decoration: none;
+            white-space: nowrap;
         }
         .dropdown-content a:hover {
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-        
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -108,9 +119,19 @@
             font-size: 1.02rem;
             width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
-        
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -118,146 +139,194 @@
             cursor: pointer;
             margin-left: 1.5rem;
         }
-        
-        /* Page Content */
+
+        /* ==================== PAGE STYLES ==================== */
         .hero-siding {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/201/2000/800') center/cover no-repeat;
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('https://via.placeholder.com/1920x650/222/FF914D?text=Beautifully+Installed+House+Siding') center/cover no-repeat;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
-            padding: 140px 20px 80px;
         }
-        .hero-siding h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section {
-            max-width: 1100px;
-            margin: 4rem auto;
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
         .section h2 {
-            font-size: 2.4rem;
-            color: #222;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 1.5rem;
         }
         .section p {
             font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             text-align: center;
+            color: #444;
         }
-        
-        /* Material Showcase */
-        .materials-grid {
+
+        /* Siding Materials Showcase - 5 types */
+        .siding-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1300px;
+            margin: 3rem auto;
         }
         .material-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .material-card:hover {
+            transform: translateY(-8px);
         }
         .material-card img {
             width: 100%;
-            height: 180px;
+            height: 240px;
             object-fit: cover;
         }
-        .material-card h4 {
-            padding: 1rem 0.5rem;
-            color: var(--primary-orange);
-            font-size: 1.2rem;
+        .material-card h3 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #222;
         }
-        
+
         /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
         .process-step {
             background: white;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .step-number {
+            width: 70px;
+            height: 70px;
             background: var(--primary-orange);
             color: white;
-            width: 50px;
-            height: 50px;
+            font-size: 2rem;
+            font-weight: 700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
         }
-        
+
         /* Estimate Form */
         .estimate-form {
             background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 3rem auto;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
         }
         .form-group {
             margin-bottom: 1.8rem;
         }
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 0.6rem;
             font-weight: 600;
         }
-        input[type="text"], input[type="tel"], input[type="email"], textarea, select {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 1rem;
             border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
         }
-        .required { color: #e74c3c; }
-        .optional { font-size: 0.95rem; color: #666; }
-        
-        button[type="submit"] {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
             background: var(--primary-orange);
             color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 6px;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 1rem;
+            display: block;
+            margin: 2rem auto 0;
         }
-        
+
         .contact-options {
             text-align: center;
-            margin: 2.5rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #444;
         }
-        
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hamburger { display: block; }
-            .hero-siding h1 { font-size: 2.3rem; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
             </div>
-            
+           
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -300,158 +369,207 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-            
+           
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-            
+           
             <div class="hamburger">☰</div>
         </div>
     </header>
 
-    <!-- HERO IMAGE -->
+    <!-- HERO with background image -->
     <section class="hero-siding">
-        <h1>Premium Siding Solutions</h1>
-        <p>Beautiful, durable, and built to last</p>
+        <div class="hero-content">
+            <h1>Siding Services in North Bay</h1>
+            <p>Beautiful, durable siding that protects your home and boosts curb appeal. Professional installation with premium materials built for Ontario’s climate.</p>
+        </div>
     </section>
 
+    <!-- INTRO -->
     <div class="section">
-        <h2>Transform Your Home’s Exterior</h2>
-        <p>We install high-quality siding that enhances curb appeal while providing long-lasting protection against the elements.</p>
+        <h2>Premium Siding Installation & Replacement</h2>
+        <p>At Cornerstone Constructs, we offer a full range of high-quality siding materials and professional installation. Whether you want modern low-maintenance or classic natural beauty, we’ll help you choose the perfect option for your home.</p>
     </div>
 
-    <!-- MATERIAL SHOWCASE -->
-    <div class="section">
-        <h2>Choose Your Siding Material</h2>
-        <div class="materials-grid">
+    <!-- SIDING MATERIALS SHOWCASE - 5 types -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Siding Materials</h2>
+        <div class="siding-showcase">
             <div class="material-card">
-                <img src="https://picsum.photos/id/201/600/400" alt="Fiber Cement">
-                <h4>Fiber Cement</h4>
+                <img src="https://via.placeholder.com/600x400/8D6E63/FFFFFF?text=Genuine+Wood+Siding" alt="Genuine Wood Siding">
+                <h3>Genuine Wood</h3>
             </div>
             <div class="material-card">
-                <img src="https://picsum.photos/id/251/600/400" alt="Genuine Wood">
-                <h4>Genuine Wood</h4>
+                <img src="https://via.placeholder.com/600x400/9E9E9E/FFFFFF?text=Fiber+Cement+Siding" alt="Fiber Cement Siding">
+                <h3>Fiber Cement</h3>
             </div>
             <div class="material-card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Vinyl Siding">
-                <h4>Vinyl Siding</h4>
+                <img src="https://via.placeholder.com/600x400/81C784/FFFFFF?text=Vinyl+Siding" alt="Vinyl Siding">
+                <h3>Vinyl Siding</h3>
             </div>
             <div class="material-card">
-                <img src="https://picsum.photos/id/180/600/400" alt="Aluminum Siding">
-                <h4>Aluminum Siding</h4>
+                <img src="https://via.placeholder.com/600x400/90A4AE/FFFFFF?text=Aluminum+Siding" alt="Aluminum Siding">
+                <h3>Aluminum Siding</h3>
             </div>
             <div class="material-card">
-                <img src="https://picsum.photos/id/106/600/400" alt="Engineered Wood">
-                <h4>Engineered Wood</h4>
+                <img src="https://via.placeholder.com/600x400/5D4037/FFFFFF?text=Engineered+Wood+Siding" alt="Engineered Wood Siding">
+                <h3>Engineered Wood</h3>
             </div>
         </div>
     </div>
 
     <!-- PROCESS STEPS -->
-    <div class="section">
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Select Your Siding Material</h3>
-            <p>Choose from premium options including Fiber Cement, Genuine Wood, Vinyl Siding, Aluminum Siding, or Engineered Wood. Our experts will help you select the perfect material, color, and finish for your home’s style and climate.</p>
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Siding Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Siding Material</h3>
+                <p>Select from Genuine Wood, Fiber Cement, Vinyl, Aluminum, or Engineered Wood. 
+                Not sure which material is best for your home? 
+                <a href="knowledge-center.html#siding-guide" style="color:var(--primary-orange);">Read our guide</a> — 
+                <strong>The Ultimate Guide to Picking Your Siding</strong> — for expert advice on durability, maintenance, and style. 
+                Or contact us directly — we’re the pros and we’re here to help.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below with your project details. We’ll provide a clear, competitive quote tailored to your home.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once confirmed, our team will visit your property to take precise measurements and discuss color, style, and material options to match your vision and budget.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our experienced crew removes old siding (if needed) and installs the new system with proper flashing, insulation, and ventilation for maximum performance and beauty.</p>
+            </div>
         </div>
+    </div>
 
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Request a Siding Estimate</h3>
-            
-            <form class="estimate-form" id="sidingEstimateForm">
-                <!-- Contact Essentials -->
+    <!-- ESTIMATE FORM -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Siding Estimate</h2>
+            <form id="sidingForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
-                    <label>Contact Essentials <span class="required">*</span></label>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="tel" placeholder="Phone Number" required style="margin-top: 10px;">
-                    <input type="email" placeholder="Email Address" required style="margin-top: 10px;">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" id="name" required>
                 </div>
 
-                <!-- Service Address -->
-                <div class="form-group">
-                    <label>Service Address</label>
-                    <input type="text" placeholder="Building Number and Street Name">
-                    <input type="text" placeholder="City" style="margin-top: 10px;">
-                    <input type="text" placeholder="Province" style="margin-top: 10px;">
-                    <input type="text" placeholder="Postal Code" required style="margin-top: 10px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
                 </div>
 
-                <!-- Material Type -->
                 <div class="form-group">
-                    <label>Material Type <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Material Type</option>
+                    <label>Service Address (optional)</label>
+                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Postal Code <span class="required">*</span></label>
+                        <input type="text" id="postal" required placeholder="P1B 1A1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Siding Material <span class="required">*</span></label>
+                    <select id="material" required>
+                        <option value="">-- Select Material --</option>
                         <option value="Genuine Wood">Genuine Wood</option>
                         <option value="Fiber Cement">Fiber Cement</option>
                         <option value="Vinyl Siding">Vinyl Siding</option>
                         <option value="Aluminum Siding">Aluminum Siding</option>
                         <option value="Engineered Wood">Engineered Wood</option>
                         <option value="Repair only">Repair Only</option>
-                        <option value="Not Sure">Not Sure / Consultation Needed</option>
+                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
                     </select>
                 </div>
 
-                <!-- Project Urgency -->
                 <div class="form-group">
                     <label>Project Urgency <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Urgency</option>
+                    <select id="urgency" required>
+                        <option value="">-- Select Urgency --</option>
                         <option value="Emergency">Emergency</option>
-                        <option value="1month">Within 1 Month</option>
-                        <option value="3-6months">3–6 Months</option>
-                        <option value="6-12months">6 Months – 1 Year</option>
-                        <option value="researching">Just Researching</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
                     </select>
                 </div>
 
-                <!-- Brief Description -->
                 <div class="form-group">
-                    <label>Anything else we should know? <span class="optional">(Optional)</span></label>
-                    <textarea rows="4" placeholder="Describe your project or any specific concerns..."></textarea>
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea id="description" rows="4" placeholder="Current siding condition, color preferences, style goals, etc."></textarea>
                 </div>
 
-                <!-- Photo Upload -->
                 <div class="form-group">
-                    <label>Upload Photos <span class="optional">(Optional)</span></label>
-                    <input type="file" accept="image/*" multiple>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Upload photos of your current siding or any areas of concern.</p>
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Photos of your current siding (even from the driveway) help us provide a more accurate estimate.</p>
                 </div>
 
-                <button type="submit">Submit Siding Estimate Request</button>
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
             </form>
-
-            <div class="contact-options">
-                If you have questions or need guidance, our team is here to help.<br>
-                Feel free to call us or <a href="knowledge-center/TheUltimateGuideToPickingYourSiding.html" style="color: var(--primary-orange);">read our Ultimate Guide to Picking Your Siding</a>.
-            </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>House Consultation & Final Measurements</h3>
-            <p>Once your request is received, we will schedule a detailed on-site consultation. Our team takes precise measurements to provide accurate, competitive pricing and walks you through all available siding options to ensure you make the best-informed decision for your home.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Ongoing Support & Warranty</h3>
-            <p>Our commitment to your satisfaction extends well beyond installation. We provide excellent after-sales communication and ensure you fully understand your manufacturer’s warranty. Your peace of mind remains our top priority, and we are always available to support you.</p>
         </div>
     </div>
 
-    <script>
-        // Form submission
-        document.getElementById('sidingEstimateForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your siding estimate request has been received. We will contact you shortly.');
-            this.reset();
-        });
+    <!-- CONSULTATION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After your project is confirmed, our team will conduct a detailed on-site assessment. We take precise measurements and review all available siding materials and options to ensure you receive the best solution for your home and budget.
+        </p>
+    </div>
 
-        // Hamburger
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We stand behind every siding installation with exceptional after-service support. Our trusted manufacturers provide excellent warranties, giving you lasting peace of mind. Your satisfaction is our top priority.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Not sure which siding material is right for your home? 
+            <a href="knowledge-center.html#siding-guide">Read our guide: The Ultimate Guide to Picking Your Siding</a> 
+            for expert advice, or contact us by phone or email. Our experienced team is ready to help you choose the perfect option.
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (!name) return alert("Please enter your name.");
+            
+            alert(`Thank you, ${name}! Your siding estimate request has been received. We'll contact you shortly.`);
+            document.getElementById('sidingForm').reset();
+        }
+
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would appear here.');
+            alert('Mobile menu coming soon. Call us at (705) 123-4567');
         });
     </script>
 </body>
