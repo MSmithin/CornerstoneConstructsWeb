@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soffit & Fascia | Cornerstone Construction</title>
+    <title>Soffit & Fascia | Cornerstone Constructs - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
         :root {
             --primary-orange: #FF914D;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* HEADER - Consistent with Home, Roofing & Siding */
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -55,10 +59,15 @@
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover { color: #222; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        
-        /* Dropdown - Improved hover behavior */
-        .dropdown { position: relative; }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Dropdown with fixed gap flickering */
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -66,31 +75,33 @@
             color: #222;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             min-width: 240px;
-            padding: 0.8rem 0;
+            padding: 12px 0;
             border-radius: 8px;
             z-index: 100;
             top: 100%;
             left: 0;
         }
         .dropdown:hover > .dropdown-content,
-        .dropdown-content:hover { display: block; }
-        
+        .dropdown-content:hover {
+            display: block;
+        }
         .dropdown .dropdown-content .dropdown-content {
-            left: 100% !important;
-            top: 0;
-            margin-left: 8px;
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
         }
         .dropdown-content a {
             display: block;
             padding: 0.75rem 1.5rem;
             color: #222;
             text-decoration: none;
+            white-space: nowrap;
         }
         .dropdown-content a:hover {
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-        
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -108,9 +119,19 @@
             font-size: 1.02rem;
             width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
-        
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -118,146 +139,194 @@
             cursor: pointer;
             margin-left: 1.5rem;
         }
-        
-        /* Page Content */
+
+        /* ==================== PAGE STYLES ==================== */
         .hero-soffit {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/251/2000/800') center/cover no-repeat;
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('https://via.placeholder.com/1920x650/222/FF914D?text=Beautifully+Installed+Soffit+and+Fascia') center/cover no-repeat;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
-            padding: 140px 20px 80px;
         }
-        .hero-soffit h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section {
-            max-width: 1100px;
-            margin: 4rem auto;
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
         .section h2 {
-            font-size: 2.4rem;
-            color: #222;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 1.5rem;
         }
         .section p {
             font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             text-align: center;
+            color: #444;
         }
-        
-        /* Soffit Types Showcase */
-        .soffit-grid {
+
+        /* Soffit Materials Showcase */
+        .soffit-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            max-width: 1100px;
+            margin: 3rem auto;
         }
-        .soffit-card {
+        .material-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
         }
-        .soffit-card img {
+        .material-card:hover {
+            transform: translateY(-8px);
+        }
+        .material-card img {
             width: 100%;
-            height: 200px;
+            height: 260px;
             object-fit: cover;
         }
-        .soffit-card h4 {
-            padding: 1.2rem 0.8rem;
-            color: var(--primary-orange);
-            font-size: 1.25rem;
+        .material-card h3 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            color: #222;
         }
-        
+
         /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
         .process-step {
             background: white;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .step-number {
+            width: 70px;
+            height: 70px;
             background: var(--primary-orange);
             color: white;
-            width: 50px;
-            height: 50px;
+            font-size: 2rem;
+            font-weight: 700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
         }
-        
+
         /* Estimate Form */
         .estimate-form {
             background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 3rem auto;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
         }
         .form-group {
             margin-bottom: 1.8rem;
         }
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 0.6rem;
             font-weight: 600;
         }
-        input[type="text"], input[type="tel"], input[type="email"], textarea, select {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 1rem;
             border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
         }
-        .required { color: #e74c3c; }
-        .optional { font-size: 0.95rem; color: #666; }
-        
-        button[type="submit"] {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
             background: var(--primary-orange);
             color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 6px;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            margin-top: 1rem;
+            display: block;
+            margin: 2rem auto 0;
         }
-        
+
         .contact-options {
             text-align: center;
-            margin: 2.5rem 0;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #444;
         }
-        
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hamburger { display: block; }
-            .hero-soffit h1 { font-size: 2.3rem; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Construction" alt="Cornerstone Construction Logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
             </div>
-            
+           
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -300,143 +369,192 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-            
+           
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-            
+           
             <div class="hamburger">☰</div>
         </div>
     </header>
 
-    <!-- HERO IMAGE -->
+    <!-- HERO with background image -->
     <section class="hero-soffit">
-        <h1>Soffit & Fascia Installation</h1>
-        <p>Complete your roofline with clean, professional finishes</p>
+        <div class="hero-content">
+            <h1>Soffit & Fascia Services in North Bay</h1>
+            <p>Complete your roofline with clean, durable soffit and fascia. Professional installation that improves ventilation, protection, and curb appeal.</p>
+        </div>
     </section>
 
+    <!-- INTRO -->
     <div class="section">
-        <h2>Protect and Beautify Your Roofline</h2>
-        <p>Properly installed soffit and fascia improve ventilation, protect your home from moisture, and give your roofline a finished, polished look.</p>
+        <h2>Expert Soffit & Fascia Installation & Repair</h2>
+        <p>At Cornerstone Constructs, we install high-quality soffit and fascia systems that protect your roofline, improve attic ventilation, and give your home a finished, attractive look that lasts for years in Northern Ontario weather.</p>
     </div>
 
-    <!-- SOFFIT TYPES SHOWCASE -->
-    <div class="section">
+    <!-- SOFFIT MATERIALS SHOWCASE -->
+    <div class="section" style="background:#fff;">
         <h2>Our Soffit & Fascia Options</h2>
-        <div class="soffit-grid">
-            <div class="soffit-card">
-                <img src="https://picsum.photos/id/251/600/400" alt="Aluminum Soffit">
-                <h4>Aluminum Soffit with Aluminum Fascia</h4>
+        <div class="soffit-showcase">
+            <div class="material-card">
+                <img src="https://via.placeholder.com/600x400/9E9E9E/FFFFFF?text=Aluminum+Soffit+%26+Fascia" alt="Aluminum Soffit and Fascia">
+                <h3>Aluminum Soffit + Aluminum Fascia</h3>
             </div>
-            <div class="soffit-card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Vinyl Soffit">
-                <h4>Vinyl Soffit with Aluminum Fascia</h4>
+            <div class="material-card">
+                <img src="https://via.placeholder.com/600x400/81C784/FFFFFF?text=Vinyl+Soffit+with+Aluminum+Fascia" alt="Vinyl Soffit with Aluminum Fascia">
+                <h3>Vinyl Soffit + Aluminum Fascia</h3>
             </div>
         </div>
     </div>
 
     <!-- PROCESS STEPS -->
-    <div class="section">
-        <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Choose Your Soffit & Fascia Material</h3>
-            <p>Select from durable Aluminum Soffit or low-maintenance Vinyl Soffit, both paired with strong Aluminum Fascia. Our team will help you choose the best option based on your home’s style, climate, and ventilation needs.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Request a Soffit & Fascia Estimate</h3>
-            
-            <form class="estimate-form" id="soffitFasciaForm">
-                <!-- Contact Essentials -->
-                <div class="form-group">
-                    <label>Contact Essentials <span class="required">*</span></label>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="tel" placeholder="Phone Number" required style="margin-top: 10px;">
-                    <input type="email" placeholder="Email Address" required style="margin-top: 10px;">
-                </div>
-
-                <!-- Service Address -->
-                <div class="form-group">
-                    <label>Service Address</label>
-                    <input type="text" placeholder="Building Number and Street Name">
-                    <input type="text" placeholder="City" style="margin-top: 10px;">
-                    <input type="text" placeholder="Province" style="margin-top: 10px;">
-                    <input type="text" placeholder="Postal Code" required style="margin-top: 10px;">
-                </div>
-
-                <!-- Material Type -->
-                <div class="form-group">
-                    <label>Material Type <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Material Type</option>
-                        <option value="Aluminum Soffit">Aluminum Soffit with Aluminum Fascia</option>
-                        <option value="Vinyl Soffit">Vinyl Soffit with Aluminum Fascia</option>
-                        <option value="Repair only">Repair Only</option>
-                        <option value="Not Sure">Not Sure / Consultation Needed</option>
-                    </select>
-                </div>
-
-                <!-- Project Urgency -->
-                <div class="form-group">
-                    <label>Project Urgency <span class="required">*</span></label>
-                    <select required>
-                        <option value="">Select Urgency</option>
-                        <option value="Emergency">Emergency</option>
-                        <option value="1month">Within 1 Month</option>
-                        <option value="3-6months">3–6 Months</option>
-                        <option value="6-12months">6 Months – 1 Year</option>
-                        <option value="researching">Just Researching</option>
-                    </select>
-                </div>
-
-                <!-- Brief Description -->
-                <div class="form-group">
-                    <label>Anything else we should know? <span class="optional">(Optional)</span></label>
-                    <textarea rows="4" placeholder="Describe your project or any specific concerns..."></textarea>
-                </div>
-
-                <!-- Photo Upload -->
-                <div class="form-group">
-                    <label>Upload Photos <span class="optional">(Optional)</span></label>
-                    <input type="file" accept="image/*" multiple>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Upload photos of your current soffit, fascia, or any areas of concern.</p>
-                </div>
-
-                <button type="submit">Submit Soffit & Fascia Estimate Request</button>
-            </form>
-
-            <div class="contact-options">
-                If anything is unclear or you need expert guidance, our team is ready to assist.<br>
-                Feel free to call us directly, or <a href="knowledge-center/Soffit-Fascia-The-Unsung-Heroes-of-Your-Roof.html" style="color: var(--primary-orange);">read our guide: Soffit & Fascia – The Unsung Heroes of Your Roof</a>.
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Soffit & Fascia Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Material</h3>
+                <p>Select Aluminum Soffit with Aluminum Fascia or Vinyl Soffit with Aluminum Fascia. 
+                Not sure which option is best for your home? 
+                <a href="knowledge-center.html#soffit-fascia-guide" style="color:var(--primary-orange);">Read our guide</a> — 
+                <strong>Soffit & Fascia: The Unsung Heroes of Your Roof</strong> — for expert advice. 
+                Or contact us directly — we’re the pros and we’re here to help.</p>
             </div>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>House Consultation & Final Measurements</h3>
-            <p>Once we receive your request, our team will arrange an on-site consultation. We take accurate measurements to ensure competitive pricing and discuss the best soffit and fascia solutions tailored to your home’s needs and ventilation requirements.</p>
-        </div>
-
-        <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Ongoing Support & Warranty</h3>
-            <p>Our commitment to your satisfaction continues long after the project is complete. We maintain clear after-sales communication and ensure you understand your manufacturer’s warranty. Your peace of mind is our priority, and we remain available to support you every step of the way.</p>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below. We’ll provide a clear, competitive quote tailored to your roofline.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once confirmed, our team will visit your home to take precise measurements and discuss the best materials, ventilation options, and design details for your property.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our experienced crew installs your new soffit and fascia cleanly and efficiently, ensuring proper ventilation, water protection, and a beautiful finished look.</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Form submission
-        document.getElementById('soffitFasciaForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your Soffit & Fascia estimate request has been received. We will contact you shortly.');
-            this.reset();
-        });
+    <!-- ESTIMATE FORM -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Soffit & Fascia Estimate</h2>
+            <form id="soffitForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" id="name" required>
+                </div>
 
-        // Hamburger menu
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Address (optional)</label>
+                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Postal Code <span class="required">*</span></label>
+                        <input type="text" id="postal" required placeholder="P1B 1A1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Material Type <span class="required">*</span></label>
+                    <select id="material" required>
+                        <option value="">-- Select Material --</option>
+                        <option value="Aluminum Soffit with Aluminum Fascia">Aluminum Soffit with Aluminum Fascia</option>
+                        <option value="Vinyl Soffit with Aluminum Fascia">Vinyl Soffit with Aluminum Fascia</option>
+                        <option value="Repair only">Repair Only</option>
+                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select id="urgency" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea id="description" rows="4" placeholder="Current condition, desired ventilation, color preferences, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Photos of your current soffit and fascia help us provide a more accurate estimate.</p>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONSULTATION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After confirmation, our team will visit your home to take precise measurements and review all available soffit and fascia options to ensure the best solution for your roofline, ventilation needs, and budget.
+        </p>
+    </div>
+
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We provide exceptional after-service support long after the project is complete. Our trusted manufacturers back every installation with strong warranties, giving you lasting peace of mind.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Not sure which soffit and fascia material is right for your home? 
+            <a href="knowledge-center.html#soffit-fascia-guide">Read our guide: Soffit & Fascia – The Unsung Heroes of Your Roof</a> 
+            for expert advice, or contact us by phone or email. Our team is ready to help you make the best choice.
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (!name) return alert("Please enter your name.");
+            
+            alert(`Thank you, ${name}! Your soffit & fascia estimate request has been received. We'll contact you shortly.`);
+            document.getElementById('soffitForm').reset();
+        }
+
         document.querySelector('.hamburger').addEventListener('click', () => {
-            alert('Mobile menu would appear here.');
+            alert('Mobile menu coming soon. Call us at (705) 123-4567');
         });
     </script>
 </body>
