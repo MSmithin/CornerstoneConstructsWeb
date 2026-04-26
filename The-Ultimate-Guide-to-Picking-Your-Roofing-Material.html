@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Picking Your Roofing Material</title>
+    <meta name="description" content="Everything you need to know about choosing the right roofing material for your North Bay home — Asphalt, Metal, TPO, and Euroshield compared.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Roofing+Guide') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .factors {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            background: white;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                gap: 1.5rem;
+                font-size: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>The Ultimate Guide to Picking Your Roofing Material</h1>
+            <p>Everything You Need to Know — Asphalt, Metal, TPO &amp; Euroshield</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                Choosing a new roof is a big deal, but it doesn't have to be complicated. If you feel like you’re looking at a bunch of rectangles and metal sheets and don't know the difference — this guide is for you.
+            </p>
+            <p style="font-size:1.15rem;">
+                We’ve broken down the four main materials we offer so you can find the perfect match for your North Bay home.
+            </p>
+
+            <h2>4 Factors to Consider Before You Choose</h2>
+            <div class="factors">
+                <ol>
+                    <li><strong>How long do I plan to live here?</strong> Are you staying for 5 years or 50?</li>
+                    <li><strong>What is my weather like?</strong> Do you deal with heavy hail, high winds, or intense summer heat?</li>
+                    <li><strong>What is my budget?</strong> Are you looking for the lowest upfront cost or the best long-term value?</li>
+                    <li><strong>How much do I care about "The Look"?</strong> Do you want a classic neighborhood look or something that stands out?</li>
+                </ol>
+            </div>
+
+            <h2>Our Roofing Materials: The Breakdown</h2>
+
+            <div class="material">
+                <h3>1. Asphalt Shingles — The "Classic Reliable" Choice</h3>
+                <p>Asphalt shingles are the most popular roofing material in North America. They are made of fiberglass mats coated in asphalt and ceramic granules.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Most affordable upfront cost, huge variety of colors, and very easy to repair if a single shingle gets damaged.</li>
+                    <li><strong>Cons:</strong> Shortest lifespan (usually 15–25 years) and can be prone to "blow-offs" during very high winds.</li>
+                    <li><strong>Best For:</strong> Budget-conscious homeowners or those planning to sell their home in the next few years.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>2. Metal Roofing — The "One and Done" Choice</h3>
+                <p>Modern metal roofs aren't just for barns anymore. They come in sleek panels that give homes a clean, high-end look.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Extremely durable (lasts 40–70 years), fire-resistant, and great for energy bills because they reflect the sun's heat away from your house.</li>
+                    <li><strong>Cons:</strong> Higher initial cost than asphalt and can be noisier during heavy rain (though proper insulation fixes this!).</li>
+                    <li><strong>Best For:</strong> Homeowners who want a "forever roof" and want to save money on monthly cooling/heating bills.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>3. Flat / TPO Roofing — The "Modern Minimalist" Choice</h3>
+                <p>TPO (Thermoplastic Polyolefin) is a single-ply white membrane used primarily on flat or very low-slope roofs.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Naturally waterproof (no seams for water to leak through) and highly reflective, which keeps flat-roofed homes much cooler in the summer.</li>
+                    <li><strong>Cons:</strong> Only works on flat or low-slope surfaces; not designed for traditional "pointy" roofs.</li>
+                    <li><strong>Best For:</strong> Modern homes, additions, or garages with flat rooflines where water drainage is the #1 priority.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>4. Euroshield® — The "Indestructible" Choice</h3>
+                <p>Euroshield is a premium "rubber" roofing made from 95% recycled tires. It’s designed to look exactly like expensive slate or wood shakes but with way more muscle.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Practically "hail-proof." It’s incredibly quiet, eco-friendly, and won’t crack, rot, or warp like real wood or stone.</li>
+                    <li><strong>Cons:</strong> Premium price point (similar to metal) and requires specialized installers.</li>
+                    <li><strong>Best For:</strong> Homeowners in storm-heavy areas who want a high-end "luxury" look without the high-end maintenance.</li>
+                </ul>
+            </div>
+
+            <h2>Comparison at a Glance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Lifespan</th>
+                        <th>Cost</th>
+                        <th>Best Feature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Asphalt Shingles</td>
+                        <td>15–25 Years</td>
+                        <td>$</td>
+                        <td>Budget-Friendly</td>
+                    </tr>
+                    <tr>
+                        <td>Metal Roofing</td>
+                        <td>40–70 Years</td>
+                        <td>$$$</td>
+                        <td>Extreme Longevity</td>
+                    </tr>
+                    <tr>
+                        <td>Flat / TPO</td>
+                        <td>20–30 Years</td>
+                        <td>$$</td>
+                        <td>Best for Flat Roofs</td>
+                    </tr>
+                    <tr>
+                        <td>Euroshield®</td>
+                        <td>50+ Years</td>
+                        <td>$$$</td>
+                        <td>Hail &amp; Impact Resistance</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Still Not Sure?</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Every house is different. Whether you're worried about the next big hailstorm or just want the best-looking house on the block, we're here to help.
+            </p>
+            
+            <a href="roofing.html" class="cta-button">Get a Free No-Pressure Roofing Quote →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Eavestroughs • Foundations • And More
+        </p>
+    </footer>
+
+</body>
+</html>
