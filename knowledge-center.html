@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Center | Cornerstone Constructs - North Bay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+
+        /* FIXED HEADER - Same as all other pages */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+        }
+        .logo img { height: 120px; width: 360px; object-fit: contain; margin-right: 3rem; }
+        nav ul {
+            display: flex; list-style: none; gap: 2.8rem; align-items: center; margin-right: 3rem;
+        }
+        nav a {
+            color: white; font-weight: 600; font-size: 1.05rem; text-decoration: none;
+        }
+        nav a:hover { color: #222; }
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none; position: absolute; background: white; color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); min-width: 240px; padding: 12px 0;
+            border-radius: 8px; top: 100%; left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover { display: block; }
+        .header-buttons {
+            display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem; margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem; border: none; border-radius: 6px;
+            font-weight: 700; cursor: pointer; width: 190px;
+        }
+        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
+        .btn-estimate { background: white; color: var(--primary-orange); }
+
+        /* PAGE CONTENT */
+        .hero-knowledge {
+            height: 420px;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://via.placeholder.com/1920x420/222/FF914D?text=Knowledge+Center') center/cover no-repeat;
+            display: flex; align-items: center; color: white; text-align: center;
+        }
+        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.6rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .intro-text {
+            font-size: 1.25rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            color: #444;
+        }
+
+        /* Blog Grid */
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+        .post-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .post-card:hover {
+            transform: translateY(-8px);
+        }
+        .post-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+        .post-content h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .post-content h3 a {
+            color: #222;
+            text-decoration: none;
+        }
+        .post-content h3 a:hover {
+            color: var(--primary-orange);
+        }
+        .post-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .post-author {
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+           
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+           
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+           
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-knowledge">
+        <div class="hero-content">
+            <h1>Knowledge Center</h1>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <div class="section">
+        <h2>Looking for Home Renovation & Construction Knowledge?</h2>
+        <p class="intro-text">
+            Whether you're planning a major project or just want to understand your options better, 
+            our Knowledge Center is packed with honest, practical guides written by our experienced team.
+        </p>
+
+        <!-- KNOWLEDGE GRID -->
+        <div class="knowledge-grid">
+
+            <!-- Roofing Guide -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/555/FFF?text=Roofing+Materials" alt="Roofing Guide">
+                <div class="post-content">
+                    <h3><a href="The-Ultimate-Guide-to-Picking-Your-Roofing-Material.html">Guide To Picking Your Roofing Material: Everything You Need to Know</a></h3>
+                    <p>Selecting a new roof involves evaluating asphalt shingles for affordability, metal for longevity, TPO for flat surfaces, or Euroshield for superior hail resistance...</p>
+                    <div class="post-author">— Johnny Bradigan</div>
+                </div>
+            </div>
+
+            <!-- Siding Guide -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/666/FFF?text=Siding+Options" alt="Siding Guide">
+                <div class="post-content">
+                    <h3><a href="The-Ultimate-Guide-To-Picking-Your-Siding.html">The Ultimate Guide to Picking Your Siding: Curb Appeal Meets Protection</a></h3>
+                    <p>From budget-friendly vinyl to indestructible fiber cement, we break down five siding options to help you choose between effortless maintenance and timeless, natural beauty.</p>
+                    <div class="post-author">— Johnny Bradigan</div>
+                </div>
+            </div>
+
+            <!-- Soffit & Fascia -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/777/FFF?text=Soffit+%26+Fascia" alt="Soffit Guide">
+                <div class="post-content">
+                    <h3><a href="Soffit-Fascia-The-Unsung-Heroes-of-Your-Roof.html">Soffit & Fascia: The Unsung Heroes of Your Roof</a></h3>
+                    <p>Your roof's "trim" does more than look good. Discover how these two hidden components prevent rot, repel pests, and stop your attic from overheating.</p>
+                    <div class="post-author">— Johnny Bradigan</div>
+                </div>
+            </div>
+
+            <!-- Eavestroughs -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/888/FFF?text=Eavestroughs" alt="Eavestroughs Guide">
+                <div class="post-content">
+                    <h3><a href="The-Ultimate-Guide-to-Eavestroughs.html">The Ultimate Guide to Eavestroughs: Protecting Your Home’s Foundation</a></h3>
+                    <p>Properly installed eavestrough systems protect your foundation and prevent siding damage. Learn about seamless aluminum, steel, and copper options.</p>
+                    <div class="post-author">— Johnny Bradigan</div>
+                </div>
+            </div>
+
+            <!-- Foundation -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/444/FFF?text=Foundation" alt="Foundation Guide">
+                <div class="post-content">
+                    <h3><a href="Foundation-101-A-Guide-to-Whats-Holding-Up-Your-Home.html">Foundation 101: A Guide to What’s Holding Up Your Home</a></h3>
+                    <p>Understand the different foundation types and why regular maintenance is critical to prevent costly repairs.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Drywall -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/9C27B0/FFF?text=Drywall" alt="Drywall Guide">
+                <div class="post-content">
+                    <h3><a href="Drywall-Decoded-Choosing-the-Right-Board-for-Every-Room.html">Drywall Decoded: Choosing the Right Board for Every Room</a></h3>
+                    <p>Learn which drywall board is best for bathrooms, kitchens, high-impact areas, and more.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Flooring -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/8D6E63/FFF?text=Flooring" alt="Flooring Guide">
+                <div class="post-content">
+                    <h3><a href="The-Ultimate-Flooring-Guide-Which-Material-Fits-Your-Lifestyle.html">The Ultimate Flooring Guide: Which Material Fits Your Lifestyle?</a></h3>
+                    <p>From waterproof wonders to forever investments — discover which flooring is right for your home and lifestyle.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Surface & Aesthetics -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/FF9800/FFF?text=Surface+Aesthetics" alt="Surface Guide">
+                <div class="post-content">
+                    <h3><a href="Surface-Aesthetics-The-Art-of-the-Finishing-Touch.html">Surface & Aesthetics: The Art of the Finishing Touch</a></h3>
+                    <p>Turn any house into a masterpiece with the right paint, textures, and finishing details.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Insulation -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/4CAF50/FFF?text=Insulation" alt="Insulation Guide">
+                <div class="post-content">
+                    <h3><a href="Insulation-101-How-to-Lower-Your-Bills-and-Stay-Cozy-Year-Round.html">Insulation 101: How to Lower Your Bills and Stay Cozy Year-Round</a></h3>
+                    <p>Stop heating the neighborhood. Learn which insulation materials actually save you money.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Hardscaping -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/FF5722/FFF?text=Hardscaping" alt="Hardscaping Guide">
+                <div class="post-content">
+                    <h3><a href="Hardscaping-101-Building-the-Foundation-of-Your-Great-Outdoors.html">Hardscaping 101: Building the Foundation of Your Great Outdoors</a></h3>
+                    <p>Turn your yard into a high-end outdoor living space with the right hardscape structures.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Softscaping -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/8BC34A/FFF?text=Softscaping" alt="Softscaping Guide">
+                <div class="post-content">
+                    <h3><a href="The-Master-Guide-to-Softscaping-Designing-Your-Living-Sanctuary.html">The Master Guide to Softscaping: Designing Your Living Sanctuary</a></h3>
+                    <p>Create a beautiful, functional outdoor space using living elements — trees, gardens, and more.</p>
+                    <div class="post-author">— Steven Soladay</div>
+                </div>
+            </div>
+
+            <!-- Euroshield -->
+            <div class="post-card">
+                <img src="https://via.placeholder.com/600x300/222/FF914D?text=Euroshield+Roofing" alt="Euroshield Guide">
+                <div class="post-content">
+                    <h3><a href="TheLastRoofYoullEverBuy.html">The Last Roof You’ll Ever Buy? Why Homeowners are Making the Switch to Euroshield</a></h3>
+                    <p>Discover why Euroshield synthetic rubber roofing is becoming the top choice for long-term protection and low maintenance.</p>
+                    <div class="post-author">— Johnny Bradigan</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
