@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drywall Decoded: Choosing the Right Board for Every Room</title>
+    <meta name="description" content="Complete guide to choosing the right drywall for every room in your North Bay home — Standard, Moisture Resistant, Fire Rated, and Cement Board explained.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Drywall+Decoded') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .pro-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Drywall Decoded</h1>
+            <p>Choosing the Right Board for Every Room</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                When you look at a finished room, all you see is smooth, painted walls. But what’s behind that paint matters more than you think. Using the wrong type of drywall in a damp bathroom or a high-heat kitchen can lead to mold, cracks, or safety hazards.
+            </p>
+            <p style="font-size:1.15rem;">
+                At Cornerstone Constructs, we make it easy. Tell us which room you’re finishing, and we’ll match it with the perfect "armor" for your walls.
+            </p>
+
+            <h2>Why the Right Drywall Matters</h2>
+            <ul>
+                <li><strong>Health &amp; Safety:</strong> Specialized boards prevent mold growth and provide extra fire protection.</li>
+                <li><strong>Durability:</strong> High-traffic areas need boards that resist dents and impacts.</li>
+                <li><strong>Sound Proofing:</strong> The right thickness or layering can make noisy rooms much quieter.</li>
+            </ul>
+
+            <h2>Step 1: Pick Your Room</h2>
+
+            <div class="material">
+                <h3>Living Rooms, Bedrooms &amp; Wardrobes</h3>
+                <p><strong>Our Choice:</strong> Standard Grey / White Board</p>
+                <ul>
+                    <li>Cost-effective and easy to install</li>
+                    <li>Provides a perfectly flat surface for painting</li>
+                    <li>Ideal for gallery walls and main living spaces</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Bathrooms &amp; Kitchens</h3>
+                <p><strong>Our Choice:</strong> Moisture Resistant (Greenboard)</p>
+                <ul>
+                    <li>Treated with water-resistant coating</li>
+                    <li>Prevents mold in steamy environments</li>
+                    <li>Perfect for showers, tubs, and kitchen walls</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Utility Rooms &amp; Garages</h3>
+                <p><strong>Our Choice:</strong> Fire Rated (Type X)</p>
+                <ul>
+                    <li>Thicker, denser board with glass fibers</li>
+                    <li>Provides significantly longer fire resistance</li>
+                    <li>Essential near furnaces, water heaters, and electrical panels</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Basements &amp; Wet Zones</h3>
+                <p><strong>Our Choice:</strong> Cement Board (Concrete Grey)</p>
+                <ul>
+                    <li>Contains no organic material — mold resistant</li>
+                    <li>Virtually indestructible in high-moisture areas</li>
+                    <li>Excellent base for tile in showers and basements</li>
+                </ul>
+            </div>
+
+            <h2>Step 2: Understand the Materials</h2>
+            <ul>
+                <li><strong>Standard Grey/White:</strong> The versatile all-star for 80% of your home.</li>
+                <li><strong>Moisture Resistant Green:</strong> The shield against humidity and steam.</li>
+                <li><strong>Fire Rated (Type X):</strong> Extra thick and extra safe.</li>
+                <li><strong>Cement Board:</strong> The heavyweight for tile backing and wet areas.</li>
+            </ul>
+
+            <h2>💡 Pro-Tips for a Flawless Finish</h2>
+            <div class="pro-tips">
+                <ul>
+                    <li><strong>Smoothness Secret:</strong> Even the best drywall looks bad without perfect taping and mudding. We specialize in Level 5 finishes — invisible seams under bright lights.</li>
+                    <li><strong>Sound Control:</strong> Ask about sound-dampening techniques for home theaters or bedrooms near noisy areas.</li>
+                    <li><strong>Small Repairs:</strong> Don’t replace an entire wall for a doorknob hole or water damage. Our seamless patch repairs blend perfectly.</li>
+                </ul>
+            </div>
+
+            <h2>Ready to Start Your Project?</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Whether you have a specific room in mind or a unique space like a home studio or wine cellar, we have the right drywall solution for you.
+            </p>
+            
+            <a href="drywall.html" class="cta-button">Get a Custom Drywall Quote for Your Project →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Drywall • Foundations • And More
+        </p>
+    </footer>
+
+</body>
+</html>
