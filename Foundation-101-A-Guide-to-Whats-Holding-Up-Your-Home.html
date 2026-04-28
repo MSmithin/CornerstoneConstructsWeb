@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation 101: A Guide to What’s Holding Up Your Home</title>
+    <meta name="description" content="Complete guide to residential foundations in North Bay — Full Basement, Crawl Space, Slab-on-Grade, and Pier & Beam explained with pros, cons, and repair tips.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match from previous pages */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Foundation+101') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            background: white;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+        
+        .pro-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Foundation 101</h1>
+            <p>A Guide to What’s Holding Up Your Home</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                When you’re looking at a house, you see the beautiful siding and the sturdy roof. But the most important part of your home is the part you can’t see: the foundation. A strong foundation keeps your home level, your doors from sticking, and your basement dry.
+            </p>
+            <p style="font-size:1.15rem;">
+                Whether you are building new, adding an extension, or worried about your current home’s "bones," here is everything you need to know about the four main types of foundations.
+            </p>
+
+            <h2>Why Foundation Health Matters</h2>
+            <ul>
+                <li><strong>Prevent Costly Repairs:</strong> Small cracks today can lead to major structural issues tomorrow.</li>
+                <li><strong>Property Value:</strong> A certified, sturdy foundation is the first thing a home inspector looks for.</li>
+                <li><strong>Energy Efficiency:</strong> A well-sealed foundation keeps out dampness and drafts, lowering your bills.</li>
+            </ul>
+
+            <h2>Our Foundation Types: The Breakdown</h2>
+
+            <div class="material">
+                <h3>1. Full Basement — The "Extra Space" Choice</h3>
+                <p>Dug deep (usually 8+ feet) to create usable living or storage space.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Adds significant square footage and easy access to plumbing & electrical.</li>
+                    <li><strong>Cons:</strong> Most expensive and requires excellent waterproofing.</li>
+                    <li><strong>Best For:</strong> Homeowners who want extra living space (gym, workshop, etc.).</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>2. Crawl Space — The "Best of Both Worlds" Choice</h3>
+                <p>Raises the home 2–3 feet with short foundation walls.</p>
+                <ul>
+                    <li><strong>Pros:</strong> More affordable than a full basement, easy access to utilities.</li>
+                    <li><strong>Cons:</strong> Can become damp or attract pests if not properly encapsulated.</li>
+                    <li><strong>Best For:</strong> High-moisture areas or those wanting utility access without full basement cost.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>3. Concrete Slab-on-Grade — The "Simple & Sturdy" Choice</h3>
+                <p>Thick concrete poured directly on prepared ground.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Most cost-effective, quick to install, no basement flooding risk.</li>
+                    <li><strong>Cons:</strong> No extra storage space; plumbing is buried in concrete.</li>
+                    <li><strong>Best For:</strong> Budget builds or mild climates with shallow frost lines.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>4. Pier & Beam — The "High & Dry" Choice</h3>
+                <p>Concrete piers support wooden beams that hold up the house.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Excellent for sloped lots and flood-prone areas, great airflow.</li>
+                    <li><strong>Cons:</strong> Floors can feel bouncy if not engineered well.</li>
+                    <li><strong>Best For:</strong> Uneven terrain or areas with minor flooding risk.</li>
+                </ul>
+            </div>
+
+            <h2>🛠 We Don't Just Build — We Repair</h2>
+            <p>Foundations need ongoing care as soil shifts and water moves. We specialize in:</p>
+            <ul>
+                <li>Crack repair and sealing</li>
+                <li>Foundation leveling</li>
+                <li>Waterproofing & drainage solutions</li>
+            </ul>
+
+            <h2>💡 Pro-Tips for Homeowners</h2>
+            <div class="pro-tips">
+                <ul>
+                    <li><strong>The Penny Test:</strong> Hairline cracks are often normal settling. If a crack is wide enough to fit a penny or is horizontal, call a professional.</li>
+                    <li><strong>Watch Your Gutters:</strong> Clean eavestroughs prevent water from pooling around the foundation — the #1 cause of settling.</li>
+                    <li><strong>Landscape Smart:</strong> Grade soil to slope away from the house (minimum 5°). This prevents thousands in water damage.</li>
+                </ul>
+            </div>
+
+            <h2>Is Your Home Standing on Solid Ground?</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Whether you're planning new construction or noticed a suspicious crack, don't leave the most important part of your home to chance.
+            </p>
+            
+            <a href="foundations.html" class="cta-button">Book a Free Foundation Consultation Today →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Foundations • And More
+        </p>
+    </footer>
+
+</body>
+</html>
