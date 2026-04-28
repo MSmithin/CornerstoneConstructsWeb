@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Flooring Guide: Which Material Fits Your Lifestyle?</title>
+    <meta name="description" content="Complete North Bay flooring guide — Luxury Vinyl Plank, Hardwood, Laminate, Tile, and Carpet compared for durability, looks, and lifestyle.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Flooring+Guide') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .pro-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>The Ultimate Flooring Guide</h1>
+            <p>Which Material Fits Your Lifestyle?</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                Your floors are the hardest-working part of your home. They handle muddy paws, dropped coffee mugs, and thousands of footsteps every day. But with so many options — from the timeless beauty of oak to the modern toughness of vinyl — how do you choose?
+            </p>
+            <p style="font-size:1.15rem;">
+                At Cornerstone Constructs, we believe the best floor isn't just the one that looks good — it’s the one that stands up to your daily life. Here is our guide to picking the perfect surface.
+            </p>
+
+            <h2>3 Questions to Ask Before You Buy</h2>
+            <div style="background:#f8f9fa; padding:2rem; border-radius:10px; margin:2rem 0;">
+                <ol>
+                    <li><strong>Who is walking on it?</strong> Big dogs, toddlers, or a "shoes-off" household?</li>
+                    <li><strong>Where is it going?</strong> Moisture-heavy bathroom or cozy dry bedroom?</li>
+                    <li><strong>What is the "Forever" factor?</strong> Want something you can refinish in 20 years, or a budget-friendly update?</li>
+                </ol>
+            </div>
+
+            <h2>Our Flooring Options: The Breakdown</h2>
+
+            <div class="material">
+                <h3>1. Luxury Vinyl Plank (LVP) — The "Life-Proof" Choice</h3>
+                <p>Looks exactly like wood but made from heavy-duty polymers.</p>
+                <ul>
+                    <li><strong>Pros:</strong> 100% waterproof, scratch-resistant, soft underfoot.</li>
+                    <li><strong>Cons:</strong> Doesn’t have the same prestige or resale value as real hardwood.</li>
+                    <li><strong>Best For:</strong> Busy families with pets, basements, and high-traffic areas.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>2. Hardwood (Solid vs Engineered) — The "Timeless Investment" Choice</h3>
+                <p>Solid hardwood can be refinished multiple times. Engineered offers better stability in humid climates.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Unmatched beauty and highest resale value.</li>
+                    <li><strong>Cons:</strong> Can scratch and is sensitive to standing water.</li>
+                    <li><strong>Best For:</strong> Living rooms, dining rooms, and forever homes.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>3. Laminate Flooring — The "High-Style, Low-Cost" Choice</h3>
+                <p>Photographic layer that mimics wood or stone.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Very affordable and scratch-resistant.</li>
+                    <li><strong>Cons:</strong> Not fully waterproof — seams can swell if water sits.</li>
+                    <li><strong>Best For:</strong> Beautiful wood look on a tighter budget.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>4. Tiles (Ceramic vs Porcelain) — The "Indestructible" Choice</h3>
+                <p>Porcelain is denser and tougher than ceramic.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Best moisture resistance for wet zones.</li>
+                    <li><strong>Cons:</strong> Cold underfoot (radiant heat helps) and can be slippery.</li>
+                    <li><strong>Best For:</strong> Bathrooms, kitchens, and laundry rooms.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>5. Carpet — The "Ultimate Comfort" Choice</h3>
+                <p>Warm, soft, and quiet.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Excellent sound insulation and safest for kids/seniors.</li>
+                    <li><strong>Cons:</strong> Traps allergens and needs regular deep cleaning.</li>
+                    <li><strong>Best For:</strong> Bedrooms, home theaters, and nurseries.</li>
+                </ul>
+            </div>
+
+            <h2>🛠 We Also Do Repair Only</h2>
+            <p>Cracked tile, deep hardwood scratch, or stained carpet? We can repair just the damaged area and blend it seamlessly — saving you thousands.</p>
+
+            <h2>💡 Pro-Tips for Your New Floors</h2>
+            <div class="pro-tips">
+                <ul>
+                    <li><strong>Curb Appeal Trick:</strong> Use the same flooring throughout the main floor for a seamless, spacious feel.</li>
+                    <li><strong>Acclimation is Key:</strong> Let hardwood and laminate sit in your home for a few days before installation.</li>
+                    <li><strong>Underlayment Secret:</strong> A quality underlayment makes even budget flooring feel premium and warmer.</li>
+                </ul>
+            </div>
+
+            <h2>Ready to Step Up Your Style?</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Your perfect floor is waiting. Whether you need waterproof LVP or luxurious solid oak, our team will help you choose what fits your lifestyle and budget.
+            </p>
+            
+            <a href="flooring.html" class="cta-button">Get a Free Flooring Consultation Today →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Flooring • Drywall • And More
+        </p>
+    </footer>
+
+</body>
+</html>
