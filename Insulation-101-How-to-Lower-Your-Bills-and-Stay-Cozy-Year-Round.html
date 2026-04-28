@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insulation 101: How to Lower Your Bills and Stay Cozy Year-Round</title>
+    <meta name="description" content="Complete guide to home insulation in North Bay — Fiberglass, Mineral Wool, Cellulose, Spray Foam, and Rigid Board compared for energy savings and comfort.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Insulation+101') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .pro-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Insulation 101</h1>
+            <p>How to Lower Your Bills and Stay Cozy Year-Round</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                You can have the most expensive furnace in the world, but if your insulation is poor, you’re essentially heating the neighborhood. Think of insulation as a warm winter coat for your house — it keeps the heat in during the winter and the scorching sun out during the summer.
+            </p>
+            <p style="font-size:1.15rem;">
+                At Cornerstone Constructs, we don't just "stuff walls." We strategically select the right material to maximize your comfort and minimize your monthly bills.
+            </p>
+
+            <h2>Why Good Insulation is a "No-Brainer" Investment</h2>
+            <ul>
+                <li><strong>Lower Energy Bills:</strong> Proper insulation can save you up to 15–20% on heating and cooling costs.</li>
+                <li><strong>Sound Proofing:</strong> Blocks noise from traffic, neighbors, and rain.</li>
+                <li><strong>Pest & Moisture Control:</strong> Modern materials help prevent mold and discourage critters.</li>
+            </ul>
+
+            <h2>Our Insulation Materials: The Breakdown</h2>
+
+            <div class="material">
+                <h3>1. Fiberglass Batt — The "Traditional Reliable" Choice</h3>
+                <p>Classic pink or white blankets installed between studs.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Most affordable and very effective when installed correctly.</li>
+                    <li><strong>Cons:</strong> Can lose performance if wet or compressed.</li>
+                    <li><strong>Best For:</strong> Standard wall cavities in new builds or additions.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>2. Mineral Wool (Roxul) — The "Fire-Safe & Quiet" Choice</h3>
+                <p>Dense material made from stone and recycled slag.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Fireproof, water-resistant, and excellent soundproofing.</li>
+                    <li><strong>Cons:</strong> Higher cost than fiberglass.</li>
+                    <li><strong>Best For:</strong> Home theaters, laundry rooms, or fire-prone areas.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>3. Blown Cellulose — The "Eco-Friendly" Choice</h3>
+                <p>Grey recycled newspaper treated with fire retardants.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Fills every gap and is environmentally friendly.</li>
+                    <li><strong>Cons:</strong> Can settle slightly over decades.</li>
+                    <li><strong>Best For:</strong> Attics and topping up older homes.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>4. Closed-Cell Spray Foam — The "Ultimate Barrier" Choice</h3>
+                <p>Expands into a hard, dense seal.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Highest R-value per inch and complete air/vapor barrier.</li>
+                    <li><strong>Cons:</strong> Highest cost.</li>
+                    <li><strong>Best For:</strong> Basements, crawl spaces, and extreme climates.</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>5. Rigid XPS (Blue Board) — The "Moisture Master" Choice</h3>
+                <p>Stiff foam boards for continuous insulation.</p>
+                <ul>
+                    <li><strong>Pros:</strong> Excellent moisture resistance and thermal break.</li>
+                    <li><strong>Cons:</strong> Must be covered with drywall for fire safety.</li>
+                    <li><strong>Best For:</strong> Basement walls and exterior insulation under siding.</li>
+                </ul>
+            </div>
+
+            <h2>💡 Pro-Tips for a More Efficient Home</h2>
+            <div class="pro-tips">
+                <ul>
+                    <li><strong>Attic First Rule:</strong> If you can only do one area, start with the attic — heat rises and this is where you lose the most energy.</li>
+                    <li><strong>Sound of Silence:</strong> Use Mineral Wool in interior walls (especially bathrooms) for dramatically better privacy.</li>
+                    <li><strong>The Comfort Factor:</strong> A well-insulated home feels noticeably better and sells faster for a higher price.</li>
+                </ul>
+            </div>
+
+            <h2>Stop Throwing Money Out the Window</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Is your upstairs too hot in summer or your floors freezing in winter? It’s time to upgrade your insulation.
+            </p>
+            
+            <a href="insulation.html" class="cta-button">Book a Free Home Efficiency Audit Today →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Insulation • Foundations • And More
+        </p>
+    </footer>
+
+</body>
+</html>
