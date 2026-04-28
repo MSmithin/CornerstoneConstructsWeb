@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Master Guide to Softscaping: Designing Your Living Sanctuary</title>
+    <meta name="description" content="Complete softscaping guide for North Bay — Lawns, trees, shrubs, flower beds, mulching, xeriscaping, and site preparation to create a beautiful, living outdoor space.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Blog Content */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Softscaping+Guide') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--primary-orange);
+            font-size: 2.1rem;
+            margin: 2.5rem 0 1.2rem;
+            font-weight: 700;
+        }
+        
+        h3 {
+            font-size: 1.55rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+        }
+        
+        ul {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .material {
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .pro-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>The Master Guide to Softscaping</h1>
+            <p>Designing Your Living Sanctuary</p>
+        </div>
+
+        <div class="content">
+            <p style="font-size:1.15rem; margin-bottom:2rem;">
+                While hardscaping provides the structure, Softscaping is the heartbeat of your property. It is the texture, the color, and the life that turns a house into a home. A well-designed softscape doesn't just look pretty — it breathes, cools your home, provides privacy, and significantly increases your property’s resale value.
+            </p>
+            <p style="font-size:1.15rem;">
+                Below is our comprehensive breakdown of every softscaping service we offer. Whether you are starting with a dirt lot or refreshing an aging garden, this guide will help you create your perfect outdoor sanctuary.
+            </p>
+
+            <h2>1. Lawn Installation and Care</h2>
+            <div class="material">
+                <h3>Sodding</h3>
+                <p>Instant mature turf for an immediate lush lawn.</p>
+                <ul>
+                    <li>Instant gratification and excellent erosion control</li>
+                    <li>Perfect for families, pets, and upcoming events</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Seeding</h3>
+                <p>Custom seed blends tailored to your sun, shade, and traffic conditions.</p>
+                <ul>
+                    <li>Most cost-effective for large areas</li>
+                    <li>Develops deeper, more resilient roots over time</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Grading</h3>
+                <p>Professional leveling and sloping of your land.</p>
+                <ul>
+                    <li>Critical for proper water drainage away from your foundation</li>
+                    <li>Prevents swampy areas and mosquito breeding</li>
+                </ul>
+            </div>
+
+            <h2>2. Planting Services</h2>
+
+            <div class="material">
+                <h3>Trees &amp; Shrubs</h3>
+                <p>High-quality specimens planted at the correct depth with premium soil.</p>
+                <ul>
+                    <li>Increase property value and provide shade/energy savings</li>
+                    <li>Add year-round structure and beauty</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Perennials, Annuals &amp; Flower Beds</h3>
+                <p>Thoughtfully designed beds with color that cycles throughout the seasons.</p>
+                <ul>
+                    <li>Perennials return every year; annuals provide bold seasonal color</li>
+                    <li>Create stunning focal points that welcome guests</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Hedges &amp; Screening</h3>
+                <p>Dense, fast-growing plants that create natural privacy walls.</p>
+                <ul>
+                    <li>Block views, reduce noise, and act as windbreaks</li>
+                    <li>Far more elegant than traditional fencing</li>
+                </ul>
+            </div>
+
+            <h2>3. Garden Features &amp; Specialized Design</h2>
+
+            <div class="material">
+                <h3>Mulching</h3>
+                <p>Premium organic mulch (cedar, hemlock, etc.) applied in thick, even layers.</p>
+                <ul>
+                    <li>Suppresses weeds, retains moisture, and regulates soil temperature</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Xeriscaping &amp; Ground Covers</h3>
+                <p>Drought-tolerant plants, stones, and low-growing covers for low-maintenance beauty.</p>
+                <ul>
+                    <li>Greatly reduces water usage and maintenance</li>
+                </ul>
+            </div>
+
+            <div class="material">
+                <h3>Vertical Gardening &amp; Soil Amendment</h3>
+                <p>Trellises, living walls, and custom soil improvements based on pH and nutrient testing.</p>
+            </div>
+
+            <h2>4. Soil &amp; Site Preparation</h2>
+
+            <div class="material">
+                <h3>Land Clearing &amp; Excavating</h3>
+                <p>Professional removal of brush, stumps, and precise digging for new features.</p>
+                <ul>
+                    <li>Reclaims usable space and ensures every project starts on solid ground</li>
+                </ul>
+            </div>
+
+            <h2>💡 Pro-Tips for a Stunning Softscape</h2>
+            <div class="pro-tips">
+                <ul>
+                    <li><strong>The 5% Slope Rule:</strong> Grade your yard to drop 6 inches every 10 feet away from the house to protect your foundation.</li>
+                    <li><strong>Mulch Volcanoes:</strong> Never pile mulch against tree trunks — leave breathing room to prevent rot.</li>
+                    <li><strong>Layering:</strong> Combine trees, shrubs, perennials, and ground cover for depth and year-round interest.</li>
+                </ul>
+            </div>
+
+            <h2>Stop Dreaming and Start Planting</h2>
+            <p style="font-size:1.2rem; margin:2rem 0;">
+                Your outdoor space should be a true living sanctuary — an extension of your home that brings joy every single day.
+            </p>
+            
+            <a href="softscaping.html" class="cta-button">Book a Free Softscaping Consultation Today →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Hardscaping • Softscaping • Outdoor Living • And More
+        </p>
+    </footer>
+
+</body>
+</html>
