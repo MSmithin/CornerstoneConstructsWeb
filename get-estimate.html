@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Free Estimate - Cornerstone Constructs</title>
+    <meta name="description" content="Request a no-pressure, free estimate for any of our services. Professional roofing, siding, flooring, hardscaping and more in North Bay and surrounding areas.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles - Exact match */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* Page Content */
+        .estimate-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1400x600/FF914D/FFFFFF?text=Free+Estimate') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 140px 20px 100px;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .process {
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+        
+        .process h2 {
+            color: var(--primary-orange);
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services-grid h2 {
+            text-align: center;
+            color: var(--primary-orange);
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .service-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            font-size: 1.55rem;
+        }
+        
+        .service-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+        }
+        
+        .service-card a {
+            display: block;
+            text-align: center;
+            background: var(--primary-orange);
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+        
+        .service-card a:hover {
+            background: #e67e2c;
+        }
+        
+        footer {
+            background: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/360x120/FF914D/FFFFFF?text=Cornerstone+Constructs" alt="Cornerstone Constructs Logo">
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 123-4567')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+            
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <div class="estimate-container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Get Your Free Estimate</h1>
+            <p>No pressure. No obligation. Just clear, honest pricing from local professionals.</p>
+        </div>
+
+        <!-- Process -->
+        <div class="process">
+            <h2>How Our Estimate Process Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us What You Need</h3>
+                    <p>Choose your project below or describe it in detail.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>On-Site Assessment</h3>
+                    <p>We'll visit your home to measure and evaluate the scope of work.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Detailed Quote</h3>
+                    <p>You receive a transparent, itemized proposal within 48 hours.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Your Decision</h3>
+                    <p>Take all the time you need — no high-pressure sales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <div class="services-grid">
+            <h2>Choose Your Project</h2>
+            <div class="service-cards">
+                
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Roofing" alt="Roofing">
+                    <h3>Roofing</h3>
+                    <p>Asphalt, Metal, Euroshield &amp; more</p>
+                    <a href="roofing.html">Get Roofing Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Siding" alt="Siding">
+                    <h3>Siding</h3>
+                    <p>Vinyl, Fiber Cement, Wood &amp; more</p>
+                    <a href="siding.html">Get Siding Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Soffit+&+Fascia" alt="Soffit & Fascia">
+                    <h3>Soffit &amp; Fascia</h3>
+                    <p>Aluminum &amp; Vinyl systems</p>
+                    <a href="soffit-fascia.html">Get Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Eavestroughs" alt="Eavestroughs">
+                    <h3>Eavestroughs</h3>
+                    <p>Seamless aluminum, steel &amp; copper</p>
+                    <a href="eavestroughs.html">Get Eavestrough Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Foundations" alt="Foundations">
+                    <h3>Foundations</h3>
+                    <p>Repair, waterproofing &amp; new builds</p>
+                    <a href="foundations.html">Get Foundation Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Drywall" alt="Drywall">
+                    <h3>Drywall &amp; Finishing</h3>
+                    <p>Installation, repair &amp; taping</p>
+                    <a href="drywall.html">Get Drywall Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Flooring" alt="Flooring">
+                    <h3>Flooring</h3>
+                    <p>Hardwood, LVP, Tile &amp; Carpet</p>
+                    <a href="flooring.html">Get Flooring Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Surface+Aesthetics" alt="Surface Aesthetics">
+                    <h3>Surface Aesthetics</h3>
+                    <p>Paint, textures, countertops &amp; more</p>
+                    <a href="surface-aesthetics.html">Get Aesthetics Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Insulation" alt="Insulation">
+                    <h3>Insulation</h3>
+                    <p>Attics, walls, basements &amp; spray foam</p>
+                    <a href="insulation.html">Get Insulation Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Hardscaping" alt="Hardscaping">
+                    <h3>Hardscaping</h3>
+                    <p>Driveways, walkways &amp; retaining walls</p>
+                    <a href="hardscaping.html">Get Hardscaping Estimate →</a>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/600x220/FF914D/FFFFFF?text=Softscaping" alt="Softscaping">
+                    <h3>Softscaping</h3>
+                    <p>Lawns, planting &amp; garden design</p>
+                    <a href="softscaping.html">Get Softscaping Estimate →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
+        <p style="margin-top:0.8rem; font-size:0.95rem;">
+            Professional Roofing • Siding • Flooring • Hardscaping • And More
+        </p>
+    </footer>
+
+</body>
+</html>
