@@ -679,20 +679,11 @@
     </footer>
 
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            if (!name) {
-                alert("Please fill in your name.");
-                return;
-            }
-            
-            alert(`Thank you, ${name}! Your softscaping estimate request has been received. We'll contact you shortly.`);
-            document.getElementById('softscapingForm').reset();
+        // Success message
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your softscaping estimate request has been received. We'll contact you shortly.");
         }
-        
-        // Mobile hamburger placeholder (as in original)
+
         document.querySelector('.hamburger').addEventListener('click', () => {
             alert('Mobile menu coming soon. Call us at (705) 123-4567');
         });
