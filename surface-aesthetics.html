@@ -562,13 +562,9 @@
     </footer>
 
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            if (!name) return alert("Please enter your name.");
-            
-            alert(`Thank you, ${name}! Your surface & aesthetics estimate request has been received. We'll contact you shortly.`);
-            document.getElementById('aestheticsForm').reset();
+        // Success message
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your Surface & Aesthetics estimate request has been received. We'll contact you shortly.");
         }
 
         document.querySelector('.hamburger').addEventListener('click', () => {
