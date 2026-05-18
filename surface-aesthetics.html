@@ -456,42 +456,41 @@
         </div>
     </div>
 
-    <!-- ESTIMATE FORM -->
+    <!-- ESTIMATE -->
     <div class="section">
         <div class="estimate-form">
             <h2>Request Your Surface & Aesthetics Estimate</h2>
-            <form id="aestheticsForm" onsubmit="handleSubmit(event)">
+            
+            <form action="https://formspree.io/f/YOUR_CODE_HERE" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="Surface & Aesthetics Estimate Request">
+                <input type="hidden" name="_next" value="https://yourdomain.com/surface-aesthetics.html?success=1">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
                     <label>Name <span class="required">*</span></label>
-                    <input type="text" id="name" required>
+                    <input type="text" name="name" required>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group">
                         <label>Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" required>
+                        <input type="email" name="email" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Service Address (optional)</label>
-                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                    <input type="text" name="address">
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Postal Code <span class="required">*</span></label>
-                        <input type="text" id="postal" required placeholder="P1B 1A1">
-                    </div>
+                <div class="form-group">
+                    <label>Postal Code <span class="required">*</span></label>
+                    <input type="text" name="postal" required placeholder="P1B 1A1">
                 </div>
-
                 <div class="form-group">
                     <label>Service Type <span class="required">*</span></label>
-                    <select id="serviceType" required>
+                    <select name="serviceType" required>
                         <option value="">-- Select Service --</option>
                         <option value="Paint Finishes">Paint Finishes</option>
                         <option value="Wall treatments & Moldings">Wall Treatments & Moldings</option>
@@ -499,13 +498,12 @@
                         <option value="Countertop Surfaces">Countertop Surfaces</option>
                         <option value="Tile & Backsplash">Tile & Backsplash</option>
                         <option value="Architectural Metal Finishes">Architectural Metal Finishes</option>
-                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Project Urgency <span class="required">*</span></label>
-                    <select id="urgency" required>
+                    <select name="urgency" required>
                         <option value="">-- Select Urgency --</option>
                         <option value="Emergency">Emergency</option>
                         <option value="Within 1 month">Within 1 month</option>
@@ -514,16 +512,16 @@
                         <option value="Just researching">Just researching</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Anything else we should know? (optional)</label>
-                    <textarea id="description" rows="4" placeholder="Project scope, preferred colors, style references, etc."></textarea>
+                    <textarea name="message" rows="4" placeholder="Project scope, preferred colors, style references, etc."></textarea>
                 </div>
-
                 <div class="form-group">
                     <label>Upload Photos (optional)</label>
-                    <input type="file" id="photos" multiple accept="image/*">
-                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Current photos of the space help us understand your project better.</p>
+                    <input type="file" name="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
+                        Current photos of the space help us understand your project better.
+                    </p>
                 </div>
 
                 <button type="submit" class="btn-submit">Submit Estimate Request</button>
