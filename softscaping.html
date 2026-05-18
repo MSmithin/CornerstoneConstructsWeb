@@ -577,55 +577,52 @@
         </div>
     </div>
 
-    <!-- ESTIMATE FORM -->
+        <!-- ESTIMATE FORM -->
     <div class="section">
         <div class="estimate-form">
             <h2>Request Your Softscaping Estimate</h2>
-            <form id="softscapingForm" onsubmit="handleSubmit(event)">
-                
+            
+            <form action="https://formspree.io/f/YOUR_CODE_HERE" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="Softscaping Estimate Request">
+                <input type="hidden" name="_next" value="https://yourdomain.com/softscaping.html?success=1">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
                     <label>Name <span class="required">*</span></label>
-                    <input type="text" id="name" required>
+                    <input type="text" name="name" required>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group">
                         <label>Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" required>
+                        <input type="email" name="email" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Service Address (optional)</label>
-                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                    <input type="text" name="address">
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Postal Code <span class="required">*</span></label>
-                        <input type="text" id="postal" required placeholder="P1B 1A1">
-                    </div>
+                <div class="form-group">
+                    <label>Postal Code <span class="required">*</span></label>
+                    <input type="text" name="postal" required placeholder="P1B 1A1">
                 </div>
-
                 <div class="form-group">
                     <label>Service Category <span class="required">*</span></label>
-                    <select id="category" required>
+                    <select name="category" required>
                         <option value="">-- Select Category --</option>
                         <option value="Lawn Installation and Care">Lawn Installation and Care</option>
                         <option value="Planting">Planting</option>
                         <option value="Garden Features & Specialized">Garden Features & Specialized</option>
                         <option value="Soil and Site Preparation">Soil and Site Preparation</option>
-                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Project Urgency <span class="required">*</span></label>
-                    <select id="urgency" required>
+                    <select name="urgency" required>
                         <option value="">-- Select Urgency --</option>
                         <option value="Emergency">Emergency</option>
                         <option value="Within 1 month">Within 1 month</option>
@@ -634,16 +631,16 @@
                         <option value="Just researching">Just researching</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Anything else we should know? (optional)</label>
-                    <textarea id="description" rows="4" placeholder="Project details, preferences, timeline, etc."></textarea>
+                    <textarea name="message" rows="4" placeholder="Project details, preferences, timeline, etc."></textarea>
                 </div>
-
                 <div class="form-group">
                     <label>Upload Photos (optional)</label>
-                    <input type="file" id="photos" multiple accept="image/*">
-                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Help us understand your space better by uploading current photos of your yard.</p>
+                    <input type="file" name="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
+                        Help us understand your space better by uploading current photos of your yard.
+                    </p>
                 </div>
 
                 <button type="submit" class="btn-submit">Submit Estimate Request</button>
