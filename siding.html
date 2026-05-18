@@ -455,38 +455,37 @@
     <div class="section">
         <div class="estimate-form">
             <h2>Request Your Siding Estimate</h2>
-            <form id="sidingForm" onsubmit="handleSubmit(event)">
+            
+            <form action="https://formspree.io/f/xykvywed" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="Siding Estimate Request">
+                <input type="hidden" name="_next" value="https://yourdomain.com/siding.html?success=1">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
                     <label>Name <span class="required">*</span></label>
-                    <input type="text" id="name" required>
+                    <input type="text" name="name" required>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group">
                         <label>Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" required>
+                        <input type="email" name="email" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Service Address (optional)</label>
-                    <input type="text" id="address" placeholder="Building Number, Street Name, City, Province">
+                    <input type="text" name="address">
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Postal Code <span class="required">*</span></label>
-                        <input type="text" id="postal" required placeholder="P1B 1A1">
-                    </div>
+                <div class="form-group">
+                    <label>Postal Code <span class="required">*</span></label>
+                    <input type="text" name="postal" required placeholder="P1B 1A1">
                 </div>
-
                 <div class="form-group">
                     <label>Siding Material <span class="required">*</span></label>
-                    <select id="material" required>
+                    <select name="material" required>
                         <option value="">-- Select Material --</option>
                         <option value="Genuine Wood">Genuine Wood</option>
                         <option value="Fiber Cement">Fiber Cement</option>
@@ -494,13 +493,12 @@
                         <option value="Aluminum Siding">Aluminum Siding</option>
                         <option value="Engineered Wood">Engineered Wood</option>
                         <option value="Repair only">Repair Only</option>
-                        <option value="Not Sure/Consultation Needed">Not Sure / Consultation Needed</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Project Urgency <span class="required">*</span></label>
-                    <select id="urgency" required>
+                    <select name="urgency" required>
                         <option value="">-- Select Urgency --</option>
                         <option value="Emergency">Emergency</option>
                         <option value="Within 1 month">Within 1 month</option>
@@ -509,16 +507,16 @@
                         <option value="Just researching">Just researching</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label>Anything else we should know? (optional)</label>
-                    <textarea id="description" rows="4" placeholder="Current siding condition, color preferences, style goals, etc."></textarea>
+                    <textarea name="message" rows="4" placeholder="Current siding condition, color preferences, style goals, etc."></textarea>
                 </div>
-
                 <div class="form-group">
                     <label>Upload Photos (optional)</label>
-                    <input type="file" id="photos" multiple accept="image/*">
-                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">Photos of your current siding (even from the driveway) help us provide a more accurate estimate.</p>
+                    <input type="file" name="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
+                        Photos of your current siding help us provide a more accurate estimate.
+                    </p>
                 </div>
 
                 <button type="submit" class="btn-submit">Submit Estimate Request</button>
@@ -559,13 +557,9 @@
     </footer>
 
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            if (!name) return alert("Please enter your name.");
-            
-            alert(`Thank you, ${name}! Your siding estimate request has been received. We'll contact you shortly.`);
-            document.getElementById('sidingForm').reset();
+        // Show success message after redirect
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your siding estimate request has been received. We'll contact you shortly.");
         }
 
         document.querySelector('.hamburger').addEventListener('click', () => {
