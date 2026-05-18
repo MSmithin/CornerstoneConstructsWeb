@@ -567,14 +567,10 @@
         <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            if (!name) return alert("Please enter your name.");
-            
-            alert(`Thank you, ${name}! Your drywall estimate request has been received. We'll contact you shortly.`);
-            document.getElementById('drywallForm').reset();
+        <script>
+        // Success message
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your drywall estimate request has been received. We'll contact you shortly.");
         }
 
         document.querySelector('.hamburger').addEventListener('click', () => {
