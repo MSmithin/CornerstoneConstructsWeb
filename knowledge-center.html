@@ -19,7 +19,7 @@
             background: #f8f9fa;
         }
 
-        /* FIXED HEADER - Same as all other pages */
+        /* Header Styles - Exact match */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -33,33 +33,107 @@
             padding: 1rem 2rem;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
         }
-        .logo img { height: 120px; width: 360px; object-fit: contain; margin-right: 3rem; }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
         nav ul {
-            display: flex; list-style: none; gap: 2.8rem; align-items: center; margin-right: 3rem;
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
         }
         nav a {
-            color: white; font-weight: 600; font-size: 1.05rem; text-decoration: none;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
         }
-        nav a:hover { color: #222; }
-        .dropdown { position: relative; }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .dropdown {
+            position: relative;
+        }
         .dropdown-content {
-            display: none; position: absolute; background: white; color: #222;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); min-width: 240px; padding: 12px 0;
-            border-radius: 8px; top: 100%; left: 0;
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
         }
         .dropdown:hover > .dropdown-content,
-        .dropdown-content:hover { display: block; }
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
         .header-buttons {
-            display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem; margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
         }
         .btn {
-            padding: 0.85rem 2.2rem; border: none; border-radius: 6px;
-            font-weight: 700; cursor: pointer; width: 190px;
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
         }
-        .btn-call { background: white; color: var(--primary-orange); border: 2px solid white; }
-        .btn-estimate { background: white; color: var(--primary-orange); }
-
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+        
         /* PAGE CONTENT */
         .hero-knowledge {
             height: 420px;
