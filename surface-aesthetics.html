@@ -185,6 +185,33 @@
             color: #444;
         }
 
+        /* Showcase -Added from Hardscaping- Edit Accordingly*/
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+        .showcase-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .showcase-card:hover {
+            transform: translateY(-10px);
+        }
+        .showcase-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .showcase-card h3 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            background: white;
+        }
+        
         /* Services Grid */
         .services-grid {
             display: grid;
