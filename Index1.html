@@ -145,9 +145,10 @@
           z-index: 2000;
           overflow-y: auto;
           transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-          padding-top: 90px;
-          color: #222;
+          padding-top: 100px;
+          color: #222 !important;
           font-family: 'Inter', system-ui, sans-serif; /* ensure font */
+          display: block;
         }
 
         .mobile-nav.active {
@@ -176,26 +177,30 @@
         /* Menu Content */
         .mobile-menu {
           list-style: none;
-          padding: 1.5rem 0;
+          padding: 2rem 0 2rem 0;
           margin: 0;
+          width: 100%;
         }
 
         .mobile-menu li {
           border-bottom: 1px solid #eee;
+          width: 100%; 
         }
 
         .mobile-menu a {
-          display: block;
-          padding: 1.1rem 1.5rem;
-          color: #222; !important;    /* force color */
+          display: block !important;
+          padding: 1.2rem 1.6rem !important;
+          color: #222 !important;    /* force color */
           text-decoration: none;
-          font-size: 1.12rem;
+          font-size: 1.15rem;
           font-weight: 500;
+          width: 100%; 
+          min-height: 52px;
         }
 
         .mobile-menu a:hover {
           background: #f8f8f8;
-          color: var(--primary-orange);
+          color: var(--primary-orange) !important;
         }
 
         /* Submenu Styling */
