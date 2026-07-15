@@ -147,10 +147,12 @@
           transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
           padding-top: 90px;
           color: #222;
+          font-family: 'Inter', system-ui, sans-serif; /* ensure font */
         }
 
         .mobile-nav.active {
           right: 0;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);   /* just add 1.7 */ 
         }
 
         .mobile-overlay {
@@ -185,7 +187,7 @@
         .mobile-menu a {
           display: block;
           padding: 1.1rem 1.5rem;
-          color: #222;
+          color: #222; !important;    /* force color */
           text-decoration: none;
           font-size: 1.12rem;
           font-weight: 500;
@@ -423,7 +425,7 @@
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-           
+          
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -466,66 +468,65 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-           
+          
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-           
+          
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
             </button>
-          </div>
+        </div>
     </header>
-    
-  <!-- Mobile Menu -->
-         <nav class="mobile-nav" id="mobileNav">
-            <ul class="mobile-menu">
-              <li><a href="/">Home</a></li>
-              <li><a href="/who-we-are">Who We Are</a></li>
 
-              <li class="mobile-dropdown">
+    <!-- MOBILE SLIDING MENU -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+            
+            <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
-                  <div class="mobile-subitem">
-                    <a href="#" class="mobile-submenu-title">Exterior</a>
-                    <div class="mobile-submenu-content">
-                      <a href="/roofing">Roofing</a>
-                      <a href="/siding">Siding</a>
-                      <a href="/soffit-fascia">Soffit & Fascia</a>
-                      <a href="/decks-patios">Decks & Patios</a>
-                      <a href="/eavestroughs">Eavestroughs</a>
-                      <a href="/foundations">Foundations</a>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Exterior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="roofing.html">Roofing</a>
+                            <a href="siding.html">Siding</a>
+                            <a href="soffit-fascia.html">Soffit & Fascia</a>
+                            <a href="decks-patios.html">Decks & Patios</a>
+                            <a href="eavestroughs.html">Eavestroughs</a>
+                            <a href="foundations.html">Foundations</a>
+                        </div>
                     </div>
-                  </div>
-                  <div class="mobile-subitem">
-                    <a href="#" class="mobile-submenu-title">Interior</a>
-                    <div class="mobile-submenu-content">
-                      <a href="/carpentry">Carpentry</a>
-                      <a href="/drywall">Drywall</a>
-                      <a href="/flooring">Flooring</a>
-                      <a href="/surface-finishes">Surface Finishes & Aesthetics</a>
-                      <a href="/insulation">Insulation</a>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Interior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="carpentry.html">Carpentry</a>
+                            <a href="drywall.html">Drywall</a>
+                            <a href="flooring.html">Flooring</a>
+                            <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                            <a href="insulation.html">Insulation</a>
+                        </div>
                     </div>
-                  </div>
-                  <div class="mobile-subitem">
-                    <a href="#" class="mobile-submenu-title">Landscaping</a>
-                    <div class="mobile-submenu-content">
-                      <a href="/hardscaping">Hardscaping</a>
-                      <a href="/softscaping">Softscaping</a>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Landscaping</a>
+                        <div class="mobile-submenu-content">
+                            <a href="hardscaping.html">Hardscaping</a>
+                            <a href="softscaping.html">Softscaping</a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </li>
+            </li>
+            
+            <li><a href="knowledge-center.html">Knowledge Center</a></li>
+            <li><a href="financing.html">Financing</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
 
-              <li><a href="/knowledge-center">Knowledge Center</a></li>
-              <li><a href="/financing">Financing</a></li>
-              <li><a href="/careers">Careers</a></li>
-            </ul>
-          </nav>
-    
-   
     <div class="mobile-overlay"></div>
    
     <!-- EUROSHIELD HERO -->
@@ -657,58 +658,70 @@
 
         // Hamburger placeholder
         document.addEventListener('DOMContentLoaded', () => {
-          const hamburger = document.querySelector('.hamburger');
-          const mobileNav = document.getElementById('mobileNav');
-          const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-          let overlay = document.querySelector('.mobile-overlay');
-        
-          if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'mobile-overlay';
-            document.body.appendChild(overlay);
-          }
-        
-          function openMenu() {
-            mobileNav.classList.add('active');
-            overlay.classList.add('active');
-            hamburger.textContent = '✕';
-            hamburger.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-          }
-        
-          function closeMenu() {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.textContent = '☰';
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-          }
-        
-          hamburger.addEventListener('click', () => {
-            mobileNav.classList.contains('active') ? closeMenu() : openMenu();
-          });
-        
-          overlay.addEventListener('click', closeMenu);
-        
-          // Submenu toggles
-          mobileDropdowns.forEach(dropdown => {
-            const title = dropdown.querySelector('.mobile-submenu-title');
-            if (title) {
-              title.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-              });
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.querySelector('.mobile-overlay');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+    
+            if (!hamburger || !mobileNav || !overlay) {
+                console.error('Mobile menu elements missing!');
+                return;
             }
-          });
-        
-          // Close on link click
-          document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-              if (!link.classList.contains('mobile-submenu-title')) {
-                closeMenu();
-              }
+    
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                hamburger.textContent = '✕';
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+    
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.textContent = '☰';
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+    
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mobileNav.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
-          });
+    
+            overlay.addEventListener('click', closeMenu);
+    
+            // Submenu toggles
+            mobileDropdowns.forEach(dropdown => {
+                const titles = dropdown.querySelectorAll('.mobile-submenu-title');
+                titles.forEach(title => {
+                    title.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            });
+    
+            // Close menu when clicking a main link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!link.classList.contains('mobile-submenu-title')) {
+                        closeMenu();
+                    }
+                });
+            });
+    
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
         });
     </script>
 </body>
