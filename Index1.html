@@ -132,26 +132,27 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         /* ============== MOBILE SLIDING MENU ============== */
+        /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
           top: 0;
-          right: -100%;                    /* Start off-screen */
-          width: 78%;                      /* ~75-80% coverage */
-          max-width: 380px;                /* Nice max width on large phones */
+          right: -100%;
+          width: 78%;
+          max-width: 380px;
           height: 100vh;
           background: white;
-          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.25);
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
           z-index: 2000;
           overflow-y: auto;
-          transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1); /* smooth slide */
-          padding-top: 80px;               /* Space for header */
+          transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+          padding-top: 90px;
+          color: #222;
         }
 
         .mobile-nav.active {
-          right: 0;                        /* Slide in */
+          right: 0;
         }
 
-        /* Optional dark overlay */
         .mobile-overlay {
           position: fixed;
           top: 0;
@@ -170,30 +171,35 @@
           visibility: visible;
         }
 
-        /* Mobile Menu Content */
+        /* Menu Content */
         .mobile-menu {
           list-style: none;
-          padding: 1.5rem 1.2rem;
+          padding: 1.5rem 0;
           margin: 0;
+        }
+
+        .mobile-menu li {
+          border-bottom: 1px solid #eee;
         }
 
         .mobile-menu a {
           display: block;
-          padding: 1rem 1.2rem;
+          padding: 1.1rem 1.5rem;
           color: #222;
           text-decoration: none;
-          font-size: 1.1rem;
-          border-bottom: 1px solid #eee;
+          font-size: 1.12rem;
+          font-weight: 500;
         }
 
-        .mobile-menu > li:last-child a {
-          border-bottom: none;
+        .mobile-menu a:hover {
+          background: #f8f8f8;
+          color: var(--primary-orange);
         }
 
-        /* Mobile Submenus (Accordion) */
+        /* Submenu Styling */
         .mobile-dropdown .mobile-submenu {
           display: none;
-          padding-left: 1.5rem;
+          padding: 0.5rem 0;
           background: #f9f9f9;
         }
 
@@ -201,37 +207,27 @@
           display: block;
         }
 
-        .mobile-submenu a {
-          font-size: 1rem;
-          padding: 0.85rem 1.2rem;
-          border-bottom: 1px solid #eee;
+        .mobile-submenu .mobile-subitem {
+          padding-left: 1rem;
         }
 
-        /* Added might need to condensed into upper css*/
-        /* FIX FOR MISSING TEXT IN MOBILE MENU */
-        .mobile-nav {
-          color: #222 !important;           /* Force dark text */
+        .mobile-submenu-title {
+          display: block;
+          padding: 1rem 1.5rem;
+          font-weight: 600;
+          color: #222;
+          cursor: pointer;
         }
 
-        .mobile-menu a,
-        .mobile-submenu a {
-          color: #222 !important;
-          font-weight: 500;
+        .mobile-submenu-content a {
+          padding: 0.85rem 2rem;
+          font-size: 1.02rem;
+          color: #444;
         }
 
-        .mobile-menu a:hover,
-        .mobile-submenu a:hover {
-          color: var(--primary-orange) !important;
-          background: #f5f5f5;
-        }
-
-        /* Make sure submenus are visible */
-        .mobile-submenu {
-          background: #f9f9f9;
-        }
-
-        .mobile-submenu a {
-          color: #333 !important;
+        .mobile-submenu-content a:hover {
+          background: #f0f0f0;
+          color: var(--primary-orange);
         }
 
         /* Hamburger */
@@ -244,7 +240,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-
+        
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -664,44 +660,37 @@
           const hamburger = document.querySelector('.hamburger');
           const mobileNav = document.getElementById('mobileNav');
           const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-
-          // Create overlay if it doesn't exist
           let overlay = document.querySelector('.mobile-overlay');
+        
           if (!overlay) {
             overlay = document.createElement('div');
             overlay.className = 'mobile-overlay';
             document.body.appendChild(overlay);
           }
-
+        
           function openMenu() {
             mobileNav.classList.add('active');
             overlay.classList.add('active');
-            hamburger.setAttribute('aria-expanded', 'true');
             hamburger.textContent = '✕';
-            document.body.style.overflow = 'hidden'; // prevent scrolling
+            hamburger.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
           }
-
+        
           function closeMenu() {
             mobileNav.classList.remove('active');
             overlay.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
             hamburger.textContent = '☰';
+            hamburger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
           }
-
-          // Toggle menu
+        
           hamburger.addEventListener('click', () => {
-            if (mobileNav.classList.contains('active')) {
-              closeMenu();
-            } else {
-              openMenu();
-            }
+            mobileNav.classList.contains('active') ? closeMenu() : openMenu();
           });
-
-          // Close when clicking overlay
+        
           overlay.addEventListener('click', closeMenu);
-
-          // Handle submenus
+        
+          // Submenu toggles
           mobileDropdowns.forEach(dropdown => {
             const title = dropdown.querySelector('.mobile-submenu-title');
             if (title) {
@@ -711,9 +700,9 @@
               });
             }
           });
-
-          // Close menu when clicking a main link
-          document.querySelectorAll('.mobile-menu > li > a').forEach(link => {
+        
+          // Close on link click
+          document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
               if (!link.classList.contains('mobile-submenu-title')) {
                 closeMenu();
