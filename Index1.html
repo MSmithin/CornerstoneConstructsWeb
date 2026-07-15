@@ -131,53 +131,100 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        .hamburger {
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: block;
-        }
-
-        @media (min-width: 992px) {
-            .hamburger {
-                display: none;
-              }
-        }
-
+        /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
-            display: none;
-            width: 100%;
-            background: #fff;
-            border-top: 1px solid #eee;
+          position: fixed;
+          top: 0;
+          right: -100%;                    /* Start off-screen */
+          width: 78%;                      /* ~75-80% coverage */
+          max-width: 380px;                /* Nice max width on large phones */
+          height: 100vh;
+          background: white;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.25);
+          z-index: 2000;
+          overflow-y: auto;
+          transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1); /* smooth slide */
+          padding-top: 80px;               /* Space for header */
         }
 
         .mobile-nav.active {
-            display: block;
+          right: 0;                        /* Slide in */
         }
 
+        /* Optional dark overlay */
+        .mobile-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 1999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.4s ease;
+        }
+
+        .mobile-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        /* Mobile Menu Content */
         .mobile-menu {
-             list-style: none;
-             padding: 1rem;
-             margin: 0;
+          list-style: none;
+          padding: 1.5rem 1.2rem;
+          margin: 0;
         }
 
         .mobile-menu a {
-            display: block;
-            padding: 0.8rem 1rem;
-            text-decoration: none;
-            color: inherit;
+          display: block;
+          padding: 1rem 1.2rem;
+          color: #222;
+          text-decoration: none;
+          font-size: 1.1rem;
+          border-bottom: 1px solid #eee;
         }
 
+        .mobile-menu > li:last-child a {
+          border-bottom: none;
+        }
+
+        /* Mobile Submenus (Accordion) */
         .mobile-dropdown .mobile-submenu {
-             display: none;
-             padding-left: 1rem;
+          display: none;
+          padding-left: 1.5rem;
+          background: #f9f9f9;
         }
 
         .mobile-dropdown.active .mobile-submenu {
-              display: block;
+          display: block;
         }
 
+        .mobile-submenu a {
+          font-size: 1rem;
+          padding: 0.85rem 1.2rem;
+          border-bottom: 1px solid #eee;
+        }
+
+        /* Hamburger */
+        .hamburger {
+          font-size: 2.2rem;
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          padding: 0.5rem;
+          margin-left: auto;
+        }
+
+        @media (min-width: 992px) {
+          .hamburger,
+          .mobile-nav,
+          .mobile-overlay {
+            display: none;
+          }
+        }
         /* ==================== HERO / EUROSHIELD BANNER ==================== */
         .hero {
             height: 620px;
@@ -409,52 +456,54 @@
   </div>
 
   <!-- Mobile Menu -->
-  <nav class="mobile-nav" id="mobileNav">
-    <ul class="mobile-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/who-we-are">Who We Are</a></li>
+         <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-menu">
+              <li><a href="/">Home</a></li>
+              <li><a href="/who-we-are">Who We Are</a></li>
 
-      <li class="mobile-dropdown">
-        <a href="#" class="mobile-dropbtn">Services</a>
-        <div class="mobile-submenu">
-          <div class="mobile-subitem">
-            <a href="#" class="mobile-submenu-title">Exterior</a>
-            <div class="mobile-submenu-content">
-              <a href="/roofing">Roofing</a>
-              <a href="/siding">Siding</a>
-              <a href="/soffit-fascia">Soffit & Fascia</a>
-              <a href="/decks-patios">Decks & Patios</a>
-              <a href="/eavestroughs">Eavestroughs</a>
-              <a href="/foundations">Foundations</a>
-            </div>
-          </div>
-          <div class="mobile-subitem">
-            <a href="#" class="mobile-submenu-title">Interior</a>
-            <div class="mobile-submenu-content">
-              <a href="/carpentry">Carpentry</a>
-              <a href="/drywall">Drywall</a>
-              <a href="/flooring">Flooring</a>
-              <a href="/surface-finishes">Surface Finishes & Aesthetics</a>
-              <a href="/insulation">Insulation</a>
-            </div>
-          </div>
-          <div class="mobile-subitem">
-            <a href="#" class="mobile-submenu-title">Landscaping</a>
-            <div class="mobile-submenu-content">
-              <a href="/hardscaping">Hardscaping</a>
-              <a href="/softscaping">Softscaping</a>
-            </div>
-          </div>
-        </div>
-      </li>
+              <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropbtn">Services</a>
+                <div class="mobile-submenu">
+                  <div class="mobile-subitem">
+                    <a href="#" class="mobile-submenu-title">Exterior</a>
+                    <div class="mobile-submenu-content">
+                      <a href="/roofing">Roofing</a>
+                      <a href="/siding">Siding</a>
+                      <a href="/soffit-fascia">Soffit & Fascia</a>
+                      <a href="/decks-patios">Decks & Patios</a>
+                      <a href="/eavestroughs">Eavestroughs</a>
+                      <a href="/foundations">Foundations</a>
+                    </div>
+                  </div>
+                  <div class="mobile-subitem">
+                    <a href="#" class="mobile-submenu-title">Interior</a>
+                    <div class="mobile-submenu-content">
+                      <a href="/carpentry">Carpentry</a>
+                      <a href="/drywall">Drywall</a>
+                      <a href="/flooring">Flooring</a>
+                      <a href="/surface-finishes">Surface Finishes & Aesthetics</a>
+                      <a href="/insulation">Insulation</a>
+                    </div>
+                  </div>
+                  <div class="mobile-subitem">
+                    <a href="#" class="mobile-submenu-title">Landscaping</a>
+                    <div class="mobile-submenu-content">
+                      <a href="/hardscaping">Hardscaping</a>
+                      <a href="/softscaping">Softscaping</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
 
-      <li><a href="/knowledge-center">Knowledge Center</a></li>
-      <li><a href="/financing">Financing</a></li>
-      <li><a href="/careers">Careers</a></li>
-    </ul>
-  </nav>
-</header>
-
+              <li><a href="/knowledge-center">Knowledge Center</a></li>
+              <li><a href="/financing">Financing</a></li>
+              <li><a href="/careers">Careers</a></li>
+            </ul>
+          </nav>
+        </header>
+   
+    <div class="mobile-overlay"></div>
+   
     <!-- EUROSHIELD HERO -->
     <section class="hero">
         <div class="hero-content">
@@ -588,16 +637,43 @@
           const mobileNav = document.getElementById('mobileNav');
           const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
 
-          // Toggle mobile menu
+          // Create overlay if it doesn't exist
+          let overlay = document.querySelector('.mobile-overlay');
+          if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'mobile-overlay';
+            document.body.appendChild(overlay);
+          }
+
+          function openMenu() {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            hamburger.textContent = '✕';
+            document.body.style.overflow = 'hidden'; // prevent scrolling
+          }
+
+          function closeMenu() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.textContent = '☰';
+            document.body.style.overflow = '';
+          }
+
+          // Toggle menu
           hamburger.addEventListener('click', () => {
-            const isExpanded = mobileNav.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isExpanded);
-    
-            // Optional: change icon to X when open
-            hamburger.textContent = isExpanded ? '✕' : '☰';
+            if (mobileNav.classList.contains('active')) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
           });
 
-          // Handle mobile submenus (accordion style)
+          // Close when clicking overlay
+          overlay.addEventListener('click', closeMenu);
+
+          // Handle submenus
           mobileDropdowns.forEach(dropdown => {
             const title = dropdown.querySelector('.mobile-submenu-title');
             if (title) {
@@ -608,13 +684,11 @@
             }
           });
 
-          // Close menu when clicking a link
-          document.querySelectorAll('.mobile-menu a').forEach(link => {
+          // Close menu when clicking a main link
+          document.querySelectorAll('.mobile-menu > li > a').forEach(link => {
             link.addEventListener('click', () => {
               if (!link.classList.contains('mobile-submenu-title')) {
-                mobileNav.classList.remove('active');
-                hamburger.textContent = '☰';
-                hamburger.setAttribute('aria-expanded', 'false');
+                closeMenu();
               }
             });
           });
