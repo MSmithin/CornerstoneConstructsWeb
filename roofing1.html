@@ -1,1 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Services | Cornerstone Constructs - North Bay, Ontario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
 
+        /* Dropdown with fixed gap flickering */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+
+        /* ==================== PAGE STYLES ==================== */
+        .hero-roofing {
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('https://via.placeholder.com/1920x650/222/FF914D?text=Completed+New+Roof+Installation') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .section p {
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #444;
+        }
+
+        /* Roofing Materials Showcase */
+        .roofing-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1300px;
+            margin: 3rem auto;
+        }
+        .material-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .material-card:hover {
+            transform: translateY(-8px);
+        }
+        .material-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .material-card h3 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #222;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .process-step {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-orange);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Estimate Form */
+        .estimate-form {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.05rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto 0;
+        }
+
+        .contact-options {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #444;
+        }
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
+            </div>
+           
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+           
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 825-7196')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+           
+            <div class="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- HERO with background image -->
+    <section class="hero-roofing">
+        <div class="hero-content">
+            <h1>Roofing Services in North Bay</h1>
+            <p>High-quality roofing installation, repair, and replacement. Built to withstand Northern Ontario winters and protect your home for decades.</p>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <div class="section">
+        <h2>Professional Roofing Solutions</h2>
+        <p>At Cornerstone Constructs, we install and repair all major roofing systems with expert craftsmanship. From asphalt shingles to metal and flat roofs, we deliver durable, beautiful results you can trust.</p>
+    </div>
+
+    <!-- ROOFING MATERIALS SHOWCASE -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Roofing Materials</h2>
+        <div class="roofing-showcase">
+            <div class="material-card">
+                <img src="Roofing/IKO-Shingle-Replacement.jpg" alt="Asphalt Shingle Roofing">
+                <h3>Asphalt Shingle</h3>
+            </div>
+            <div class="material-card">
+                <img src="Roofing/metalroof.jpg" alt="Metal Roofing">
+                <h3>Metal Roofing</h3>
+            </div>
+            <div class="material-card">
+                <img src="Roofing/TPO.jpg" alt="Flat / TPO Roofing">
+                <h3>Flat / TPO</h3>
+            </div>
+            <div class="material-card">
+                <img src="Roofing/euroshield.jpg" alt="Euroshield Roofing">
+                <h3>Euroshield</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS STEPS -->
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Roofing Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Roofing System</h3>
+                <p>Select from Asphalt Shingle, Metal, Flat/TPO, Euroshield, or Repair Only. 
+                Not sure which material is best? 
+                <a href="knowledge-center.html#roofing-guide" style="color:var(--primary-orange);">Read our guide</a> — 
+                <strong>Guide To Picking Your Roofing Material</strong> — for expert advice on durability, cost, and performance. 
+                Or contact us directly — we’re the pros and we’re here to help.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below. We’ll provide a clear, no-obligation quote tailored to your roof.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once confirmed, our team will visit your home to take precise measurements, inspect the current roof, and recommend the best system for your home and budget.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our certified crew removes the old roof (if needed) and installs the new system with proper underlayment, flashing, and ventilation for maximum protection and longevity.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESTIMATE FORM - UPDATED -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Roofing Estimate</h2>
+            
+            <!-- Formspree endpoint - replace YOUR_CODE with the one you get from formspree.io -->
+            <form action="https://formspree.io/f/maqvrqwp" method="POST" enctype="multipart/form-data">
+                
+                <input type="hidden" name="_subject" value="Roofing Estimate Request">
+                <input type="hidden" name="_next" value="https://yourdomain.com/roofing.html?success=1">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Service Address (optional)</label>
+                    <input type="text" name="address">
+                </div>
+                <div class="form-group">
+                    <label>Postal Code <span class="required">*</span></label>
+                    <input type="text" name="postal" required placeholder="P1B 1A1">
+                </div>
+                <div class="form-group">
+                    <label>Roofing Material <span class="required">*</span></label>
+                    <select name="material" required>
+                        <option value="">-- Select Material --</option>
+                        <option value="Asphalt Shingle">Asphalt Shingle</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Flat/TPO">Flat / TPO</option>
+                        <option value="Euroshield">Euroshield</option>
+                        <option value="Repair only">Repair Only</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select name="urgency" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Emergency/Active Leak">Emergency / Active Leak</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea name="message" rows="4" placeholder="Current roof condition, leaks, desired color, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" name="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
+                        You can upload multiple photos (roof, damage, etc.)
+                    </p>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONSULTATION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After confirmation, our team will conduct a detailed on-site inspection. We take precise measurements and discuss all available roofing options to ensure you receive the best solution for your home and budget.
+        </p>
+    </div>
+
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We provide exceptional after-service support long after completion. Our trusted manufacturers back every installation with strong warranties, giving you complete peace of mind.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Not sure which roofing material is right for your home? 
+            <a href="knowledge-center.html#roofing-guide">Read our guide: Guide To Picking Your Roofing Material</a> 
+            for expert advice, or contact us by phone or email. Our experienced team is ready to answer your questions and help you choose the perfect roof.
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Success message
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your roofing estimate request has been received. We'll contact you shortly.");
+        }
+
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            alert('Mobile menu coming soon. Call us at (705) 825-7196');
+        });
+    </script>
+</body>
+</html>
