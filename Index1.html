@@ -9,20 +9,19 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
             color: #222;
             background: #f8f9fa;
         }
-
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -45,26 +44,28 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-        nav ul {
+
+        /* DESKTOP NAVIGATION - Specific class selectors */
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 2.8rem;
             align-items: center;
             margin-right: 3rem;
         }
-        nav a {
+        .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: 600;
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover {
+        .desktop-nav a:hover {
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Dropdown */
+        /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
         }
@@ -131,7 +132,7 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        /* ============== MOBILE SLIDING MENU ============== */
+
         /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
@@ -147,15 +148,13 @@
           transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
           padding-top: 100px;
           color: #222 !important;
-          font-family: 'Inter', system-ui, sans-serif; /* ensure font */
+          font-family: 'Inter', system-ui, sans-serif;
           display: block;
         }
-
         .mobile-nav.active {
           right: 0;
-          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);   /* just add 1.7 */ 
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
         }
-
         .mobile-overlay {
           position: fixed;
           top: 0;
@@ -168,12 +167,10 @@
           visibility: hidden;
           transition: all 0.4s ease;
         }
-
         .mobile-overlay.active {
           opacity: 1;
           visibility: visible;
         }
-
         /* Menu Content */
         .mobile-menu {
           list-style: none;
@@ -181,43 +178,36 @@
           margin: 0;
           width: 100%;
         }
-
         .mobile-menu li {
           border-bottom: 1px solid #eee;
-          width: 100%; 
+          width: 100%;
         }
-
         .mobile-menu a {
           display: block !important;
           padding: 1.2rem 1.6rem !important;
-          color: #222 !important;    /* force color */
+          color: #222 !important;
           text-decoration: none;
           font-size: 1.15rem;
           font-weight: 500;
-          width: 100%; 
+          width: 100%;
           min-height: 52px;
         }
-
         .mobile-menu a:hover {
           background: #f8f8f8;
           color: var(--primary-orange) !important;
         }
-
         /* Submenu Styling */
         .mobile-dropdown .mobile-submenu {
           display: none;
           padding: 0.5rem 0;
           background: #f9f9f9;
         }
-
         .mobile-dropdown.active .mobile-submenu {
           display: block;
         }
-
         .mobile-submenu .mobile-subitem {
           padding-left: 1rem;
         }
-
         .mobile-submenu-title {
           display: block;
           padding: 1rem 1.5rem;
@@ -225,18 +215,15 @@
           color: #222;
           cursor: pointer;
         }
-
         .mobile-submenu-content a {
           padding: 0.85rem 2rem;
           font-size: 1.02rem;
           color: #444;
         }
-
         .mobile-submenu-content a:hover {
           background: #f0f0f0;
           color: var(--primary-orange);
         }
-
         /* Hamburger */
         .hamburger {
           font-size: 2.2rem;
@@ -247,7 +234,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-        
+       
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -255,10 +242,33 @@
             display: none;
           }
         }
+
+        /* ==================== VISIBILITY RULES ==================== */
+        /* Desktop is visible by default */
+        .desktop-nav {
+            display: block;
+        }
+        .hamburger {
+            display: none;
+        }
+
+        /* Mobile view - hide desktop nav, show hamburger */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-content h1 { 
+                font-size: 2.8rem; 
+            }
+        }
+
         /* ==================== HERO / EUROSHIELD BANNER ==================== */
         .hero {
             height: 620px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                         url('Roofing/euroshield.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -295,7 +305,6 @@
             background: #e67e2e;
             transform: translateY(-3px);
         }
-
         /* ==================== SERVICES SECTION ==================== */
         .services-section {
             max-width: 1400px;
@@ -348,7 +357,6 @@
         .service-card h4 a:hover {
             color: var(--primary-orange);
         }
-
         /* ==================== TESTIMONIALS CAROUSEL ==================== */
         .testimonials {
             background: #fff;
@@ -394,7 +402,6 @@
         .dot.active {
             background: var(--primary-orange);
         }
-
         /* ==================== FOOTER ==================== */
         footer {
             background: #111;
@@ -414,24 +421,18 @@
             color: var(--primary-orange);
             text-decoration: underline;
         }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .desktop-nav ul { display: none; }
-            .hamburger { display: block; }
-        }
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-          
-            <nav>
+         
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="who-we-are.html">Who We Are</a></li>
@@ -473,25 +474,24 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-          
+         
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-          
+         
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
             </button>
         </div>
     </header>
-
     <!-- MOBILE SLIDING MENU -->
     <nav class="mobile-nav" id="mobileNav">
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-            
+           
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -525,15 +525,14 @@
                     </div>
                 </div>
             </li>
-            
+           
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
-
     <div class="mobile-overlay"></div>
-   
+  
     <!-- EUROSHIELD HERO -->
     <section class="hero">
         <div class="hero-content">
@@ -542,11 +541,9 @@
             <a href="knowledge-center.html#euroshield" class="btn-euroshield">Learn More About Euroshield</a>
         </div>
     </section>
-
     <!-- SERVICES -->
     <div class="services-section">
         <h2>Our Services</h2>
-
         <!-- Exterior -->
         <div class="category">
             <h3>Exterior</h3>
@@ -559,7 +556,6 @@
                 <div class="service-card"><img src="Foundations/pierandbeam.jpg" alt="Foundations"><h4><a href="foundations.html">Foundations</a></h4></div>
             </div>
         </div>
-
         <!-- Interior -->
         <div class="category">
             <h3>Interior</h3>
@@ -571,7 +567,6 @@
                 <div class="service-card"><img src="Insulation/fibgerglass-batt.jpg" alt="Insulation"><h4><a href="insulation.html">Insulation</a></h4></div>
             </div>
         </div>
-
         <!-- Landscaping -->
         <div class="category">
             <h3>Landscaping</h3>
@@ -581,7 +576,6 @@
             </div>
         </div>
     </div>
-
     <!-- TESTIMONIALS -->
     <div class="testimonials">
         <h2>What Our Clients Say</h2>
@@ -615,7 +609,6 @@
             <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
-
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
@@ -636,43 +629,38 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Simple testimonial carousel
         let current = 1;
         const total = 5;
-
         function showSlide(n) {
             document.querySelectorAll('.testimonial').forEach(t => t.classList.remove('active'));
             document.getElementById('t' + n).classList.add('active');
-            
+           
             document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
             document.querySelectorAll('.dot')[n-1].classList.add('active');
         }
-
         function currentSlide(n) {
             current = n;
             showSlide(current);
         }
-
         // Auto-rotate every 6 seconds
         setInterval(() => {
             current = (current % total) + 1;
             showSlide(current);
         }, 6000);
-
-        // Hamburger placeholder
+        // Hamburger menu
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-    
+   
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-    
+   
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -680,7 +668,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-    
+   
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -688,7 +676,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-    
+   
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -697,30 +685,43 @@
                     openMenu();
                 }
             });
-    
+   
             overlay.addEventListener('click', closeMenu);
-    
-            // Submenu toggles
+   
+            // Submenu toggles (Services top level now works better)
             mobileDropdowns.forEach(dropdown => {
+                const dropbtn = dropdown.querySelector('.mobile-dropbtn');
+                if (dropbtn) {
+                    dropbtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+                
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        dropdown.classList.toggle('active');
+                        // Toggle individual sub-sections if needed
+                        const subContent = title.nextElementSibling;
+                        if (subContent) {
+                            subContent.style.display = subContent.style.display === 'block' ? 'none' : 'block';
+                        }
                     });
                 });
             });
-    
+   
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (!link.classList.contains('mobile-submenu-title')) {
+                    if (!link.classList.contains('mobile-submenu-title') && !link.classList.contains('mobile-dropbtn')) {
                         closeMenu();
                     }
                 });
             });
-    
+   
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
