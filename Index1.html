@@ -205,6 +205,15 @@
         .mobile-dropdown.active .mobile-submenu {
           display: block;
         }
+        /* Hide inner service lists by default */
+        .mobile-submenu-content {
+          display: none;
+        }
+        
+        /* Show when parent category is active */
+        .mobile-subitem.active .mobile-submenu-content {
+          display: block;
+        }
         .mobile-submenu .mobile-subitem {
           padding-left: 1rem;
         }
@@ -689,6 +698,7 @@
             overlay.addEventListener('click', closeMenu);
    
             // Submenu toggles (Services top level now works better)
+            // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
                 const dropbtn = dropdown.querySelector('.mobile-dropbtn');
                 if (dropbtn) {
@@ -699,16 +709,15 @@
                     });
                 }
                 
+                // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        // Toggle individual sub-sections if needed
-                        const subContent = title.nextElementSibling;
-                        if (subContent) {
-                            subContent.style.display = subContent.style.display === 'block' ? 'none' : 'block';
-                        }
+                        
+                        const subItem = title.parentElement; // .mobile-subitem
+                        subItem.classList.toggle('active');
                     });
                 });
             });
