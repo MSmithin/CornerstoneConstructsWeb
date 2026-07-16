@@ -24,7 +24,7 @@
             background: #f8f9fa;
         }
         
-        /* Header Styles - Exact match */
+        /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -46,24 +46,28 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-        nav ul {
+
+        /* DESKTOP NAVIGATION - Specific class selectors */
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 2.8rem;
             align-items: center;
             margin-right: 3rem;
         }
-        nav a {
+        .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: 600;
             font-size: 1.05rem;
             white-space: nowrap;
         }
-        nav a:hover {
+        .desktop-nav a:hover {
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
+
+        /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
         }
@@ -88,19 +92,18 @@
             left: 100%;
             top: -6px;
             margin-left: -4px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
         .dropdown-content a {
             display: block;
             padding: 0.75rem 1.5rem;
             color: #222;
             text-decoration: none;
-            white-space: nowrap;
         }
         .dropdown-content a:hover {
             background: #f5f5f5;
             color: var(--primary-orange);
         }
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -131,12 +134,146 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+
+        /* ============== MOBILE SLIDING MENU ============== */
+        .mobile-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 78%;
+          max-width: 380px;
+          height: 100vh;
+          background: grey;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+          z-index: 2000;
+          overflow-y: auto;
+          transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+          padding-top: 100px;
+          color: #222 !important;
+          font-family: 'Inter', system-ui, sans-serif;
+          display: block;
+        }
+        .mobile-nav.active {
+          right: 0;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 1999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.4s ease;
+        }
+        .mobile-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        /* Menu Content */
+        .mobile-menu {
+          list-style: none;
+          padding: 2rem 0 2rem 0;
+          margin: 0;
+          width: 100%;
+        }
+        .mobile-menu li {
+          border-bottom: 1px solid #eee;
+          width: 100%;
+        }
+        .mobile-menu a {
+          display: block !important;
+          padding: 1.2rem 1.6rem !important;
+          color: #222 !important;
+          text-decoration: none;
+          font-size: 1.15rem;
+          font-weight: 500;
+          width: 100%;
+          min-height: 52px;
+        }
+        .mobile-menu a:hover {
+          background: #f8f8f8;
+          color: var(--primary-orange) !important;
+        }
+        /* Submenu Styling */
+        .mobile-dropdown .mobile-submenu {
+          display: none;
+          padding: 0.5rem 0;
+          background: #f9f9f9;
+        }
+        .mobile-dropdown.active .mobile-submenu {
+          display: block;
+        }
+        /* Hide inner service lists by default */
+        .mobile-submenu-content {
+          display: none;
+        }
+        
+        /* Show when parent category is active */
+        .mobile-subitem.active .mobile-submenu-content {
+          display: block;
+        }
+        .mobile-submenu .mobile-subitem {
+          padding-left: 1rem;
+        }
+        .mobile-submenu-title {
+          display: block;
+          padding: 1rem 1.5rem;
+          font-weight: 600;
+          color: #222;
+          cursor: pointer;
+        }
+        .mobile-submenu-content a {
+          padding: 0.85rem 2rem;
+          font-size: 1.02rem;
+          color: #444;
+        }
+        .mobile-submenu-content a:hover {
+          background: #f0f0f0;
+          color: var(--primary-orange);
+        }
+        /* Hamburger */
+        .hamburger {
+          font-size: 2.2rem;
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          padding: 0.5rem;
+          margin-left: auto;
+        }
+       
+        @media (min-width: 992px) {
+          .hamburger,
+          .mobile-nav,
+          .mobile-overlay {
+            display: none;
+          }
+        }
+
+        /* ==================== VISIBILITY RULES ==================== */
+        /* Desktop is visible by default */
+        .desktop-nav {
+            display: block;
+        }
         .hamburger {
             display: none;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            margin-left: 1.5rem;
+        }
+
+        /* Mobile view - hide desktop nav, show hamburger */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-content h1 { 
+                font-size: 2.8rem; 
+            }
         }
 
         /* Blog Content */
@@ -262,14 +399,15 @@
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-            
-            <nav>
+         
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="who-we-are.html">Who We Are</a></li>
@@ -311,15 +449,64 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-            
+         
             <div class="header-buttons">
-                <button class="btn btn-call" onclick="alert('Call us at: (705) 825-7196')">Call Now</button>
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-            
-            <div class="hamburger">☰</div>
+         
+            <!-- Hamburger -->
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+              ☰
+            </button>
         </div>
     </header>
+    <!-- MOBILE SLIDING MENU -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+           
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropbtn">Services</a>
+                <div class="mobile-submenu">
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Exterior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="roofing.html">Roofing</a>
+                            <a href="siding.html">Siding</a>
+                            <a href="soffit-fascia.html">Soffit & Fascia</a>
+                            <a href="decks-patios.html">Decks & Patios</a>
+                            <a href="eavestroughs.html">Eavestroughs</a>
+                            <a href="foundations.html">Foundations</a>
+                        </div>
+                    </div>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Interior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="carpentry.html">Carpentry</a>
+                            <a href="drywall.html">Drywall</a>
+                            <a href="flooring.html">Flooring</a>
+                            <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                            <a href="insulation.html">Insulation</a>
+                        </div>
+                    </div>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Landscaping</a>
+                        <div class="mobile-submenu-content">
+                            <a href="hardscaping.html">Hardscaping</a>
+                            <a href="softscaping.html">Softscaping</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+           
+            <li><a href="knowledge-center.html">Knowledge Center</a></li>
+            <li><a href="financing.html">Financing</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-overlay"></div>
 
     <div class="blog-container">
         <!-- Hero -->
@@ -415,6 +602,88 @@
             Professional Roofing • Euroshield • Metal • And More
         </p>
     </footer>
+    <script>
+        // Hamburger menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.querySelector('.mobile-overlay');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+   
+            if (!hamburger || !mobileNav || !overlay) {
+                console.error('Mobile menu elements missing!');
+                return;
+            }
+   
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                hamburger.textContent = '✕';
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+   
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.textContent = '☰';
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+   
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mobileNav.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+   
+            overlay.addEventListener('click', closeMenu);
+   
+            // Submenu toggles (Services top level now works better)
+            // Submenu toggles - Services > Exterior/Interior/Landscaping
+            mobileDropdowns.forEach(dropdown => {
+                const dropbtn = dropdown.querySelector('.mobile-dropbtn');
+                if (dropbtn) {
+                    dropbtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+                
+                // Individual category toggles (Exterior, Interior, Landscaping)
+                const titles = dropdown.querySelectorAll('.mobile-submenu-title');
+                titles.forEach(title => {
+                    title.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const subItem = title.parentElement; // .mobile-subitem
+                        subItem.classList.toggle('active');
+                    });
+                });
+            });
+   
+            // Close menu when clicking a main link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!link.classList.contains('mobile-submenu-title') && !link.classList.contains('mobile-dropbtn')) {
+                        closeMenu();
+                    }
+                });
+            });
+   
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
