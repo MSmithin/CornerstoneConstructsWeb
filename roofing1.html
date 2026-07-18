@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornerstone Constructs | North Bay Roofing, Siding & Construction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF914D;
+        }
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        html {
+            overflow-x: hidden;
+        }
+        
+        /* ==================== FIXED HEADER ==================== */
+        header {
+            background: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .logo img {
+            height: 120px;
+            width: 360px;
+            object-fit: contain;
+            margin-right: 3rem;
+        }
+        /* DESKTOP NAVIGATION - Specific class selectors */
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+            align-items: center;
+            margin-right: 3rem;
+        }
+        .desktop-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        .desktop-nav a:hover {
+            color: #222;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        /* Dropdown (desktop only) */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            color: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 240px;
+            padding: 12px 0;
+            border-radius: 8px;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover > .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+        }
+        .dropdown .dropdown-content .dropdown-content {
+            left: 100%;
+            top: -6px;
+            margin-left: -4px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #222;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+            color: var(--primary-orange);
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+            margin-left: auto;
+        }
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 1.02rem;
+            width: 190px;
+        }
+        .btn-call {
+            background: white;
+            color: var(--primary-orange);
+            border: 2px solid white;
+        }
+        .btn-estimate {
+            background: white;
+            color: var(--primary-orange);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        /* ============== MOBILE SLIDING MENU ============== */
+        .mobile-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 78%;
+          max-width: 380px;
+          height: 100vh;
+          background: white;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+          z-index: 2000;
+          overflow-y: auto;
+          transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+          padding-top: 80px;
+          color: #222 !important;
+          font-family: 'Inter', system-ui, sans-serif;
+          display: block;
+        }
+        .mobile-nav.active {
+          right: 0;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 1999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.4s ease;
+        }
+        .mobile-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        /* Menu Content */
+        .mobile-menu {
+          list-style: none;
+          padding: 2rem 0 2rem 0;
+          margin: 0;
+          width: 100%;
+        }
+        .mobile-menu li {
+          border-bottom: 1px solid #eee;
+          width: 100%;
+        }
+        .mobile-menu a {
+          display: block !important;
+          padding: 1.2rem 1.6rem !important;
+          color: #222 !important;
+          text-decoration: none;
+          font-size: 1.15rem;
+          font-weight: 500;
+          width: 100%;
+          min-height: 52px;
+        }
+        .mobile-menu a:hover {
+          background: #f8f8f8;
+          color: var(--primary-orange) !important;
+        }
+        /* Submenu Styling */
+        .mobile-dropdown .mobile-submenu {
+          display: none;
+          padding: 0.5rem 0;
+          background: #f9f9f9;
+        }
+        .mobile-dropdown.active .mobile-submenu {
+          display: block;
+        }
+        /* Hide inner service lists by default */
+        .mobile-submenu-content {
+          display: none;
+        }
+       
+        /* Show when parent category is active */
+        .mobile-subitem.active .mobile-submenu-content {
+          display: block;
+        }
+        .mobile-submenu .mobile-subitem {
+          padding-left: 1rem;
+        }
+        .mobile-submenu-title {
+          display: block;
+          padding: 1rem 1.5rem;
+          font-weight: 600;
+          color: #222;
+          cursor: pointer;
+        }
+        .mobile-submenu-content a {
+          padding: 0.85rem 2rem;
+          font-size: 1.02rem;
+          color: #444;
+        }
+        .mobile-submenu-content a:hover {
+          background: #f0f0f0;
+          color: var(--primary-orange);
+        }
+        /* Hamburger */
+        .hamburger {
+          font-size: 2.2rem;
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          padding: 0.5rem;
+          margin-left: auto;
+        }
+      
+        @media (min-width: 992px) {
+          .hamburger,
+          .mobile-nav,
+          .mobile-overlay {
+            display: none;
+          }
+        }
+        
+        
+        /* ==================== HERO / EUROSHIELD BANNER ==================== */
+        .hero {
+            height: 620px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('Roofing/euroshield.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-content h1 {
+            font-size: 3.6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        .btn-euroshield {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-euroshield:hover {
+            background: #e67e2e;
+            transform: translateY(-3px);
+        }
+        /* ==================== SERVICES SECTION ==================== */
+        .services-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .services-section h2 {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 3rem;
+        }
+        .category {
+            margin-bottom: 4rem;
+        }
+        .category h3 {
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .service-card h4 {
+            padding: 1rem 0.8rem;
+            font-size: 1.15rem;
+        }
+        .service-card h4 a {
+            color: #222;
+            text-decoration: none;
+        }
+        .service-card h4 a:hover {
+            color: var(--primary-orange);
+        }
+        .service-card-landscaping {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card-landscaping:hover {
+            transform: translateY(-8px);
+        }
+        .service-card-landscaping img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .service-card-landscaping h4 {
+            padding: 1rem 0.8rem;
+            font-size: 1.15rem;
+        }
+        .service-card-landscaping h4 a {
+            color: #222;
+            text-decoration: none;
+        }
+        .service-card-landscaping h4 a:hover {
+            color: var(--primary-orange);
+        }
+       
+        /* ==================== TESTIMONIALS CAROUSEL ==================== */
+        .testimonials {
+            background: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .testimonial-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial {
+            display: none;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .testimonial.active {
+            display: block;
+        }
+        .testimonial p {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial cite {
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+        .testimonial-dots {
+            margin-top: 2rem;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 6px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background: var(--primary-orange);
+        }
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+        footer a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+        /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
+        @media (max-width: 768px) {
+            /* Header stacked layout for mobile */
+            .header-container {
+                padding: 1rem 1rem 0.8rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .logo img {
+                height: 72px;
+                width: auto;
+                margin-right: 0;
+            }
+            
+            .header-buttons {
+                margin-left: 0;
+                flex-direction: row;
+                gap: 0.7rem;
+                justify-content: center;
+                width: 100%;
+                max-width: 340px;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.96rem;
+                width: auto;
+                min-width: 138px;
+                flex: 1;
+            }
+            
+            .hamburger {
+                margin-left: 0;
+                align-self: center;
+                font-size: 2.1rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            /* Mobile nav fine-tuning */
+            .mobile-nav {
+                padding-top: 75px;
+                width: 82%;
+            }
+            
+            /* Hero adjustments */
+            .hero {
+                height: auto;
+                min-height: 430px;
+                padding: 2.5rem 0 4rem 0;
+            }
+            
+            .hero-content {
+                padding: 0 1.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.15rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 1.8rem;
+            }
+            
+            .btn-euroshield {
+                margin-bottom: 2.5rem;
+            }
+            
+            /* Services spacing */
+            .services-section {
+                padding: 3rem 1rem 4rem;
+            }
+            
+            .services-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 3.2rem;
+            }
+            
+            /* Footer centering */
+            .footer-content {
+                flex-direction: column;
+                gap: 2.2rem;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-content > div {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .logo img {
+                height: 65px;
+            }
+            
+            .btn {
+                padding: 0.65rem 1.2rem;
+                font-size: 0.93rem;
+                min-width: 125px;
+            }
+            
+            .header-buttons {
+                max-width: 320px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* ==================== VISIBILITY RULES ==================== */
+        /* Desktop is visible by default */
+        .desktop-nav {
+            display: block;
+        }
+        .hamburger {
+            display: none;
+        }
+        /* Mobile view - hide desktop nav, show hamburger */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FIXED HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
+            </div>
+        
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="who-we-are.html">Who We Are</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services ▼</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <a href="#">Exterior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="roofing.html">Roofing</a>
+                                    <a href="siding.html">Siding</a>
+                                    <a href="soffit-fascia.html">Soffit & Fascia</a>
+                                    <a href="decks-patios.html">Decks & Patios</a>
+                                    <a href="eavestroughs.html">Eavestroughs</a>
+                                    <a href="foundations.html">Foundations</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Interior ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="carpentry.html">Carpentry</a>
+                                    <a href="drywall.html">Drywall</a>
+                                    <a href="flooring.html">Flooring</a>
+                                    <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                                    <a href="insulation.html">Insulation</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a href="#">Landscaping ▼</a>
+                                <div class="dropdown-content">
+                                    <a href="hardscaping.html">Hardscaping</a>
+                                    <a href="softscaping.html">Softscaping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="knowledge-center.html">Knowledge Center</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+        
+            <div class="header-buttons">
+                <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
+                <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
+            </div>
+        
+            <!-- Hamburger -->
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+              ☰
+            </button>
+        </div>
+    </header>
+    <!-- MOBILE SLIDING MENU -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+          
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropbtn">Services</a>
+                <div class="mobile-submenu">
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Exterior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="roofing.html">Roofing</a>
+                            <a href="siding.html">Siding</a>
+                            <a href="soffit-fascia.html">Soffit & Fascia</a>
+                            <a href="decks-patios.html">Decks & Patios</a>
+                            <a href="eavestroughs.html">Eavestroughs</a>
+                            <a href="foundations.html">Foundations</a>
+                        </div>
+                    </div>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Interior</a>
+                        <div class="mobile-submenu-content">
+                            <a href="carpentry.html">Carpentry</a>
+                            <a href="drywall.html">Drywall</a>
+                            <a href="flooring.html">Flooring</a>
+                            <a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a>
+                            <a href="insulation.html">Insulation</a>
+                        </div>
+                    </div>
+                    <div class="mobile-subitem">
+                        <a href="#" class="mobile-submenu-title">Landscaping</a>
+                        <div class="mobile-submenu-content">
+                            <a href="hardscaping.html">Hardscaping</a>
+                            <a href="softscaping.html">Softscaping</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+          
+            <li><a href="knowledge-center.html">Knowledge Center</a></li>
+            <li><a href="financing.html">Financing</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-overlay"></div>
+ 
+    <!-- EUROSHIELD HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Exclusive Euroshield Roofing in North Bay</h1>
+            <p>We are the only roofing contractor in our area currently offering premium Euroshield synthetic rubber roofing systems. Built to last decades in harsh Northern Ontario weather — with unmatched flexibility, waterproofing, and energy efficiency.</p>
+            <a href="knowledge-center.html#euroshield" class="btn-euroshield">Learn More About Euroshield</a>
+        </div>
+    </section>
+    <!-- SERVICES -->
+    <div class="services-section">
+        <h2>Our Services</h2>
+        <!-- Exterior -->
+        <div class="category">
+            <h3>Exterior</h3>
+            <div class="services-grid">
+                <div class="service-card"><img src="Roofing/IKO-Shingle-Replacement.jpg" alt="Roofing"><h4><a href="roofing.html">Roofing</a></h4></div>
+                <div class="service-card"><img src="Siding/fibrecement.jpg" alt="Siding"><h4><a href="siding.html">Siding</a></h4></div>
+                <div class="service-card"><img src="Soffit/aluminum.jpg" alt="Soffit & Fascia"><h4><a href="soffit-fascia.html">Soffit & Fascia</a></h4></div>
+                <div class="service-card"><img src="Deck-Patios/deck.jpg" alt="Decks & Patios"><h4><a href="decks-patios.html">Decks & Patios</a></h4></div>
+                <div class="service-card"><img src="Eavestrough/copper.jpg" alt="Eavestroughs"><h4><a href="eavestroughs.html">Eavestroughs</a></h4></div>
+                <div class="service-card"><img src="Foundations/pierandbeam.jpg" alt="Foundations"><h4><a href="foundations.html">Foundations</a></h4></div>
+            </div>
+        </div>
+        <!-- Interior -->
+        <div class="category">
+            <h3>Interior</h3>
+            <div class="services-grid">
+                <div class="service-card"><img src="Carpentry/framingshed.jpg" alt="Carpentry"><h4><a href="carpentry.html">Carpentry</a></h4></div>
+                <div class="service-card"><img src="Drywall/livingroom.jpg" alt="Drywall"><h4><a href="drywall.html">Drywall</a></h4></div>
+                <div class="service-card"><img src="Flooring/hardwood-solid.jpg" alt="Flooring"><h4><a href="flooring.html">Flooring</a></h4></div>
+                <div class="service-card"><img src="Aesthetics/architectural-metal-finishes.jpg" alt="Surface Aesthetics"><h4><a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a></h4></div>
+                <div class="service-card"><img src="Insulation/fibgerglass-batt.jpg" alt="Insulation"><h4><a href="insulation.html">Insulation</a></h4></div>
+            </div>
+        </div>
+        <!-- Landscaping -->
+        <div class="category">
+            <h3>Landscaping</h3>
+            <div class="services-grid">
+                <div class="service-card-landscaping"><img src="Hardscaping/walkway.jpg" alt="Hardscaping"><h4><a href="hardscaping.html">Hardscaping</a></h4></div>
+                <div class="service-card-landscaping"><img src="Softscaping/mulchedgardenbed.jpg" alt="Softscaping"><h4><a href="softscaping.html">Softscaping</a></h4></div>
+            </div>
+        </div>
+    </div>
+    <!-- TESTIMONIALS -->
+    <div class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial active" id="t1">
+                <p>"Super reliable and easy to deal with."</p>
+                <cite>— Lila M.</cite>
+            </div>
+            <div class="testimonial" id="t2">
+                <p>"Great experience from start to finish. Fair pricing, no surprises, and the workmanship on our siding was top notch."</p>
+                <cite>— Ethan C.</cite>
+            </div>
+            <div class="testimonial" id="t3">
+                <p>"Our house looks amazing and highly recommend."</p>
+                <cite>— Priya D.</cite>
+            </div>
+            <div class="testimonial" id="t4">
+                <p>"We’ve had a few contractors before, but these guys were by far the most reliable. Communication was excellent and the results speak for themselves."</p>
+                <cite>— Marcus Bennett</cite>
+            </div>
+            <div class="testimonial" id="t5">
+                <p>"They redid our roof and siding, and the house honestly looks brand new. Super professional crew and everything was cleaned up perfectly after."</p>
+                <cite>— Sofia R.</cite>
+            </div>
+        </div>
+        <div class="testimonial-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p><strong>Hours of Operation</strong><br>
+                Monday – Friday: 8:00 AM – 6:00 PM<br>
+                Saturday: By Appointment</p>
+            </div>
+            <div>
+                <p><strong>Contact Us</strong><br>
+                <a href="get-estimate.html">Get a Free Estimate</a><br>
+                (705) 825 7196<br>
+                cornerstoneconstructs@gmail.com</p>
+            </div>
+            <div>
+                <p>© 2026 Cornerstone Constructs. All Rights Reserved.<br>
+                Proudly Serving North Bay & Surrounding Areas</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple testimonial carousel
+        let current = 1;
+        const total = 5;
+        function showSlide(n) {
+            document.querySelectorAll('.testimonial').forEach(t => t.classList.remove('active'));
+            document.getElementById('t' + n).classList.add('active');
+          
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            document.querySelectorAll('.dot')[n-1].classList.add('active');
+        }
+        function currentSlide(n) {
+            current = n;
+            showSlide(current);
+        }
+        // Auto-rotate every 6 seconds
+        setInterval(() => {
+            current = (current % total) + 1;
+            showSlide(current);
+        }, 6000);
+        // Hamburger menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.querySelector('.mobile-overlay');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+  
+            if (!hamburger || !mobileNav || !overlay) {
+                console.error('Mobile menu elements missing!');
+                return;
+            }
+  
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                hamburger.textContent = '✕';
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+  
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.textContent = '☰';
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+  
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mobileNav.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+  
+            overlay.addEventListener('click', closeMenu);
+  
+            // Submenu toggles (Services top level now works better)
+            mobileDropdowns.forEach(dropdown => {
+                const dropbtn = dropdown.querySelector('.mobile-dropbtn');
+                if (dropbtn) {
+                    dropbtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+               
+                // Individual category toggles (Exterior, Interior, Landscaping)
+                const titles = dropdown.querySelectorAll('.mobile-submenu-title');
+                titles.forEach(title => {
+                    title.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                       
+                        const subItem = title.parentElement; // .mobile-subitem
+                        subItem.classList.toggle('active');
+                    });
+                });
+            });
+  
+            // Close menu when clicking a main link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!link.classList.contains('mobile-submenu-title') && !link.classList.contains('mobile-dropbtn')) {
+                        closeMenu();
+                    }
+                });
+            });
+  
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
