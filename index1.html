@@ -256,54 +256,60 @@
         
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
-            /* Header adjustments - prevent overflow */
+            /* Header stacked layout for mobile */
             .header-container {
-                padding: 0.75rem 1rem;
-                justify-content: space-between;
-                flex-wrap: nowrap;
+                padding: 1rem 1rem 0.8rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
             }
             
             .logo img {
-                height: 65px;
+                height: 72px;
                 width: auto;
-                margin-right: 0.8rem;
-            }
-            
-            .desktop-nav {
-                display: none;
+                margin-right: 0;
             }
             
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
-                gap: 0.6rem;
-                align-items: center;
+                gap: 0.7rem;
+                justify-content: center;
+                width: 100%;
+                max-width: 340px;
             }
             
             .btn {
-                padding: 0.65rem 1.4rem;
-                font-size: 0.95rem;
+                padding: 0.7rem 1.4rem;
+                font-size: 0.96rem;
                 width: auto;
-                min-width: 115px;
+                min-width: 138px;
+                flex: 1;
             }
             
             .hamburger {
-                margin-left: 0.6rem;
-                font-size: 2rem;
-                padding: 0.4rem;
+                margin-left: 0;
+                align-self: center;
+                font-size: 2.1rem;
+                padding: 0.4rem 0.8rem;
             }
             
             /* Mobile nav fine-tuning */
             .mobile-nav {
-                padding-top: 70px;
+                padding-top: 75px;
                 width: 82%;
+            }
+            
+            /* Extra space between header and hero */
+            .hero {
+                margin-top: 0.8rem;
             }
             
             /* Hero spacing */
             .hero {
                 height: auto;
-                min-height: 420px;
-                padding: 3rem 0 4rem 0;
+                min-height: 430px;
+                padding: 2.8rem 0 4rem 0;
             }
             
             .hero-content {
@@ -311,7 +317,7 @@
             }
             
             .hero-content h1 {
-                font-size: 2.4rem;
+                font-size: 2.35rem;
                 margin-bottom: 1rem;
             }
             
@@ -351,17 +357,17 @@
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
-                height: 58px;
+                height: 65px;
             }
             
             .btn {
-                padding: 0.6rem 1.1rem;
-                font-size: 0.9rem;
-                min-width: 105px;
+                padding: 0.65rem 1.2rem;
+                font-size: 0.93rem;
+                min-width: 125px;
             }
             
-            .hero {
-                min-height: 380px;
+            .header-buttons {
+                max-width: 320px;
             }
         }
 
@@ -834,7 +840,6 @@
             overlay.addEventListener('click', closeMenu);
   
             // Submenu toggles (Services top level now works better)
-            // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
                 const dropbtn = dropdown.querySelector('.mobile-dropbtn');
                 if (dropbtn) {
