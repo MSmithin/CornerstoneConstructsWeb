@@ -17,20 +17,20 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
             color: #222;
             background: #f8f9fa;
         }
-        
+       
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -53,7 +53,6 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -73,7 +72,6 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
-
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -110,7 +108,6 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -141,7 +138,6 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
@@ -218,7 +214,7 @@
         .mobile-submenu-content {
           display: none;
         }
-        
+       
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -252,7 +248,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-       
+      
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -260,7 +256,6 @@
             display: none;
           }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -269,7 +264,6 @@
         .hamburger {
             display: none;
         }
-
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -278,18 +272,17 @@
             .hamburger {
                 display: block;
             }
-            .hero-content h1 { 
-                font-size: 2.8rem; 
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
         }
-
         /* Blog Content */
         .blog-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+       
         .hero {
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('Roofing/euroshield.jpg') center/cover no-repeat;
             color: white;
@@ -298,19 +291,19 @@
             border-radius: 12px;
             margin-bottom: 3rem;
         }
-        
+       
         .hero h1 {
             font-size: 3.1rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
+       
         .hero p {
             font-size: 1.35rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+       
         .content {
             max-width: 920px;
             margin: 0 auto;
@@ -319,54 +312,54 @@
             border-radius: 12px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
-        
+       
         h2 {
             color: var(--primary-orange);
             font-size: 2.1rem;
             margin: 2.5rem 0 1.2rem;
             font-weight: 700;
         }
-        
+       
         h3 {
             font-size: 1.55rem;
             margin: 2rem 0 1rem;
             color: #222;
         }
-        
+       
         ul {
             margin: 1.2rem 0;
             padding-left: 1.4rem;
         }
-        
+       
         li {
             margin-bottom: 0.8rem;
         }
-        
+       
         .material {
             border-left: 5px solid var(--primary-orange);
             padding-left: 1.5rem;
             margin: 2.5rem 0;
         }
-        
+       
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 2.5rem 0;
             background: white;
         }
-        
+       
         th, td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        
+       
         th {
             background: #f8f9fa;
             color: var(--primary-orange);
             font-weight: 600;
         }
-        
+       
         .cta-button {
             display: inline-block;
             background: var(--primary-orange);
@@ -380,12 +373,12 @@
             box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
             transition: all 0.3s;
         }
-        
+       
         .cta-button:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
         }
-        
+       
         footer {
             background: #111;
             color: #ddd;
@@ -393,7 +386,48 @@
             padding: 3rem 2rem;
             margin-top: 4rem;
         }
-        
+
+        /* ==================== COMPARISON GRID (Mobile Only) ==================== */
+        .comparison-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 1.4rem;
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        .comparison-card h3 {
+            color: var(--primary-orange);
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-size: 1.35rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+        }
+
+        .comparison-card li strong {
+            display: block;
+            color: #444;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+       
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
             /* Header stacked layout for mobile */
@@ -403,13 +437,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -418,7 +452,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -426,56 +460,56 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
+           
             /* Hero adjustments */
             .hero {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
+           
             .hero-content {
                 padding: 0 1.2rem;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
+           
             .hero-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -483,34 +517,41 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
             }
+
+            /* Hide table, show grid on mobile */
+            table {
+                display: none;
+            }
+            .comparison-grid {
+                display: grid;
+            }
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.25rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -531,14 +572,13 @@
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-         
+        
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -582,12 +622,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-         
+        
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-         
+        
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -599,7 +639,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-           
+          
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -633,21 +673,19 @@
                     </div>
                 </div>
             </li>
-           
+          
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
-
     <div class="blog-container">
         <!-- Hero -->
         <div class="hero">
             <h1>The Last Roof You’ll Ever Buy?</h1>
             <p>Why Homeowners Are Switching to Euroshield</p>
         </div>
-
         <div class="content">
             <p style="font-size:1.15rem; margin-bottom:2rem;">
                 Choosing a new roof usually feels like a grudge purchase. But what if your roof wasn’t just a maintenance necessity? What if it was the last line of defense your home ever needed?
@@ -655,13 +693,11 @@
             <p style="font-size:1.15rem;">
                 Lately, we’ve been seeing a major shift toward Euroshield. It’s not just another shingle — it’s a masterclass in engineering that delivers durability, aesthetics, and environmental responsibility all at once.
             </p>
-
             <h2>1. Built to Weather the "Unthinkable"</h2>
             <div class="material">
                 <p><strong>Impact Resistance:</strong> UL2218 Class 4 rated — the highest protection available. It shrugs off golf-ball-sized hail and falling branches.</p>
                 <p><strong>The Rubber Advantage:</strong> Made from ~95% recycled tires, Euroshield has natural elasticity. It flexes instead of cracking or shattering like traditional materials.</p>
             </div>
-
             <h2>2. The Look of Luxury (Without the Maintenance)</h2>
             <div class="material">
                 <p>Euroshield perfectly mimics premium cedar shake and slate while eliminating the downsides:</p>
@@ -671,11 +707,11 @@
                 </ul>
                 <p><strong>Pro Tip:</strong> Being lightweight, it rarely requires expensive structural upgrades that real slate demands.</p>
             </div>
-
             <h2>3. Sustainability You Can Actually See</h2>
             <p>Each Euroshield roof diverts 250 to 1,000 old tires from landfills. It’s made from recycled materials and is recyclable at the end of its long life — a true closed-loop solution.</p>
-
             <h2>Performance at a Glance</h2>
+            
+            <!-- Desktop Table -->
             <table>
                 <thead>
                     <tr>
@@ -713,21 +749,49 @@
                 </tbody>
             </table>
 
+            <!-- Mobile Cards -->
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Standard Asphalt</h3>
+                    <ul>
+                        <li><strong>Lifespan:</strong> 20–25 Years</li>
+                        <li><strong>Hail Resistance:</strong> Moderate</li>
+                        <li><strong>Maintenance:</strong> Low</li>
+                        <li><strong>Eco-Friendly:</strong> No</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Wood Shake</h3>
+                    <ul>
+                        <li><strong>Lifespan:</strong> 20–25 Years</li>
+                        <li><strong>Hail Resistance:</strong> Poor</li>
+                        <li><strong>Maintenance:</strong> High</li>
+                        <li><strong>Eco-Friendly:</strong> Yes (Renewable)</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Euroshield</h3>
+                    <ul>
+                        <li><strong>Lifespan:</strong> 50+ Years</li>
+                        <li><strong>Hail Resistance:</strong> Exceptional (Class 4)</li>
+                        <li><strong>Maintenance:</strong> Minimal</li>
+                        <li><strong>Eco-Friendly:</strong> Yes (95% Recycled)</li>
+                    </ul>
+                </div>
+            </div>
+
             <h2>The Hidden ROI</h2>
             <p>When you factor in lifespan, reduced insurance premiums (many providers discount Class 4 roofs), and zero maintenance for decades, Euroshield often becomes the smarter long-term investment.</p>
-
             <h2>Is Euroshield Right for You?</h2>
             <p style="font-size:1.2rem; margin:2rem 0;">
                 If you want to install a roof once and never worry about it again, Euroshield is the answer. It delivers peace of mind through every storm while looking absolutely stunning.
             </p>
-
             <p style="font-size:1.2rem; margin:2.5rem 0 1rem; text-align:center; font-style:italic;">
                 Ready to see the texture and quality in person?<br>
                 Give us a call — your home deserves a roof that lasts a lifetime.
             </p>
         </div>
     </div>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
@@ -742,12 +806,12 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-   
+  
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-   
+  
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -755,7 +819,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-   
+  
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -763,7 +827,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-   
+  
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -772,9 +836,9 @@
                     openMenu();
                 }
             });
-   
+  
             overlay.addEventListener('click', closeMenu);
-   
+  
             // Submenu toggles (Services top level now works better)
             // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
@@ -786,20 +850,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-                
+               
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+                       
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-   
+  
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -808,7 +872,7 @@
                     }
                 });
             });
-   
+  
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
@@ -817,6 +881,5 @@
             });
         });
     </script>
-
 </body>
 </html>
