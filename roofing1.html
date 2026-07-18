@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cornerstone Constructs | North Bay Roofing, Siding & Construction</title>
+    <title>Roofing Services | Cornerstone Constructs - North Bay, Ontario</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="Favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="Favicon.site.webmanifest">
+    <link rel="icon" href="Favicon/favicon.ico">
     <style>
         :root {
             --primary-orange: #FF914D;
         }
-      
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-      
+        
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
             color: #222;
             background: #f8f9fa;
-            overflow-x: hidden;
-        }
-        
-        html {
-            overflow-x: hidden;
         }
         
         /* ==================== FIXED HEADER ==================== */
@@ -50,6 +52,7 @@
             object-fit: contain;
             margin-right: 3rem;
         }
+
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -69,6 +72,7 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
+
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -105,6 +109,7 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
+
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -143,12 +148,12 @@
           width: 78%;
           max-width: 380px;
           height: 100vh;
-          background: white;
+          background: grey;
           box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
           z-index: 2000;
           overflow-y: auto;
           transition: right 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-          padding-top: 80px;
+          padding-top: 100px;
           color: #222 !important;
           font-family: 'Inter', system-ui, sans-serif;
           display: block;
@@ -211,7 +216,7 @@
         .mobile-submenu-content {
           display: none;
         }
-       
+        
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -245,315 +250,13 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-      
+       
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
           .mobile-overlay {
             display: none;
           }
-        }
-        
-        
-        /* ==================== HERO / EUROSHIELD BANNER ==================== */
-        .hero {
-            height: 620px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                        url('Roofing/euroshield.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .hero-content h1 {
-            font-size: 3.6rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-        }
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-        .btn-euroshield {
-            background: var(--primary-orange);
-            color: white;
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-euroshield:hover {
-            background: #e67e2e;
-            transform: translateY(-3px);
-        }
-        /* ==================== SERVICES SECTION ==================== */
-        .services-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        .services-section h2 {
-            text-align: center;
-            font-size: 2.6rem;
-            margin-bottom: 3rem;
-        }
-        .category {
-            margin-bottom: 4rem;
-        }
-        .category h3 {
-            font-size: 1.8rem;
-            color: var(--primary-orange);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.8rem;
-        }
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-        }
-        .service-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .service-card h4 {
-            padding: 1rem 0.8rem;
-            font-size: 1.15rem;
-        }
-        .service-card h4 a {
-            color: #222;
-            text-decoration: none;
-        }
-        .service-card h4 a:hover {
-            color: var(--primary-orange);
-        }
-        .service-card-landscaping {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .service-card-landscaping:hover {
-            transform: translateY(-8px);
-        }
-        .service-card-landscaping img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-        .service-card-landscaping h4 {
-            padding: 1rem 0.8rem;
-            font-size: 1.15rem;
-        }
-        .service-card-landscaping h4 a {
-            color: #222;
-            text-decoration: none;
-        }
-        .service-card-landscaping h4 a:hover {
-            color: var(--primary-orange);
-        }
-       
-        /* ==================== TESTIMONIALS CAROUSEL ==================== */
-        .testimonials {
-            background: #fff;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-        .testimonial-container {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .testimonial {
-            display: none;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        .testimonial.active {
-            display: block;
-        }
-        .testimonial p {
-            font-size: 1.25rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        .testimonial cite {
-            font-weight: 600;
-            color: var(--primary-orange);
-        }
-        .testimonial-dots {
-            margin-top: 2rem;
-        }
-        .dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #ddd;
-            border-radius: 50%;
-            margin: 0 6px;
-            cursor: pointer;
-        }
-        .dot.active {
-            background: var(--primary-orange);
-        }
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: #111;
-            color: #ccc;
-            padding: 4rem 2rem 2rem;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            text-align: center;
-        }
-        footer a {
-            color: var(--primary-orange);
-            text-decoration: underline;
-        }
-        /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
-        @media (max-width: 768px) {
-            /* Header stacked layout for mobile */
-            .header-container {
-                padding: 1rem 1rem 0.8rem;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.8rem;
-            }
-            
-            .logo img {
-                height: 72px;
-                width: auto;
-                margin-right: 0;
-            }
-            
-            .header-buttons {
-                margin-left: 0;
-                flex-direction: row;
-                gap: 0.7rem;
-                justify-content: center;
-                width: 100%;
-                max-width: 340px;
-            }
-            
-            .btn {
-                padding: 0.7rem 1.4rem;
-                font-size: 0.96rem;
-                width: auto;
-                min-width: 138px;
-                flex: 1;
-            }
-            
-            .hamburger {
-                margin-left: 0;
-                align-self: center;
-                font-size: 2.1rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            /* Mobile nav fine-tuning */
-            .mobile-nav {
-                padding-top: 75px;
-                width: 82%;
-            }
-            
-            /* Hero adjustments */
-            .hero {
-                height: auto;
-                min-height: 430px;
-                padding: 2.5rem 0 4rem 0;
-            }
-            
-            .hero-content {
-                padding: 0 1.2rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.15rem;
-                line-height: 1.1;
-                margin-bottom: 1rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-                margin-bottom: 1.8rem;
-            }
-            
-            .btn-euroshield {
-                margin-bottom: 2.5rem;
-            }
-            
-            /* Services spacing */
-            .services-section {
-                padding: 3rem 1rem 4rem;
-            }
-            
-            .services-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 3.2rem;
-            }
-            
-            /* Footer centering */
-            .footer-content {
-                flex-direction: column;
-                gap: 2.2rem;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .footer-content > div {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
-        
-        /* Extra small screens */
-        @media (max-width: 480px) {
-            .logo img {
-                height: 65px;
-            }
-            
-            .btn {
-                padding: 0.65rem 1.2rem;
-                font-size: 0.93rem;
-                min-width: 125px;
-            }
-            
-            .header-buttons {
-                max-width: 320px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.25rem;
-            }
         }
 
         /* ==================== VISIBILITY RULES ==================== */
@@ -564,6 +267,7 @@
         .hamburger {
             display: none;
         }
+
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -572,17 +276,198 @@
             .hamburger {
                 display: block;
             }
+            .hero-content h1 { 
+                font-size: 2.8rem; 
+            }
+        }
+
+        /* ==================== PAGE STYLES ==================== */
+        .hero-roofing {
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                        url('Roofing/IKO-Shingle-Replacement.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .section p {
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #444;
+        }
+
+        /* Roofing Materials Showcase */
+        .roofing-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1300px;
+            margin: 3rem auto;
+        }
+        .material-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s;
+        }
+        .material-card:hover {
+            transform: translateY(-8px);
+        }
+        .material-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .material-card h3 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #222;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .process-step {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-orange);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Estimate Form */
+        .estimate-form {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.05rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-orange);
+            outline: none;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .btn-submit {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1.1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto 0;
+        }
+
+        .contact-options {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #444;
+        }
+        .contact-options a {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-        
+         
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -626,12 +511,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-        
+         
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-        
+         
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -643,7 +528,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-          
+           
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -677,142 +562,205 @@
                     </div>
                 </div>
             </li>
-          
+           
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
- 
-    <!-- EUROSHIELD HERO -->
-    <section class="hero">
+
+    <!-- HERO with background image -->
+    <section class="hero-roofing">
         <div class="hero-content">
-            <h1>Exclusive Euroshield Roofing in North Bay</h1>
-            <p>We are the only roofing contractor in our area currently offering premium Euroshield synthetic rubber roofing systems. Built to last decades in harsh Northern Ontario weather — with unmatched flexibility, waterproofing, and energy efficiency.</p>
-            <a href="knowledge-center.html#euroshield" class="btn-euroshield">Learn More About Euroshield</a>
+            <h1>Roofing Services in North Bay</h1>
+            <p>High-quality roofing installation, repair, and replacement. Built to withstand Northern Ontario winters and protect your home for decades.</p>
         </div>
     </section>
-    <!-- SERVICES -->
-    <div class="services-section">
-        <h2>Our Services</h2>
-        <!-- Exterior -->
-        <div class="category">
-            <h3>Exterior</h3>
-            <div class="services-grid">
-                <div class="service-card"><img src="Roofing/IKO-Shingle-Replacement.jpg" alt="Roofing"><h4><a href="roofing.html">Roofing</a></h4></div>
-                <div class="service-card"><img src="Siding/fibrecement.jpg" alt="Siding"><h4><a href="siding.html">Siding</a></h4></div>
-                <div class="service-card"><img src="Soffit/aluminum.jpg" alt="Soffit & Fascia"><h4><a href="soffit-fascia.html">Soffit & Fascia</a></h4></div>
-                <div class="service-card"><img src="Deck-Patios/deck.jpg" alt="Decks & Patios"><h4><a href="decks-patios.html">Decks & Patios</a></h4></div>
-                <div class="service-card"><img src="Eavestrough/copper.jpg" alt="Eavestroughs"><h4><a href="eavestroughs.html">Eavestroughs</a></h4></div>
-                <div class="service-card"><img src="Foundations/pierandbeam.jpg" alt="Foundations"><h4><a href="foundations.html">Foundations</a></h4></div>
+
+    <!-- INTRO -->
+    <div class="section">
+        <h2>Professional Roofing Solutions</h2>
+        <p>At Cornerstone Constructs, we install and repair all major roofing systems with expert craftsmanship. From asphalt shingles to metal and flat roofs, we deliver durable, beautiful results you can trust.</p>
+    </div>
+
+    <!-- ROOFING MATERIALS SHOWCASE -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Roofing Materials</h2>
+        <div class="roofing-showcase">
+            <div class="material-card">
+                <img src="Roofing/IKO-Shingle-Replacement.jpg" alt="Asphalt Shingle Roofing">
+                <h3>Asphalt Shingle</h3>
             </div>
-        </div>
-        <!-- Interior -->
-        <div class="category">
-            <h3>Interior</h3>
-            <div class="services-grid">
-                <div class="service-card"><img src="Carpentry/framingshed.jpg" alt="Carpentry"><h4><a href="carpentry.html">Carpentry</a></h4></div>
-                <div class="service-card"><img src="Drywall/livingroom.jpg" alt="Drywall"><h4><a href="drywall.html">Drywall</a></h4></div>
-                <div class="service-card"><img src="Flooring/hardwood-solid.jpg" alt="Flooring"><h4><a href="flooring.html">Flooring</a></h4></div>
-                <div class="service-card"><img src="Aesthetics/architectural-metal-finishes.jpg" alt="Surface Aesthetics"><h4><a href="surface-aesthetics.html">Surface Finishes & Aesthetics</a></h4></div>
-                <div class="service-card"><img src="Insulation/fibgerglass-batt.jpg" alt="Insulation"><h4><a href="insulation.html">Insulation</a></h4></div>
+            <div class="material-card">
+                <img src="Roofing/metalroof.jpg" alt="Metal Roofing">
+                <h3>Metal Roofing</h3>
             </div>
-        </div>
-        <!-- Landscaping -->
-        <div class="category">
-            <h3>Landscaping</h3>
-            <div class="services-grid">
-                <div class="service-card-landscaping"><img src="Hardscaping/walkway.jpg" alt="Hardscaping"><h4><a href="hardscaping.html">Hardscaping</a></h4></div>
-                <div class="service-card-landscaping"><img src="Softscaping/mulchedgardenbed.jpg" alt="Softscaping"><h4><a href="softscaping.html">Softscaping</a></h4></div>
+            <div class="material-card">
+                <img src="Roofing/TPO.jpg" alt="Flat / TPO Roofing">
+                <h3>Flat / TPO</h3>
+            </div>
+            <div class="material-card">
+                <img src="Roofing/euroshield.jpg" alt="Euroshield Roofing">
+                <h3>Euroshield</h3>
             </div>
         </div>
     </div>
-    <!-- TESTIMONIALS -->
-    <div class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-container">
-            <div class="testimonial active" id="t1">
-                <p>"Super reliable and easy to deal with."</p>
-                <cite>— Lila M.</cite>
+
+    <!-- PROCESS STEPS -->
+    <div class="section" style="background:#f8f9fa;">
+        <h2>How Our Roofing Process Works</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Roofing System</h3>
+                <p>Select from Asphalt Shingle, Metal, Flat/TPO, Euroshield, or Repair Only. 
+                Not sure which material is best? 
+                <a href="knowledge-center.html#roofing-guide" style="color:var(--primary-orange);">Read our guide</a> — 
+                <strong>Guide To Picking Your Roofing Material</strong> — for expert advice on durability, cost, and performance. 
+                Or contact us directly — we’re the pros and we’re here to help.</p>
             </div>
-            <div class="testimonial" id="t2">
-                <p>"Great experience from start to finish. Fair pricing, no surprises, and the workmanship on our siding was top notch."</p>
-                <cite>— Ethan C.</cite>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Request a Free Estimate</h3>
+                <p>Fill out the form below. We’ll provide a clear, no-obligation quote tailored to your roof.</p>
             </div>
-            <div class="testimonial" id="t3">
-                <p>"Our house looks amazing and highly recommend."</p>
-                <cite>— Priya D.</cite>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>On-Site Consultation</h3>
+                <p>Once confirmed, our team will visit your home to take precise measurements, inspect the current roof, and recommend the best system for your home and budget.</p>
             </div>
-            <div class="testimonial" id="t4">
-                <p>"We’ve had a few contractors before, but these guys were by far the most reliable. Communication was excellent and the results speak for themselves."</p>
-                <cite>— Marcus Bennett</cite>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Professional Installation</h3>
+                <p>Our certified crew removes the old roof (if needed) and installs the new system with proper underlayment, flashing, and ventilation for maximum protection and longevity.</p>
             </div>
-            <div class="testimonial" id="t5">
-                <p>"They redid our roof and siding, and the house honestly looks brand new. Super professional crew and everything was cleaned up perfectly after."</p>
-                <cite>— Sofia R.</cite>
-            </div>
-        </div>
-        <div class="testimonial-dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
+
+    <!-- ESTIMATE FORM - UPDATED -->
+    <div class="section">
+        <div class="estimate-form">
+            <h2>Request Your Roofing Estimate</h2>
+            
+            <!-- Formspree endpoint - replace YOUR_CODE with the one you get from formspree.io -->
+            <form action="https://formspree.io/f/maqvrqwp" method="POST" enctype="multipart/form-data">
+                
+                <input type="hidden" name="_subject" value="Roofing Estimate Request">
+                <input type="hidden" name="_next" value="https://yourdomain.com/roofing.html?success=1">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label>Name <span class="required">*</span></label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Service Address (optional)</label>
+                    <input type="text" name="address">
+                </div>
+                <div class="form-group">
+                    <label>Postal Code <span class="required">*</span></label>
+                    <input type="text" name="postal" required placeholder="P1B 1A1">
+                </div>
+                <div class="form-group">
+                    <label>Roofing Material <span class="required">*</span></label>
+                    <select name="material" required>
+                        <option value="">-- Select Material --</option>
+                        <option value="Asphalt Shingle">Asphalt Shingle</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Flat/TPO">Flat / TPO</option>
+                        <option value="Euroshield">Euroshield</option>
+                        <option value="Repair only">Repair Only</option>
+                        <option value="Not Sure">Not Sure / Consultation Needed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Project Urgency <span class="required">*</span></label>
+                    <select name="urgency" required>
+                        <option value="">-- Select Urgency --</option>
+                        <option value="Emergency/Active Leak">Emergency / Active Leak</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="3–6 months">3–6 months</option>
+                        <option value="6 months - 1 year">6 months - 1 year</option>
+                        <option value="Just researching">Just researching</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea name="message" rows="4" placeholder="Current roof condition, leaks, desired color, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photos (optional)</label>
+                    <input type="file" name="photos" multiple accept="image/*">
+                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
+                        You can upload multiple photos (roof, damage, etc.)
+                    </p>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONSULTATION -->
+    <div class="section">
+        <h2>Our On-Site Consultation</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            After confirmation, our team will conduct a detailed on-site inspection. We take precise measurements and discuss all available roofing options to ensure you receive the best solution for your home and budget.
+        </p>
+    </div>
+
+    <!-- AFTER SALES -->
+    <div class="section" style="background:#fff;">
+        <h2>Our Commitment to Your Satisfaction</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.15rem;">
+            We provide exceptional after-service support long after completion. Our trusted manufacturers back every installation with strong warranties, giving you complete peace of mind.
+        </p>
+    </div>
+
+    <!-- CONTACT OPTIONS -->
+    <div class="section contact-options">
+        <p>
+            Not sure which roofing material is right for your home? 
+            <a href="knowledge-center.html#roofing-guide">Read our guide: Guide To Picking Your Roofing Material</a> 
+            for expert advice, or contact us by phone or email. Our experienced team is ready to answer your questions and help you choose the perfect roof.
+        </p>
+    </div>
+
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div>
-                <p><strong>Hours of Operation</strong><br>
-                Monday – Friday: 8:00 AM – 6:00 PM<br>
-                Saturday: By Appointment</p>
-            </div>
-            <div>
-                <p><strong>Contact Us</strong><br>
-                <a href="get-estimate.html">Get a Free Estimate</a><br>
-                (705) 825 7196<br>
-                cornerstoneconstructs@gmail.com</p>
-            </div>
-            <div>
-                <p>© 2026 Cornerstone Constructs. All Rights Reserved.<br>
-                Proudly Serving North Bay & Surrounding Areas</p>
-            </div>
-        </div>
+        <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
+        <p>Professional Construction & Home Improvement Services</p>
+        <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
     </footer>
+
     <script>
-        // Simple testimonial carousel
-        let current = 1;
-        const total = 5;
-        function showSlide(n) {
-            document.querySelectorAll('.testimonial').forEach(t => t.classList.remove('active'));
-            document.getElementById('t' + n).classList.add('active');
-          
-            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-            document.querySelectorAll('.dot')[n-1].classList.add('active');
+        // Success message
+        if (window.location.search.includes("success=1")) {
+            alert("✅ Thank you! Your roofing estimate request has been received. We'll contact you shortly.");
         }
-        function currentSlide(n) {
-            current = n;
-            showSlide(current);
-        }
-        // Auto-rotate every 6 seconds
-        setInterval(() => {
-            current = (current % total) + 1;
-            showSlide(current);
-        }, 6000);
-        // Hamburger menu
+
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-  
+   
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-  
+   
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -820,7 +768,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-  
+   
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -828,7 +776,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-  
+   
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -837,10 +785,11 @@
                     openMenu();
                 }
             });
-  
+   
             overlay.addEventListener('click', closeMenu);
-  
+   
             // Submenu toggles (Services top level now works better)
+            // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
                 const dropbtn = dropdown.querySelector('.mobile-dropbtn');
                 if (dropbtn) {
@@ -850,20 +799,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-               
+                
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                       
+                        
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-  
+   
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -872,7 +821,7 @@
                     }
                 });
             });
-  
+   
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
