@@ -393,6 +393,47 @@
             padding: 3rem 2rem;
             margin-top: 4rem;
         }
+
+        /* ==================== COMPARISON GRID (Mobile Only) ==================== */
+        .comparison-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 1.4rem;
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        .comparison-card h3 {
+            color: var(--primary-orange);
+            margin-bottom: 1.2rem;
+            text-align: center;
+            font-size: 1.35rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+        }
+
+        .comparison-card li strong {
+            display: block;
+            color: #444;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
         
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
@@ -487,6 +528,14 @@
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
+            }
+
+            /* Hide table, show grid on mobile */
+            table {
+                display: none;
+            }
+            .comparison-grid {
+                display: grid;
             }
         }
         
@@ -730,6 +779,31 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Mobile-friendly Comparison Cards -->
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Aluminum Soffit</h3>
+                    <ul>
+                        <li><strong>Durability:</strong> Highest</li>
+                        <li><strong>Airflow / Ventilation:</strong> Excellent</li>
+                        <li><strong>Dent Resistance:</strong> Moderate</li>
+                        <li><strong>Cost:</strong> $$</li>
+                        <li><strong>Standard Fascia:</strong> Aluminum</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>Vinyl Soffit</h3>
+                    <ul>
+                        <li><strong>Durability:</strong> High</li>
+                        <li><strong>Airflow / Ventilation:</strong> Great</li>
+                        <li><strong>Dent Resistance:</strong> High</li>
+                        <li><strong>Cost:</strong> $</li>
+                        <li><strong>Standard Fascia:</strong> Aluminum</li>
+                    </ul>
+                </div>
+            </div>
 
             <h2>Is it time for an upgrade?</h2>
             <p style="font-size:1.2rem; margin:2rem 0;">
