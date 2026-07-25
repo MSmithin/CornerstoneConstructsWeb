@@ -1,0 +1,7 @@
+# robots.txt for Cornerstone Constructs
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cornerstoneconstructs.ca/sitemap.xml
