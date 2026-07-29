@@ -17,13 +17,13 @@
         :root {
             --primary-orange: #FF914D;
         }
-      
+     
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-      
+     
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
@@ -31,11 +31,11 @@
             background: #f8f9fa;
             overflow-x: hidden;
         }
-        
+       
         html {
             overflow-x: hidden;
         }
-        
+       
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -219,7 +219,7 @@
         .mobile-submenu-content {
           display: none;
         }
-       
+      
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -253,7 +253,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-      
+     
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -261,10 +261,68 @@
             display: none;
           }
         }
-        
-        
-        /* ==================== HERO / EUROSHIELD BANNER ==================== */
-        .hero {
+       
+       
+        /* ==================== NEW FULL HOME RENOVATIONS HERO ==================== */
+        .hero-renovations {
+            background: var(--primary-orange);
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-renovations-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            min-height: 520px;
+            padding: 2rem 2rem 2rem 0;
+            gap: 2rem;
+        }
+        .hero-image-wrapper {
+            flex: 0 0 48%;
+            max-width: 560px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            display: block;
+        }
+        .hero-text {
+            flex: 1;
+            color: white;
+            padding: 1rem 1rem 1rem 0.5rem;
+            text-align: left;
+        }
+        .hero-text h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.4rem;
+            text-transform: uppercase;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .hero-text h1 span {
+            display: block;
+        }
+        .hero-text p {
+            font-size: 1.55rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            opacity: 0.98;
+        }
+
+        /* ==================== EUROSHIELD SECTION (moved) ==================== */
+        .euroshield-section {
             height: 620px;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                         url('Roofing/euroshield.jpg') center/cover no-repeat;
@@ -273,17 +331,17 @@
             color: white;
             text-align: center;
         }
-        .hero-content {
+        .euroshield-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        .hero-content h1 {
-            font-size: 3.6rem;
+        .euroshield-content h2 {
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 1.2rem;
         }
-        .hero-content p {
+        .euroshield-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
         }
@@ -382,7 +440,7 @@
         .service-card-landscaping h4 a:hover {
             color: var(--primary-orange);
         }
-       
+      
         /* ==================== TESTIMONIALS CAROUSEL ==================== */
         .testimonials {
             background: #fff;
@@ -448,6 +506,34 @@
             text-decoration: underline;
         }
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
+        @media (max-width: 992px) {
+            .hero-renovations-inner {
+                flex-direction: column;
+                padding: 2.5rem 1.5rem 3rem;
+                min-height: auto;
+                gap: 1.8rem;
+                text-align: center;
+            }
+            .hero-image-wrapper {
+                flex: none;
+                max-width: 340px;
+                width: 100%;
+            }
+            .hero-image-wrapper img {
+                max-width: 320px;
+            }
+            .hero-text {
+                padding: 0;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .hero-text p {
+                font-size: 1.25rem;
+            }
+        }
+
         @media (max-width: 768px) {
             /* Header stacked layout for mobile */
             .header-container {
@@ -456,13 +542,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -471,7 +557,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -479,56 +565,74 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
-            /* Hero adjustments */
-            .hero {
+           
+            /* New hero mobile */
+            .hero-renovations-inner {
+                padding: 2rem 1.2rem 2.5rem;
+            }
+            .hero-image-wrapper {
+                max-width: 280px;
+            }
+            .hero-image-wrapper img {
+                max-width: 260px;
+            }
+            .hero-text h1 {
+                font-size: 2.25rem;
+                margin-bottom: 1rem;
+            }
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            /* Euroshield adjustments */
+            .euroshield-section {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
-            .hero-content {
+           
+            .euroshield-content {
                 padding: 0 1.2rem;
             }
-            
-            .hero-content h1 {
+           
+            .euroshield-content h2 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
-            .hero-content p {
+           
+            .euroshield-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -536,34 +640,42 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
             }
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
-            .hero-content h1 {
-                font-size: 2.25rem;
+           
+            .hero-text h1 {
+                font-size: 1.95rem;
+            }
+            .hero-image-wrapper {
+                max-width: 240px;
+            }
+            .hero-image-wrapper img {
+                max-width: 220px;
+            }
+            .euroshield-content h2 {
+                font-size: 2rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -590,7 +702,7 @@
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-        
+       
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -634,12 +746,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-        
+       
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-        
+       
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -651,7 +763,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-          
+         
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -685,22 +797,27 @@
                     </div>
                 </div>
             </li>
-          
+         
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
- 
-    <!-- EUROSHIELD HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Exclusive Euroshield Roofing in North Bay</h1>
-            <p>We are the only roofing contractor in our area currently offering premium Euroshield synthetic rubber roofing systems. Built to last decades in harsh Northern Ontario weather — with unmatched flexibility, waterproofing, and energy efficiency.</p>
-            <a href="knowledge-center.html#euroshield" class="btn-euroshield">Learn More About Euroshield</a>
+
+    <!-- NEW FULL HOME RENOVATIONS HERO (inspired by yard sign) -->
+    <section class="hero-renovations">
+        <div class="hero-renovations-inner">
+            <div class="hero-image-wrapper">
+                <img src="hero-home.png" alt="Modern home exterior – full home renovations by Cornerstone Constructs">
+            </div>
+            <div class="hero-text">
+                <h1><span>FULL HOME</span><span>RENOVATIONS</span></h1>
+                <p>Inside &amp; Out • Free Estimates</p>
+            </div>
         </div>
     </section>
+
     <!-- SERVICES -->
     <div class="services-section">
         <h2>Our Services</h2>
@@ -736,6 +853,16 @@
             </div>
         </div>
     </div>
+
+    <!-- EUROSHIELD SECTION (moved after Services) -->
+    <section class="euroshield-section">
+        <div class="euroshield-content">
+            <h2>Exclusive Euroshield Roofing in North Bay</h2>
+            <p>We are the only roofing contractor in our area currently offering premium Euroshield synthetic rubber roofing systems. Built to last decades in harsh Northern Ontario weather — with unmatched flexibility, waterproofing, and energy efficiency.</p>
+            <a href="knowledge-center.html#euroshield" class="btn-euroshield">Learn More About Euroshield</a>
+        </div>
+    </section>
+
     <!-- TESTIMONIALS -->
     <div class="testimonials">
         <h2>What Our Clients Say</h2>
@@ -796,7 +923,7 @@
         function showSlide(n) {
             document.querySelectorAll('.testimonial').forEach(t => t.classList.remove('active'));
             document.getElementById('t' + n).classList.add('active');
-          
+         
             document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
             document.querySelectorAll('.dot')[n-1].classList.add('active');
         }
@@ -815,12 +942,12 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-  
+ 
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-  
+ 
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -828,7 +955,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-  
+ 
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -836,7 +963,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-  
+ 
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -845,9 +972,9 @@
                     openMenu();
                 }
             });
-  
+ 
             overlay.addEventListener('click', closeMenu);
-  
+ 
             // Submenu toggles (Services top level now works better)
             mobileDropdowns.forEach(dropdown => {
                 const dropbtn = dropdown.querySelector('.mobile-dropbtn');
@@ -858,20 +985,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-               
+              
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                       
+                      
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-  
+ 
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -880,7 +1007,7 @@
                     }
                 });
             });
-  
+ 
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
