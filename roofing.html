@@ -17,20 +17,20 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
             color: #222;
             background: #f8f9fa;
         }
-        
+       
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -53,7 +53,6 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -73,7 +72,6 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
-
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -110,7 +108,6 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -217,7 +214,7 @@
         .mobile-submenu-content {
           display: none;
         }
-        
+       
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -251,7 +248,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-       
+      
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -259,7 +256,6 @@
             display: none;
           }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -268,7 +264,6 @@
         .hamburger {
             display: none;
         }
-
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -277,15 +272,14 @@
             .hamburger {
                 display: block;
             }
-            .hero-content h1 { 
-                font-size: 2.8rem; 
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
         }
-
         /* ==================== PAGE STYLES ==================== */
         .hero-roofing {
             height: 650px;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                         url('Roofing/IKO-Shingle-Replacement.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -307,7 +301,6 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
         .section {
             max-width: 1400px;
             margin: 0 auto;
@@ -326,7 +319,6 @@
             text-align: center;
             color: #444;
         }
-
         /* Roofing Materials Showcase */
         .roofing-showcase {
             display: grid;
@@ -356,7 +348,6 @@
             font-size: 1.25rem;
             color: #222;
         }
-
         /* Process Steps */
         .process-steps {
             display: grid;
@@ -383,7 +374,6 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
         }
-
         /* Estimate Form */
         .estimate-form {
             background: white;
@@ -436,7 +426,6 @@
             display: block;
             margin: 2rem auto 0;
         }
-
         .contact-options {
             text-align: center;
             font-size: 1.15rem;
@@ -446,14 +435,12 @@
             color: var(--primary-orange);
             text-decoration: underline;
         }
-
         footer {
             background: #111;
             color: #ccc;
             padding: 4rem 2rem 2rem;
             text-align: center;
         }
-
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
             /* Header stacked layout for mobile */
@@ -463,13 +450,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -478,7 +465,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -486,56 +473,56 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
+           
             /* Hero adjustments */
             .hero {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
+           
             .hero-content {
                 padding: 0 1.2rem;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
+           
             .hero-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -543,34 +530,47 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
             }
+
+            /* ===== ESTIMATE FORM MOBILE FIXES ===== */
+            /* Give the form more horizontal room on phones */
+            .estimate-form {
+                padding: 1.5rem 1rem;
+                margin: 2rem 0.5rem;
+                border-radius: 12px;
+            }
+
+            /* Stack phone + email inputs top-to-bottom on mobile */
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.25rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -591,14 +591,13 @@
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-         
+        
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -642,12 +641,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-         
+        
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-         
+        
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -659,7 +658,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-           
+          
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -693,27 +692,24 @@
                     </div>
                 </div>
             </li>
-           
+          
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
-
     <!-- HERO with background image -->
     <section class="hero-roofing">
         <div class="hero-content">
             <h1>Top-Rated Roofing Contractors in North Bay, Ontario</h1>
             <p>Specializing in asphalt shingle replacement, metal roofs, flat/TPO, and exclusive Euroshield installation. Built to withstand Northern Ontario winters and protect your home for decades.</p>
     </section>
-
     <!-- INTRO -->
     <div class="section">
         <h2>Professional Roofing Solutions</h2>
         <p>At Cornerstone Constructs, we are trusted <strong>local roofers in North Bay & Surrounding Areas</strong> providing complete <strong>roof replacement, new installation, and emergency leak repairs</strong>. Whether you need traditional <strong>asphalt shingle installation</strong>, durable <strong>metal roofing</strong>, or eco-friendly <strong>Euroshield synthetic rubber shingles</strong>, our certified crews deliver winter-proof protection built for Northern Ontario homes.</p>
     </div>
-
     <!-- ROOFING MATERIALS SHOWCASE -->
     <div class="section" style="background:#fff;">
         <h2>Our Roofing Systems & Material Options</h2>
@@ -736,7 +732,6 @@
             </div>
         </div>
     </div>
-
     <!-- PROCESS STEPS -->
     <div class="section" style="background:#f8f9fa;">
         <h2>How Our Roofing Process Works</h2>
@@ -744,10 +739,10 @@
             <div class="process-step">
                 <div class="step-number">1</div>
                 <h3>Choose Your Roofing System</h3>
-                <p>Select from Asphalt Shingle, Metal, Flat/TPO, Euroshield, or Repair Only. 
-                Not sure which material is best? 
-                <a href="knowledge-center.html#roofing-guide" style="color:var(--primary-orange);">Read our guide</a> — 
-                <strong>Guide To Picking Your Roofing Material</strong> — for expert advice on durability, cost, and performance. 
+                <p>Select from Asphalt Shingle, Metal, Flat/TPO, Euroshield, or Repair Only.
+                Not sure which material is best?
+                <a href="knowledge-center.html#roofing-guide" style="color:var(--primary-orange);">Read our guide</a> —
+                <strong>Guide To Picking Your Roofing Material</strong> — for expert advice on durability, cost, and performance.
                 Or contact us directly — we’re the pros and we’re here to help.</p>
             </div>
             <div class="process-step">
@@ -767,19 +762,17 @@
             </div>
         </div>
     </div>
-
     <!-- ESTIMATE FORM - UPDATED -->
     <div class="section">
         <div class="estimate-form">
             <h2>Request Your Roofing Estimate</h2>
-            
+           
             <!-- Formspree endpoint - replace YOUR_CODE with the one you get from formspree.io -->
             <form action="https://formspree.io/f/maqvrqwp" method="POST" enctype="multipart/form-data">
-                
+               
                 <input type="hidden" name="_subject" value="Roofing Estimate Request">
                 <input type="hidden" name="_next" value="https://yourdomain.com/roofing.html?success=1">
                 <input type="hidden" name="_captcha" value="false">
-
                 <div class="form-group">
                     <label>Name <span class="required">*</span></label>
                     <input type="text" name="name" required>
@@ -836,12 +829,10 @@
                         You can upload multiple photos (roof, damage, etc.)
                     </p>
                 </div>
-
                 <button type="submit" class="btn-submit">Submit Estimate Request</button>
             </form>
         </div>
     </div>
-
     <!-- CONSULTATION -->
     <div class="section">
         <h2>Our On-Site Consultation</h2>
@@ -849,7 +840,6 @@
             After confirmation, our team will conduct a detailed on-site inspection. We take precise measurements and discuss all available roofing options to ensure you receive the best solution for your home and budget.
         </p>
     </div>
-
     <!-- AFTER SALES -->
     <div class="section" style="background:#fff;">
         <h2>Our Commitment to Your Satisfaction</h2>
@@ -857,40 +847,36 @@
             We provide exceptional after-service support long after completion. Our trusted manufacturers back every installation with strong warranties, giving you complete peace of mind.
         </p>
     </div>
-
     <!-- CONTACT OPTIONS -->
     <div class="section contact-options">
         <p>
-            Not sure which roofing material is right for your home? 
-            <a href="knowledge-center.html#roofing-guide">Read our guide: Guide To Picking Your Roofing Material</a> 
+            Not sure which roofing material is right for your home?
+            <a href="knowledge-center.html#roofing-guide">Read our guide: Guide To Picking Your Roofing Material</a>
             for expert advice, or contact us by phone or email. Our experienced team is ready to answer your questions and help you choose the perfect roof.
         </p>
     </div>
-
     <!-- FOOTER -->
     <footer>
         <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
         <p>Professional Construction & Home Improvement Services</p>
         <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
     </footer>
-
     <script>
         // Success message
         if (window.location.search.includes("success=1")) {
             alert("✅ Thank you! Your roofing estimate request has been received. We'll contact you shortly.");
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-   
+  
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-   
+  
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -898,7 +884,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-   
+  
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -906,7 +892,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-   
+  
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -915,9 +901,9 @@
                     openMenu();
                 }
             });
-   
+  
             overlay.addEventListener('click', closeMenu);
-   
+  
             // Submenu toggles (Services top level now works better)
             // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
@@ -929,20 +915,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-                
+               
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+                       
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-   
+  
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -951,7 +937,7 @@
                     }
                 });
             });
-   
+  
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
