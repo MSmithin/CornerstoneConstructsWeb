@@ -17,20 +17,20 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.7;
             color: #222;
             background: #f8f9fa;
         }
-        
+       
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -53,7 +53,6 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -73,7 +72,6 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
-
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -110,7 +108,6 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -141,7 +138,6 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
@@ -218,7 +214,7 @@
         .mobile-submenu-content {
           display: none;
         }
-        
+       
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -252,7 +248,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-       
+      
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -260,7 +256,6 @@
             display: none;
           }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -269,7 +264,6 @@
         .hamburger {
             display: none;
         }
-
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -278,18 +272,17 @@
             .hamburger {
                 display: block;
             }
-            .hero-content h1 { 
-                font-size: 2.8rem; 
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
         }
-
         /* Blog Content */
         .blog-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+       
         .hero {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Roofing/IKO-Shingle-Replacement.jpg') center/cover no-repeat;
             color: white;
@@ -298,19 +291,19 @@
             border-radius: 12px;
             margin-bottom: 3rem;
         }
-        
+       
         .hero h1 {
             font-size: 3.2rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
+       
         .hero p {
             font-size: 1.35rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+       
         .content {
             max-width: 900px;
             margin: 0 auto;
@@ -319,61 +312,61 @@
             border-radius: 12px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
-        
+       
         h2 {
             color: var(--primary-orange);
             font-size: 2.1rem;
             margin: 2.5rem 0 1.2rem;
             font-weight: 700;
         }
-        
+       
         h3 {
             font-size: 1.55rem;
             margin: 2rem 0 1rem;
             color: #222;
         }
-        
+       
         ul {
             margin: 1.2rem 0;
             padding-left: 1.4rem;
         }
-        
+       
         li {
             margin-bottom: 0.8rem;
         }
-        
+       
         .factors {
             background: #f8f9fa;
             padding: 2rem;
             border-radius: 10px;
             margin: 2rem 0;
         }
-        
+       
         .material {
             border-left: 5px solid var(--primary-orange);
             padding-left: 1.5rem;
             margin: 2.5rem 0;
         }
-        
+       
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 2.5rem 0;
             background: white;
         }
-        
+       
         th, td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        
+       
         th {
             background: #f8f9fa;
             color: var(--primary-orange);
             font-weight: 600;
         }
-        
+       
         .cta-button {
             display: inline-block;
             background: var(--primary-orange);
@@ -387,12 +380,12 @@
             box-shadow: 0 6px 20px rgba(255, 145, 77, 0.3);
             transition: all 0.3s;
         }
-        
+       
         .cta-button:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(255, 145, 77, 0.4);
         }
-        
+       
         footer {
             background: #111;
             color: #ddd;
@@ -400,7 +393,6 @@
             padding: 3rem 2rem;
             margin-top: 4rem;
         }
-
         /* ==================== COMPARISON GRID (Mobile Only) ==================== */
         .comparison-grid {
             display: none;
@@ -408,7 +400,6 @@
             gap: 1.5rem;
             margin: 2.5rem 0;
         }
-
         .comparison-card {
             background: white;
             border-radius: 12px;
@@ -416,32 +407,28 @@
             padding: 1.4rem;
             border-top: 5px solid var(--primary-orange);
         }
-
         .comparison-card h3 {
             color: var(--primary-orange);
             margin-bottom: 1.2rem;
             text-align: center;
             font-size: 1.35rem;
         }
-
         .comparison-card ul {
             list-style: none;
             padding: 0;
         }
-
         .comparison-card li {
             padding: 0.65rem 0;
             border-bottom: 1px solid #eee;
             font-size: 1.05rem;
         }
-
         .comparison-card li strong {
             display: block;
             color: #444;
             font-size: 0.95rem;
             margin-bottom: 0.2rem;
         }
-        
+       
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
             /* Header stacked layout for mobile */
@@ -451,13 +438,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -466,7 +453,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -474,56 +461,56 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
+           
             /* Hero adjustments */
             .hero {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
+           
             .hero-content {
                 padding: 0 1.2rem;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
+           
             .hero-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -531,7 +518,7 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
@@ -543,30 +530,85 @@
             .comparison-grid {
                 display: grid;
             }
-            
+
+            /* ===== HERO + CONTENT MOBILE FIXES ===== */
+            /* Let the hero background reach closer to the screen edges */
+            .blog-container {
+                padding: 1rem 0.4rem;
+            }
+
+            .hero {
+                padding: 3.2rem 0.8rem 2.8rem;
+                border-radius: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+                line-height: 1.25;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            /* Reduce the boxed "overlay" feel so content spreads out */
+            .content {
+                padding: 1.5rem 1rem 2.5rem;
+                border-radius: 8px;
+                margin: 0 0.15rem;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            }
+
+            .material {
+                padding-left: 1rem;
+                margin: 1.8rem 0;
+            }
+
+            .factors {
+                padding: 1.4rem 1rem;
+            }
+
+            .comparison-grid {
+                gap: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .comparison-card {
+                padding: 1.1rem;
+            }
+
+            .cta-button {
+                display: block;
+                text-align: center;
+                padding: 1rem 1.6rem;
+                font-size: 1.1rem;
+                margin: 1.5rem auto 0;
+            }
+           
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.25rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -587,14 +629,13 @@
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-         
+        
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -638,12 +679,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-         
+        
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-         
+        
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -655,7 +696,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-           
+          
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -689,21 +730,19 @@
                     </div>
                 </div>
             </li>
-           
+          
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
-
     <div class="blog-container">
         <!-- Hero -->
         <div class="hero">
             <h1>The Ultimate Guide to Picking Your Roofing Material</h1>
             <p>Your complete breakdown of asphalt shingles, metal roofing, TPO, and Euroshield installed by expert contractors in North Bay &amp; Surronding Areas.</p>
         </div>
-
         <div class="content">
             <p style="font-size:1.15rem; margin-bottom:2rem;">
                 Choosing a new roof is a major investment, but it doesn't have to be complicated. Whether you are looking into <strong>asphalt shingle roof installation</strong> or a long-lasting <strong>metal roof replacement</strong>, this guide helps you navigate the best roofing materials built to withstand Northern Ontarios climate.
@@ -711,7 +750,6 @@
             <p style="font-size:1.15rem;">
                 We’ve broken down the four main materials we offer so you can find the perfect match for your North Bay home.
             </p>
-
             <h2>4 Factors to Consider Before You Choose</h2>
             <div class="factors">
                 <ol>
@@ -721,9 +759,7 @@
                     <li><strong>How much do I care about "The Look"?</strong> Do you want a classic neighborhood look or something that stands out?</li>
                 </ol>
             </div>
-
             <h2>Our Roofing Materials: Material Breakdown &amp; Comparison</h2>
-
             <div class="material">
                 <h3>1. Asphalt Shingle Roof Installation — The "Classic Reliable" Choice</h3>
                 <p>Asphalt shingles are the most popular roofing material in North America. They are made of fiberglass mats coated in asphalt and ceramic granules.</p>
@@ -733,7 +769,6 @@
                     <li><strong>Best For:</strong> Budget-conscious homeowners or those planning to sell their home in the next few years.</li>
                 </ul>
             </div>
-
             <div class="material">
                 <h3>2. Metal Roofing — The "One and Done" Choice</h3>
                 <p>Modern metal roofs aren't just for barns anymore. They come in sleek panels that give homes a clean, high-end look.</p>
@@ -743,7 +778,6 @@
                     <li><strong>Best For:</strong> Homeowners who want a "forever roof" and want to save money on monthly cooling/heating bills.</li>
                 </ul>
             </div>
-
             <div class="material">
                 <h3>3. Flat / TPO Roofing — The "Modern Minimalist" Choice</h3>
                 <p>TPO (Thermoplastic Polyolefin) is a single-ply white membrane used primarily on flat or very low-slope roofs.</p>
@@ -753,7 +787,6 @@
                     <li><strong>Best For:</strong> Modern homes, additions, or garages with flat rooflines where water drainage is the #1 priority.</li>
                 </ul>
             </div>
-
             <div class="material">
                 <h3>4. Euroshield® — The "Indestructible" Choice</h3>
                 <p>Euroshield is a premium "rubber" roofing made from 95% recycled tires. It’s designed to look exactly like expensive slate or wood shakes but with way more muscle.</p>
@@ -763,7 +796,6 @@
                     <li><strong>Best For:</strong> Homeowners in storm-heavy areas who want a high-end "luxury" look without the high-end maintenance.</li>
                 </ul>
             </div>
-
             <h2>Comparison at a Glance</h2>
             <table>
                 <thead>
@@ -801,7 +833,6 @@
                     </tr>
                 </tbody>
             </table>
-
             <!-- Mobile-friendly Comparison Cards -->
             <div class="comparison-grid">
                 <div class="comparison-card">
@@ -812,7 +843,7 @@
                         <li><strong>Best Feature:</strong> Budget-Friendly</li>
                     </ul>
                 </div>
-                
+               
                 <div class="comparison-card">
                     <h3>Metal Roofing</h3>
                     <ul>
@@ -821,7 +852,7 @@
                         <li><strong>Best Feature:</strong> Extreme Longevity</li>
                     </ul>
                 </div>
-                
+               
                 <div class="comparison-card">
                     <h3>Flat / TPO</h3>
                     <ul>
@@ -830,7 +861,7 @@
                         <li><strong>Best Feature:</strong> Best for Flat Roofs</li>
                     </ul>
                 </div>
-                
+               
                 <div class="comparison-card">
                     <h3>Euroshield®</h3>
                     <ul>
@@ -840,16 +871,15 @@
                     </ul>
                 </div>
             </div>
-            
+           
             <h2>Still Not Sure?</h2>
             <p style="font-size:1.2rem; margin:2rem 0;">
                 Every house is different. Whether you're worried about the next big hailstorm or just want the best-looking house on the block, we're here to help.
             </p>
-            
+           
             <a href="roofing.html" class="cta-button">Get a Free No-Pressure Roofing Quote →</a>
         </div>
     </div>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Cornerstone Constructs — North Bay, Ontario</p>
@@ -864,12 +894,12 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-   
+  
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-   
+  
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -877,7 +907,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-   
+  
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -885,7 +915,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-   
+  
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -894,9 +924,9 @@
                     openMenu();
                 }
             });
-   
+  
             overlay.addEventListener('click', closeMenu);
-   
+  
             // Submenu toggles (Services top level now works better)
             // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
@@ -908,20 +938,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-                
+               
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+                       
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-   
+  
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -930,7 +960,7 @@
                     }
                 });
             });
-   
+  
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
@@ -939,6 +969,5 @@
             });
         });
     </script>
-
 </body>
 </html>
