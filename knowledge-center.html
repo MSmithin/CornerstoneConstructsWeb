@@ -16,16 +16,15 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+       
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
             color: #222;
             background: #f8f9fa;
         }
-
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -48,7 +47,6 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -68,7 +66,6 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
-
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -105,7 +102,6 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -136,7 +132,6 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
@@ -213,7 +208,7 @@
         .mobile-submenu-content {
           display: none;
         }
-        
+       
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -247,7 +242,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-       
+      
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -255,7 +250,6 @@
             display: none;
           }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -264,7 +258,6 @@
         .hamburger {
             display: none;
         }
-
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -273,20 +266,19 @@
             .hamburger {
                 display: block;
             }
-            .hero-content h1 { 
-                font-size: 2.8rem; 
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
         }
-        
+       
         /* PAGE CONTENT */
         .hero-knowledge {
             height: 420px;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                         url('https://via.placeholder.com/1920x420/222/FF914D?text=Knowledge+Center') center/cover no-repeat;
             display: flex; align-items: center; color: white; text-align: center;
         }
         .hero-content { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-
         .section {
             max-width: 1200px;
             margin: 0 auto;
@@ -304,7 +296,6 @@
             margin: 0 auto 4rem;
             color: #444;
         }
-
         /* Blog Grid */
         .knowledge-grid {
             display: grid;
@@ -351,7 +342,6 @@
             font-weight: 600;
             font-size: 0.95rem;
         }
-
         footer {
             background: #111;
             color: #ccc;
@@ -367,13 +357,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -382,7 +372,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -390,56 +380,56 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
+           
             /* Hero adjustments */
             .hero {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
+           
             .hero-content {
                 padding: 0 1.2rem;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
+           
             .hero-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -447,34 +437,49 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
             }
+
+            /* ===== CENTER THE ENTIRE PAGE ON MOBILE ===== */
+            html, body {
+                overflow-x: hidden;
+                max-width: 100%;
+            }
+
+            /* Prevent grid from forcing horizontal overflow */
+            .knowledge-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.25rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -495,14 +500,13 @@
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-         
+        
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -546,12 +550,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-         
+        
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-         
+        
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -563,7 +567,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-           
+          
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -597,32 +601,28 @@
                     </div>
                 </div>
             </li>
-           
+          
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
-
     <!-- HERO -->
     <section class="hero-knowledge">
         <div class="hero-content">
             <h1>Knowledge Center</h1>
         </div>
     </section>
-
     <!-- INTRODUCTION -->
     <div class="section">
         <h2>Looking for Home Renovation & Construction Knowledge?</h2>
         <p class="intro-text">
-            Whether you're planning a major project or just want to understand your options better, 
+            Whether you're planning a major project or just want to understand your options better,
             our Knowledge Center is packed with honest, practical guides written by our experienced team.
         </p>
-
         <!-- KNOWLEDGE GRID -->
         <div class="knowledge-grid">
-
             <!-- Roofing Guide -->
             <div class="post-card">
                 <img src="Roofing/IKO-Shingle-Replacement.jpg" alt="Roofing Guide">
@@ -632,7 +632,6 @@
                     <div class="post-author">— Johnny Bradigan</div>
                 </div>
             </div>
-
             <!-- Siding Guide -->
             <div class="post-card">
                 <img src="Siding/vinyl.jpg" alt="Siding Guide">
@@ -642,7 +641,6 @@
                     <div class="post-author">— Johnny Bradigan</div>
                 </div>
             </div>
-
             <!-- Soffit & Fascia -->
             <div class="post-card">
                 <img src="Soffit/aluminum.jpg" alt="Soffit Guide">
@@ -652,7 +650,6 @@
                     <div class="post-author">— Johnny Bradigan</div>
                 </div>
             </div>
-
             <!-- Eavestroughs -->
             <div class="post-card">
                 <img src="Eavestrough/galvanizedsteel.jpg" alt="Eavestroughs Guide">
@@ -662,7 +659,6 @@
                     <div class="post-author">— Johnny Bradigan</div>
                 </div>
             </div>
-
             <!-- Foundation -->
             <div class="post-card">
                 <img src="Foundations/slab.jpg" alt="Foundation Guide">
@@ -672,7 +668,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Drywall -->
             <div class="post-card">
                 <img src="Drywall/wardrobe.jpg" alt="Drywall Guide">
@@ -682,7 +677,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Flooring -->
             <div class="post-card">
                 <img src="Flooring/LVP.jpg" alt="Flooring Guide">
@@ -692,7 +686,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Surface & Aesthetics -->
             <div class="post-card">
                 <img src="Aesthetics/countertop-surface.jpg" alt="Surface Guide">
@@ -702,7 +695,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Insulation -->
             <div class="post-card">
                 <img src="Insulation/mineralwool.jpg" alt="Insulation Guide">
@@ -712,7 +704,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Hardscaping -->
             <div class="post-card">
                 <img src="Hardscaping/retainingwall.jpg" alt="Hardscaping Guide">
@@ -722,7 +713,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Softscaping -->
             <div class="post-card">
                 <img src="Softscaping/flowerbed.jpg" alt="Softscaping Guide">
@@ -732,7 +722,6 @@
                     <div class="post-author">— Steven Soladay</div>
                 </div>
             </div>
-
             <!-- Euroshield -->
             <div class="post-card">
                 <img src="Roofing/euroshield.jpg" alt="Euroshield Guide">
@@ -742,10 +731,8 @@
                     <div class="post-author">— Johnny Bradigan</div>
                 </div>
             </div>
-
         </div>
     </div>
-
     <!-- FOOTER -->
     <footer>
         <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
@@ -759,12 +746,12 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-   
+  
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-   
+  
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -772,7 +759,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-   
+  
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -780,7 +767,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-   
+  
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -789,9 +776,9 @@
                     openMenu();
                 }
             });
-   
+  
             overlay.addEventListener('click', closeMenu);
-   
+  
             // Submenu toggles (Services top level now works better)
             // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
@@ -803,20 +790,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-                
+               
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+                       
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-   
+  
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -825,7 +812,7 @@
                     }
                 });
             });
-   
+  
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
@@ -834,6 +821,5 @@
             });
         });
     </script>
-
 </body>
 </html>
