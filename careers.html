@@ -16,20 +16,20 @@
         :root {
             --primary-orange: #FF914D;
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.6;
             color: #222;
             background: #f8f9fa;
         }
-        
+       
         /* ==================== FIXED HEADER ==================== */
         header {
             background: var(--primary-orange);
@@ -52,7 +52,6 @@
             object-fit: contain;
             margin-right: 3rem;
         }
-
         /* DESKTOP NAVIGATION - Specific class selectors */
         .desktop-nav ul {
             display: flex;
@@ -72,7 +71,6 @@
             color: #222;
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
-
         /* Dropdown (desktop only) */
         .dropdown {
             position: relative;
@@ -109,7 +107,6 @@
             background: #f5f5f5;
             color: var(--primary-orange);
         }
-
         .header-buttons {
             display: flex;
             flex-direction: column;
@@ -140,7 +137,6 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         /* ============== MOBILE SLIDING MENU ============== */
         .mobile-nav {
           position: fixed;
@@ -217,7 +213,7 @@
         .mobile-submenu-content {
           display: none;
         }
-        
+       
         /* Show when parent category is active */
         .mobile-subitem.active .mobile-submenu-content {
           display: block;
@@ -251,7 +247,7 @@
           padding: 0.5rem;
           margin-left: auto;
         }
-       
+      
         @media (min-width: 992px) {
           .hamburger,
           .mobile-nav,
@@ -259,7 +255,6 @@
             display: none;
           }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -268,7 +263,6 @@
         .hamburger {
             display: none;
         }
-
         /* Mobile view - hide desktop nav, show hamburger */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -277,15 +271,14 @@
             .hamburger {
                 display: block;
             }
-            .hero-content h1 { 
-                font-size: 2.8rem; 
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
         }
-
         /* ==================== PAGE STYLES ==================== */
         .hero-careers {
             height: 520px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                         url('https://via.placeholder.com/1920x520/222/FF914D?text=Join+Our+Team') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -302,7 +295,6 @@
             font-weight: 700;
             margin-bottom: 1rem;
         }
-
         .section {
             max-width: 1100px;
             margin: 0 auto;
@@ -321,7 +313,6 @@
             margin: 0 auto 3rem;
             color: #444;
         }
-
         /* Application Form */
         .application-form {
             background: white;
@@ -376,14 +367,12 @@
             display: block;
             margin: 2.5rem auto 0;
         }
-
         footer {
             background: #111;
             color: #ccc;
             padding: 4rem 2rem 2rem;
             text-align: center;
         }
-
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 768px) {
             /* Header stacked layout for mobile */
@@ -393,13 +382,13 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            
+           
             .logo img {
                 height: 72px;
                 width: auto;
                 margin-right: 0;
             }
-            
+           
             .header-buttons {
                 margin-left: 0;
                 flex-direction: row;
@@ -408,7 +397,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            
+           
             .btn {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.96rem;
@@ -416,56 +405,56 @@
                 min-width: 138px;
                 flex: 1;
             }
-            
+           
             .hamburger {
                 margin-left: 0;
                 align-self: center;
                 font-size: 2.1rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+           
             /* Mobile nav fine-tuning */
             .mobile-nav {
                 padding-top: 75px;
                 width: 82%;
             }
-            
+           
             /* Hero adjustments */
             .hero {
                 height: auto;
                 min-height: 430px;
                 padding: 2.5rem 0 4rem 0;
             }
-            
+           
             .hero-content {
                 padding: 0 1.2rem;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.15rem;
                 line-height: 1.1;
                 margin-bottom: 1rem;
             }
-            
+           
             .hero-content p {
                 font-size: 1.1rem;
                 margin-bottom: 1.8rem;
             }
-            
+           
             .btn-euroshield {
                 margin-bottom: 2.5rem;
             }
-            
+           
             /* Services spacing */
             .services-section {
                 padding: 3rem 1rem 4rem;
             }
-            
+           
             .services-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3.2rem;
             }
-            
+           
             /* Footer centering */
             .footer-content {
                 flex-direction: column;
@@ -473,34 +462,47 @@
                 align-items: center;
                 text-align: center;
             }
-            
+           
             .footer-content > div {
                 width: 100%;
                 max-width: 280px;
             }
+
+            /* ===== APPLICATION FORM MOBILE FIXES ===== */
+            /* Give the form more horizontal room on phones */
+            .application-form {
+                padding: 1.5rem 1rem;
+                margin: 0 0.5rem;
+                border-radius: 12px;
+            }
+
+            /* Stack First Name / Last Name and Email / Phone top-to-bottom on mobile */
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
         }
-        
+       
         /* Extra small screens */
         @media (max-width: 480px) {
             .logo img {
                 height: 65px;
             }
-            
+           
             .btn {
                 padding: 0.65rem 1.2rem;
                 font-size: 0.93rem;
                 min-width: 125px;
             }
-            
+           
             .header-buttons {
                 max-width: 320px;
             }
-            
+           
             .hero-content h1 {
                 font-size: 2.25rem;
             }
         }
-
         /* ==================== VISIBILITY RULES ==================== */
         /* Desktop is visible by default */
         .desktop-nav {
@@ -521,14 +523,13 @@
     </style>
 </head>
 <body>
-
     <!-- FIXED HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
             </div>
-         
+        
             <!-- DESKTOP NAVIGATION -->
             <nav class="desktop-nav">
                 <ul>
@@ -572,12 +573,12 @@
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </nav>
-         
+        
             <div class="header-buttons">
                 <button class="btn btn-call" onclick="alert('Call us at: (705) 825 7196')">Call Now</button>
                 <a href="get-estimate.html"><button class="btn btn-estimate">Get An Estimate</button></a>
             </div>
-         
+        
             <!-- Hamburger -->
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
               ☰
@@ -589,7 +590,7 @@
         <ul class="mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-we-are.html">Who We Are</a></li>
-           
+          
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropbtn">Services</a>
                 <div class="mobile-submenu">
@@ -623,33 +624,30 @@
                     </div>
                 </div>
             </li>
-           
+          
             <li><a href="knowledge-center.html">Knowledge Center</a></li>
             <li><a href="financing.html">Financing</a></li>
             <li><a href="careers.html">Careers</a></li>
         </ul>
     </nav>
     <div class="mobile-overlay"></div>
-
     <!-- HERO -->
     <section class="hero-careers">
         <div class="hero-content">
             <h1>Now Hiring for the 2026 Season</h1>
         </div>
     </section>
-
     <!-- INTRO -->
     <div class="section">
         <h2>Join Our Growing Team</h2>
         <p>Cornerstone Constructs is always looking for talented, motivated individuals to join our growing team. We take pride in delivering quality workmanship and exceptional customer service, and we’re looking for people who share that same passion for craftsmanship and doing things the right way.</p>
         <p>If you’re hardworking, reliable, and take pride in what you do, we’d love to hear from you for the 2026 construction season.</p>
     </div>
-
     <!-- APPLICATION FORM -->
     <div class="section">
         <div class="application-form">
             <h2 style="text-align:center; margin-bottom:2rem;">Submit Your Application</h2>
-            
+           
             <form id="careersForm" onsubmit="handleSubmit(event)">
                 <div class="form-row">
                     <div class="form-group">
@@ -661,7 +659,6 @@
                         <input type="text" id="lastName" required>
                     </div>
                 </div>
-
                 <div class="form-row">
                     <div class="form-group">
                         <label>Email Address <span class="required">*</span></label>
@@ -672,62 +669,55 @@
                         <input type="tel" id="phone" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Brief Introduction / Experience <span class="required">*</span></label>
                     <textarea id="experience" rows="5" placeholder="Tell us about your previous work experience, skills, and why you'd like to join our team..." required></textarea>
                 </div>
-
                 <div class="form-group">
                     <label>Upload Resume (optional but recommended)</label>
                     <input type="file" id="resume" accept=".pdf,.doc,.docx">
                 </div>
-
                 <div class="checkbox-group">
                     <label><strong>Check all that apply:</strong></label>
                     <label><input type="checkbox" id="transport"> I have my own transportation to and from work (does not include bus services)</label>
                     <label><input type="checkbox" id="license"> I have a valid G2 or G license</label>
                     <label><input type="checkbox" id="availability"> I am available Monday–Friday as early as 6:00 AM</label>
                 </div>
-
                 <button type="submit" class="btn-submit">Submit Application</button>
             </form>
         </div>
     </div>
-
     <!-- FOOTER -->
     <footer>
         <p><strong>Cornerstone Constructs</strong> — North Bay, Ontario</p>
         <p>Professional Construction & Home Improvement Services</p>
         <p style="margin-top:1.5rem;">© 2026 Cornerstone Constructs. All Rights Reserved.</p>
     </footer>
-
     <script>
         function handleSubmit(e) {
             e.preventDefault();
-            
+           
             const firstName = document.getElementById('firstName').value;
             if (!firstName) {
                 alert("Please enter your first name.");
                 return;
             }
-            
+           
             alert(`Thank you, ${firstName}! Your application has been received. We will review it and contact you shortly.`);
             document.getElementById('careersForm').reset();
         }
-
         // Hamburger menu
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-   
+  
             if (!hamburger || !mobileNav || !overlay) {
                 console.error('Mobile menu elements missing!');
                 return;
             }
-   
+  
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -735,7 +725,7 @@
                 hamburger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
-   
+  
             function closeMenu() {
                 mobileNav.classList.remove('active');
                 overlay.classList.remove('active');
@@ -743,7 +733,7 @@
                 hamburger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
-   
+  
             hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (mobileNav.classList.contains('active')) {
@@ -752,9 +742,9 @@
                     openMenu();
                 }
             });
-   
+  
             overlay.addEventListener('click', closeMenu);
-   
+  
             // Submenu toggles (Services top level now works better)
             // Submenu toggles - Services > Exterior/Interior/Landscaping
             mobileDropdowns.forEach(dropdown => {
@@ -766,20 +756,20 @@
                         dropdown.classList.toggle('active');
                     });
                 }
-                
+               
                 // Individual category toggles (Exterior, Interior, Landscaping)
                 const titles = dropdown.querySelectorAll('.mobile-submenu-title');
                 titles.forEach(title => {
                     title.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+                       
                         const subItem = title.parentElement; // .mobile-subitem
                         subItem.classList.toggle('active');
                     });
                 });
             });
-   
+  
             // Close menu when clicking a main link
             document.querySelectorAll('.mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -788,7 +778,7 @@
                     }
                 });
             });
-   
+  
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
