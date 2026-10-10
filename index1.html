@@ -768,11 +768,21 @@
             width: 100%;
             min-height: 44px;
         }
-        .address-autocomplete-host gmp-place-autocomplete {
-            width: 100%;
+        /* Official styleable properties on gmp-place-autocomplete */
+        .address-autocomplete-host gmp-place-autocomplete,
+        gmp-place-autocomplete {
+            width: 100% !important;
             display: block;
+            box-sizing: border-box;
+            color-scheme: light;
+            background-color: #ffffff;
+            color: #222;
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
             font-family: 'Inter', system-ui, sans-serif;
             font-size: 1rem;
+            line-height: 1.4;
+            padding: 0;
         }
         .address-hint {
             font-size: 0.85rem;
@@ -783,7 +793,6 @@
         .address-hint.error {
             color: #c0392b;
         }
-        /* Legacy pac-container still needs high z-index if anything falls back */
         .pac-container {
             z-index: 10000 !important;
         }
@@ -1568,6 +1577,15 @@
                 });
                 placeAutocomplete.id = 'addressWidget';
                 placeAutocomplete.setAttribute('placeholder', 'Start typing your address...');
+                // Match the white form fields (official supported properties)
+                placeAutocomplete.style.colorScheme = 'light';
+                placeAutocomplete.style.backgroundColor = '#ffffff';
+                placeAutocomplete.style.color = '#222222';
+                placeAutocomplete.style.border = '1.5px solid #ddd';
+                placeAutocomplete.style.borderRadius = '6px';
+                placeAutocomplete.style.fontFamily = "'Inter', system-ui, sans-serif";
+                placeAutocomplete.style.fontSize = '1rem';
+                placeAutocomplete.style.width = '100%';
 
                 host.innerHTML = '';
                 host.appendChild(placeAutocomplete);
