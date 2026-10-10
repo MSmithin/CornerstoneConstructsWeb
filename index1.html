@@ -763,25 +763,29 @@
             margin-bottom: 0.6rem;
         }
 
-        /* Google Places autocomplete dropdown must sit above the modal */
+        /* Places API (New) – PlaceAutocompleteElement host */
+        .address-autocomplete-host {
+            width: 100%;
+            min-height: 44px;
+        }
+        .address-autocomplete-host gmp-place-autocomplete {
+            width: 100%;
+            display: block;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+        }
+        .address-hint {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.35rem;
+            margin-bottom: 0;
+        }
+        .address-hint.error {
+            color: #c0392b;
+        }
+        /* Legacy pac-container still needs high z-index if anything falls back */
         .pac-container {
             z-index: 10000 !important;
-            font-family: 'Inter', system-ui, sans-serif;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            border: 1px solid #ddd;
-            margin-top: 2px;
-        }
-        .pac-item {
-            padding: 0.65rem 0.9rem;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
-        .pac-item:hover {
-            background: #f0f7fc;
-        }
-        .pac-item-query {
-            font-weight: 600;
         }
 
         /* ==================== EUROSHIELD SECTION (moved) ==================== */
@@ -1291,7 +1295,7 @@
     <section class="hero-renovations">
         <div class="hero-renovations-inner">
             <div class="hero-image-wrapper">
-                <img src="hero-home1.png" alt="Modern home exterior – full home renovations by Cornerstone Constructs">
+                <img src="hero-home.png" alt="Modern home exterior – full home renovations by Cornerstone Constructs">
             </div>
             <div class="hero-text">
                 <h1><span>FULL HOME</span><span>RENOVATIONS</span></h1>
@@ -1487,7 +1491,11 @@
                     </div>
                     <div class="snow-form-group">
                         <label for="address">Service Address *</label>
-                        <input type="text" id="address" name="address" placeholder="Start typing your address..." required autocomplete="off">
+                        <!-- Hidden field stores the selected address for form submit -->
+                        <input type="hidden" id="address" name="address" required>
+                        <!-- Places API (New) widget is injected here when the modal opens -->
+                        <div id="addressAutocompleteHost" class="address-autocomplete-host"></div>
+                        <p id="addressHint" class="address-hint">Start typing a Canadian address…</p>
                     </div>
                     <div class="snow-form-group">
                         <label>Interested in walkway shoveling service?</label>
@@ -1516,11 +1524,11 @@
         </div>
     </div>
 
-    <!-- Google Places Autocomplete – restricted to Canadian addresses -->
-    <!-- 1. Go to https://console.cloud.google.com/ → enable "Places API" (and Maps JavaScript API) -->
-    <!-- 2. Create an API key and restrict it to your domain -->
-    <!-- 3. Replace YOUR_GOOGLE_PLACES_API_KEY below with your real key -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_PLACES_API_KEY&libraries=places&callback=initAddressAutocomplete" async defer></script>
+    <!-- Google Places Autocomplete (New) – restricted to Canadian addresses
+         Inject your key at deploy time (GitHub Actions: replace YOUR_GOOGLE_PLACES_API_KEY).
+         Google Cloud: enable "Maps JavaScript API" + "Places API (New)", billing on,
+         API key restricted to your domain, and "Places API (New)" allowed on the key. -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_PLACES_API_KEY&libraries=places&loading=async" async defer></script>
 
     <script>
         // Page load animation
@@ -1530,30 +1538,71 @@
             }, 400);
         });
 
-        // Canadian address autocomplete (Google Places)
-        function initAddressAutocomplete() {
-            const input = document.getElementById('address');
-            if (!input || !window.google || !google.maps || !google.maps.places) return;
+        // Places API (New) – PlaceAutocompleteElement (Canada only)
+        let addressAutocompleteReady = false;
 
-            const autocomplete = new google.maps.places.Autocomplete(input, {
-                types: ['address'],
-                componentRestrictions: { country: 'ca' },
-                fields: ['formatted_address', 'address_components', 'geometry']
-            });
+        async function initAddressAutocomplete() {
+            if (addressAutocompleteReady) return;
 
-            // Keep the dropdown usable inside the modal
-            autocomplete.addListener('place_changed', () => {
-                const place = autocomplete.getPlace();
-                if (place && place.formatted_address) {
-                    input.value = place.formatted_address;
+            const host = document.getElementById('addressAutocompleteHost');
+            const hidden = document.getElementById('address');
+            const hint = document.getElementById('addressHint');
+            if (!host || !hidden) return;
+
+            if (!window.google || !google.maps) {
+                console.warn('Google Maps JS not loaded – check API key injection and network.');
+                if (hint) {
+                    hint.textContent = 'Address lookup unavailable. You can still type details in the notes field.';
+                    hint.classList.add('error');
                 }
-            });
+                return;
+            }
+
+            try {
+                const { PlaceAutocompleteElement } = await google.maps.importLibrary('places');
+
+                const placeAutocomplete = new PlaceAutocompleteElement({
+                    includedRegionCodes: ['ca'],
+                    requestedLanguage: 'en',
+                    requestedRegion: 'ca'
+                });
+                placeAutocomplete.id = 'addressWidget';
+                placeAutocomplete.setAttribute('placeholder', 'Start typing your address...');
+
+                host.innerHTML = '';
+                host.appendChild(placeAutocomplete);
+
+                placeAutocomplete.addEventListener('gmp-select', async (event) => {
+                    try {
+                        const prediction = event.placePrediction;
+                        if (!prediction) return;
+                        const place = prediction.toPlace();
+                        await place.fetchFields({ fields: ['formattedAddress', 'addressComponents'] });
+                        hidden.value = place.formattedAddress || '';
+                        if (hint) {
+                            hint.textContent = hidden.value ? 'Address selected ✓' : 'Start typing a Canadian address…';
+                            hint.classList.toggle('error', !hidden.value);
+                        }
+                    } catch (err) {
+                        console.error('Place details error:', err);
+                    }
+                });
+
+                addressAutocompleteReady = true;
+            } catch (err) {
+                console.error('Places Autocomplete init failed:', err);
+                if (hint) {
+                    hint.textContent = 'Address lookup failed to load. Check Places API (New) is enabled.';
+                    hint.classList.add('error');
+                }
+            }
         }
 
         // Snow modal controls
         function openSnowModal() {
             document.getElementById('snowModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+            setTimeout(initAddressAutocomplete, 50);
         }
         function closeSnowModal() {
             document.getElementById('snowModal').classList.remove('active');
@@ -1606,6 +1655,16 @@
         async function handleSnowSubmit(e) {
         e.preventDefault();
 
+        const addressVal = document.getElementById('address').value.trim();
+        const hint = document.getElementById('addressHint');
+        if (!addressVal) {
+            if (hint) {
+                hint.textContent = 'Please select an address from the suggestions.';
+                hint.classList.add('error');
+            }
+            return;
+        }
+
         const submitBtn = e.target.querySelector('.snow-submit');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
@@ -1615,7 +1674,7 @@
             fullName: document.getElementById('fullName').value.trim(),
             phone: document.getElementById('phone').value.trim(),
             email: document.getElementById('email').value.trim(),
-            address: document.getElementById('address').value.trim(),
+            address: addressVal,
             walkway: document.querySelector('input[name="walkway"]:checked')?.value || '',
             consent: document.getElementById('consent').checked,
             notes: document.getElementById('notes').value.trim()
@@ -1638,6 +1697,14 @@
             setTimeout(() => {
                 closeSnowModal();
                 document.getElementById('snowForm').reset();
+                // Reset Places widget so a fresh one is created next open
+                addressAutocompleteReady = false;
+                const host = document.getElementById('addressAutocompleteHost');
+                if (host) host.innerHTML = '';
+                if (hint) {
+                    hint.textContent = 'Start typing a Canadian address…';
+                    hint.classList.remove('error');
+                }
                 document.getElementById('snowForm').style.display = 'block';
                 document.getElementById('snowSuccess').style.display = 'none';
                 submitBtn.textContent = originalText;
