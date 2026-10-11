@@ -41,7 +41,7 @@
         .page-loader {
             position: fixed;
             inset: 0;
-            background: #fff;
+            background: #FF914D; /* brand orange – matches logo */
             z-index: 99999;
             display: flex;
             align-items: center;
@@ -54,30 +54,33 @@
             pointer-events: none;
         }
         .page-loader-inner {
-            text-align: center;
+            width: min(88vw, 480px);
+            display: flex;
+            justify-content: flex-start;
         }
-        .page-loader-bar {
-            width: 120px;
-            height: 3px;
-            background: #eee;
-            border-radius: 2px;
+        /* Reveal from hammer (left) → full logo (right) */
+        .page-loader-reveal {
             overflow: hidden;
-            margin: 0 auto 1.2rem;
-        }
-        .page-loader-bar-fill {
-            height: 100%;
             width: 0;
-            background: var(--snow-blue);
-            animation: loaderFill 0.7s ease forwards;
+            animation: logoReveal 1.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards;
         }
-        @keyframes loaderFill {
-            to { width: 100%; }
+        .page-loader-logo {
+            display: block;
+            width: min(88vw, 480px);
+            height: auto;
+            max-width: none;
         }
-        .page-loader-text {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #555;
-            letter-spacing: 0.04em;
+        @keyframes logoReveal {
+            0%   { width: 18%; }   /* roughly just the hammer */
+            100% { width: 100%; }  /* full logo including lines + text */
+        }
+        @media (max-width: 480px) {
+            .page-loader-inner {
+                width: min(92vw, 360px);
+            }
+            .page-loader-logo {
+                width: min(92vw, 360px);
+            }
         }
        
         /* ==================== FIXED HEADER ==================== */
@@ -1264,11 +1267,12 @@
     </style>
 </head>
 <body>
-    <!-- PAGE LOADER -->
+    <!-- PAGE LOADER – hammer first, white lines extend right into full logo -->
     <div class="page-loader" id="pageLoader">
         <div class="page-loader-inner">
-            <div class="page-loader-bar"><div class="page-loader-bar-fill"></div></div>
-            <div class="page-loader-text">Cornerstone Constructs</div>
+            <div class="page-loader-reveal">
+                <img class="page-loader-logo" src="Cornerstone Logo-Img/Cornerstone-2.png" alt="Cornerstone Constructs">
+            </div>
         </div>
     </div>
 
@@ -1651,11 +1655,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_PLACES_API_KEY&libraries=places&loading=async" async defer></script>
 
     <script>
-        // Page load animation
+        // Page load animation – wait for logo reveal (~1.3s) before sliding away
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('pageLoader').classList.add('loaded');
-            }, 400);
+            }, 1600);
         });
 
         // Places API (New) – PlaceAutocompleteElement (Canada only)
