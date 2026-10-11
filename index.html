@@ -41,7 +41,7 @@
         .page-loader {
             position: fixed;
             inset: 0;
-            background: #fff;
+            background: #FF914D; /* brand orange – matches logo */
             z-index: 99999;
             display: flex;
             align-items: center;
@@ -54,30 +54,33 @@
             pointer-events: none;
         }
         .page-loader-inner {
-            text-align: center;
+            width: min(88vw, 480px);
+            display: flex;
+            justify-content: flex-start;
         }
-        .page-loader-bar {
-            width: 120px;
-            height: 3px;
-            background: #eee;
-            border-radius: 2px;
+        /* Reveal from hammer (left) → full logo (right) */
+        .page-loader-reveal {
             overflow: hidden;
-            margin: 0 auto 1.2rem;
-        }
-        .page-loader-bar-fill {
-            height: 100%;
             width: 0;
-            background: var(--snow-blue);
-            animation: loaderFill 0.7s ease forwards;
+            animation: logoReveal 1.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards;
         }
-        @keyframes loaderFill {
-            to { width: 100%; }
+        .page-loader-logo {
+            display: block;
+            width: min(88vw, 480px);
+            height: auto;
+            max-width: none;
         }
-        .page-loader-text {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #555;
-            letter-spacing: 0.04em;
+        @keyframes logoReveal {
+            0%   { width: 18%; }   /* roughly just the hammer */
+            100% { width: 100%; }  /* full logo including lines + text */
+        }
+        @media (max-width: 480px) {
+            .page-loader-inner {
+                width: min(92vw, 360px);
+            }
+            .page-loader-logo {
+                width: min(92vw, 360px);
+            }
         }
        
         /* ==================== FIXED HEADER ==================== */
@@ -916,7 +919,87 @@
         .service-card-landscaping h4 a:hover {
             color: var(--primary-orange);
         }
-      
+
+        /* ==================== OUR SUPPLIERS MARQUEE ==================== */
+        .suppliers-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 0 4rem;
+            text-align: center;
+        }
+        .suppliers-section h3 {
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+        }
+        .suppliers-marquee {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+        }
+        .suppliers-track {
+            display: flex;
+            width: max-content;
+            gap: 3rem;
+            align-items: center;
+            animation: suppliersScroll 40s linear infinite;
+        }
+        .suppliers-marquee:hover .suppliers-track {
+            animation-play-state: paused;
+        }
+        @keyframes suppliersScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .supplier-logo {
+            flex-shrink: 0;
+            height: 72px;
+            width: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            padding: 0.75rem 1rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .supplier-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .supplier-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            filter: grayscale(0.15);
+            transition: filter 0.25s;
+        }
+        .supplier-logo:hover img {
+            filter: grayscale(0);
+        }
+        @media (max-width: 768px) {
+            .suppliers-section {
+                padding: 1.5rem 0 3rem;
+            }
+            .suppliers-section h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.4rem;
+            }
+            .supplier-logo {
+                height: 56px;
+                width: 130px;
+                padding: 0.55rem 0.75rem;
+            }
+            .suppliers-track {
+                gap: 1.5rem;
+                animation-duration: 32s;
+            }
+        }
+
         /* ==================== TESTIMONIALS CAROUSEL ==================== */
         .testimonials {
             background: #fff;
@@ -1184,11 +1267,12 @@
     </style>
 </head>
 <body>
-    <!-- PAGE LOADER -->
+    <!-- PAGE LOADER – hammer first, white lines extend right into full logo -->
     <div class="page-loader" id="pageLoader">
         <div class="page-loader-inner">
-            <div class="page-loader-bar"><div class="page-loader-bar-fill"></div></div>
-            <div class="page-loader-text">Cornerstone Constructs</div>
+            <div class="page-loader-reveal">
+                <img class="page-loader-logo" src="Cornerstone Logo-Img/Cornerstone-2.png" alt="Cornerstone Constructs">
+            </div>
         </div>
     </div>
 
@@ -1408,6 +1492,37 @@
                 <div class="service-card-landscaping"><img src="Softscaping/mulchedgardenbed.jpg" alt="Softscaping"><h4><a href="softscaping.html">Softscaping</a></h4></div>
             </div>
         </div>
+
+        <!-- Our Suppliers marquee -->
+        <div class="suppliers-section">
+            <h3>Our Suppliers</h3>
+            <div class="suppliers-marquee" aria-label="Supplier logos">
+                <div class="suppliers-track">
+                    <!-- Set 1 -->
+                    <div class="supplier-logo"><img src="Suppliers/iko.png" alt="IKO"></div>
+                    <div class="supplier-logo"><img src="Suppliers/royal-building-products.png" alt="Royal Building Products"></div>
+                    <div class="supplier-logo"><img src="Suppliers/maibec.png" alt="Maibec"></div>
+                    <div class="supplier-logo"><img src="Suppliers/james-hardie.png" alt="James Hardie"></div>
+                    <div class="supplier-logo"><img src="Suppliers/euroshield.png" alt="Euroshield"></div>
+                    <div class="supplier-logo"><img src="Suppliers/oaks.png" alt="Oaks"></div>
+                    <div class="supplier-logo"><img src="Suppliers/karastan.png" alt="Karastan Flooring"></div>
+                    <div class="supplier-logo"><img src="Suppliers/richmond-flooring.png" alt="Richmond Flooring"></div>
+                    <div class="supplier-logo"><img src="Suppliers/vicwest.png" alt="VicWest"></div>
+                    <div class="supplier-logo"><img src="Suppliers/gentek.png" alt="Gentek"></div>
+                    <!-- Set 2 (duplicate for seamless loop) -->
+                    <div class="supplier-logo"><img src="Suppliers/iko.png" alt="IKO"></div>
+                    <div class="supplier-logo"><img src="Suppliers/royal-building-products.png" alt="Royal Building Products"></div>
+                    <div class="supplier-logo"><img src="Suppliers/maibec.png" alt="Maibec"></div>
+                    <div class="supplier-logo"><img src="Suppliers/james-hardie.png" alt="James Hardie"></div>
+                    <div class="supplier-logo"><img src="Suppliers/euroshield.png" alt="Euroshield"></div>
+                    <div class="supplier-logo"><img src="Suppliers/oaks.png" alt="Oaks"></div>
+                    <div class="supplier-logo"><img src="Suppliers/karastan.png" alt="Karastan Flooring"></div>
+                    <div class="supplier-logo"><img src="Suppliers/richmond-flooring.png" alt="Richmond Flooring"></div>
+                    <div class="supplier-logo"><img src="Suppliers/vicwest.png" alt="VicWest"></div>
+                    <div class="supplier-logo"><img src="Suppliers/gentek.png" alt="Gentek"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- EUROSHIELD SECTION (moved after Services) -->
     <section class="euroshield-section">
@@ -1540,11 +1655,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_PLACES_API_KEY&libraries=places&loading=async" async defer></script>
 
     <script>
-        // Page load animation
+        // Page load animation – wait for logo reveal (~1.3s) before sliding away
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('pageLoader').classList.add('loaded');
-            }, 400);
+            }, 1600);
         });
 
         // Places API (New) – PlaceAutocompleteElement (Canada only)
