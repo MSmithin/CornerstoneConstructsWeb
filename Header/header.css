@@ -46,7 +46,7 @@ header {
     color: white;
     font-weight: 600;
     /* Slightly smaller nav text so everything fits */
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     white-space: nowrap;
 }
 .desktop-nav a:hover {
