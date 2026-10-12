@@ -82,11 +82,8 @@
                 width: min(92vw, 360px);
             }
         }
-       
-        
-       
-       
-        /* ==================== NEW FULL HOME RENOVATIONS HERO ==================== */
+
+/* ==================== NEW FULL HOME RENOVATIONS HERO ==================== */
         .hero-renovations {
             background: var(--primary-orange);
             overflow: hidden;
@@ -1023,24 +1020,7 @@
                 font-size: 2rem;
             }
         }
-        /* ==================== VISIBILITY RULES ==================== */
-        /* Desktop is visible by default */
-        .desktop-nav {
-            display: block;
-        }
-        .hamburger {
-            display: none;
-        }
-        /* Mobile view - hide desktop nav, show hamburger */
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-            .hamburger {
-                display: block;
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
     <!-- PAGE LOADER – hammer first, white lines extend right into full logo -->
@@ -1052,19 +1032,11 @@
         </div>
     </div>
 
-    <!-- FIXED HEADER -->
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="Cornerstone Logo-Img/CornerstoneConstructsLogo.png" alt="Cornerstone Constructs Logo">
-            </div>
-       
-            
-    <!-- NEW FULL HOME RENOVATIONS HERO (inspired by yard sign) -->
+<!-- NEW FULL HOME RENOVATIONS HERO (inspired by yard sign) -->
     <section class="hero-renovations">
         <div class="hero-renovations-inner">
             <div class="hero-image-wrapper">
-                <img src="hero-home1.png" alt="Modern home exterior – full home renovations by Cornerstone Constructs">
+                <img src="hero-home.png" alt="Modern home exterior – full home renovations by Cornerstone Constructs">
             </div>
             <div class="hero-text">
                 <h1><span>FULL HOME</span><span>RENOVATIONS</span></h1>
@@ -1329,7 +1301,7 @@
          Google Cloud: enable "Maps JavaScript API" + "Places API (New)", billing on,
          API key restricted to your domain, and "Places API (New)" allowed on the key. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_PLACES_API_KEY&libraries=places&loading=async" async defer></script>
-    <script src="Header/header.js"></script>
+
     <script>
         // Page load animation – wait for logo reveal (~1.3s) before sliding away
         window.addEventListener('load', () => {
@@ -1546,44 +1518,7 @@
             current = (current % total) + 1;
             showSlide(current);
         }, 6000);
-        // Hamburger menu
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger');
-            const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.querySelector('.mobile-overlay');
-            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
- 
-            if (!hamburger || !mobileNav || !overlay) {
-                console.error('Mobile menu elements missing!');
-                return;
-            }
- 
-            function openMenu() {
-                mobileNav.classList.add('active');
-                overlay.classList.add('active');
-                hamburger.textContent = '✕';
-                hamburger.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
-            }
- 
-            function closeMenu() {
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                hamburger.textContent = '☰';
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
- 
-            hamburger.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (mobileNav.classList.contains('active')) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
-            });
- 
-            overlay.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
  
             // Submenu toggles (Services top level now works better)
             mobileDropdowns.forEach(dropdown => {
@@ -1626,5 +1561,6 @@
             });
         });
     </script>
+    <script src="Header/header.js"></script>
 </body>
 </html>
