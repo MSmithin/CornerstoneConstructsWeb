@@ -818,25 +818,7 @@
         .dot.active {
             background: var(--primary-orange);
         }
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: #111;
-            color: #ccc;
-            padding: 4rem 2rem 2rem;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            text-align: center;
-        }
-        footer a {
-            color: var(--primary-orange);
-            text-decoration: underline;
-        }
+        
         /* ==================== MOBILE RESPONSIVE TWEAKS ==================== */
         @media (max-width: 992px) {
             .hero-renovations-inner {
@@ -970,19 +952,7 @@
                 margin-bottom: 3.2rem;
             }
            
-            /* Footer centering */
-            .footer-content {
-                flex-direction: column;
-                gap: 2.2rem;
-                align-items: center;
-                text-align: center;
-            }
-           
-            .footer-content > div {
-                width: 100%;
-                max-width: 280px;
-            }
-
+            
             .snow-float {
                 bottom: 18px;
                 right: 18px;
@@ -1213,26 +1183,7 @@
             <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div>
-                <p><strong>Hours of Operation</strong><br>
-                Monday – Friday: 8:00 AM – 6:00 PM<br>
-                Saturday: By Appointment</p>
-            </div>
-            <div>
-                <p><strong>Contact Us</strong><br>
-                <a href="get-estimate.html">Get a Free Estimate</a><br>
-                (705) 825 7196<br>
-                cornerstoneconstructs@gmail.com</p>
-            </div>
-            <div>
-                <p>© 2026 Cornerstone Constructs. All Rights Reserved.<br>
-                Proudly Serving North Bay & Surrounding Areas</p>
-            </div>
-        </div>
-    </footer>
+    
 
     <!-- FLOATING SNOW REMOVAL BAR -->
     <div class="snow-float" id="snowFloat" onclick="openSnowWhy()">
@@ -1523,5 +1474,6 @@ overlay.addEventListener('click', closeMenu);
             
     </script>
     <script src="Header/header.js"></script>
+    <script src="Footer/footer.js"></script>
 </body>
 </html>
