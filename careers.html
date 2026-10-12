@@ -281,6 +281,21 @@
     </footer>
     <script src="page-loader.js"></script>
     <script src="Header/header.js"></script>
+    <script>
+            
+        function handleSubmit(e) {
+            e.preventDefault();
+           
+            const firstName = document.getElementById('firstName').value;
+            if (!firstName) {
+                alert("Please enter your first name.");
+                return;
+            }
+           
+            alert(`Thank you, ${firstName}! Your application has been received. We will review it and contact you shortly.`);
+            document.getElementById('careersForm').reset();
+        }
+    </script>
     
 </body>
 </html>
