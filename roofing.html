@@ -438,12 +438,12 @@
     <script>
       document.getElementById('roofingForm').addEventListener('submit', async function (e) {
         e.preventDefault();
-
+    
         const btn = document.getElementById('submitBtn');
         const originalText = btn.textContent;
         btn.textContent = 'Sending...';
         btn.disabled = true;
-
+    
         const formData = {
           formType: 'roofing',          // ← tells the Worker which form this is
           name: document.getElementById('name').value.trim(),
@@ -455,37 +455,27 @@
           urgency: document.getElementById('urgency').value,
           message: document.getElementById('message').value.trim()
         };
-
+    
         try {
-            // ↓↓↓ PUT YOUR CLOUDFLARE WORKER URL HERE ↓↓↓
-            const response = await fetch('snow-remocal-form.cornerstoneconstructs.workers.dev', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-
-            if (!response.ok) throw new Error('Network response was not ok');
-
-            // Success
-            document.getElementById('snowForm').style.display = 'none';
-            document.getElementById('snowSuccess').style.display = 'block';
-
-            setTimeout(() => {
-                closeSnowModal();
-                document.getElementById('snowForm').reset();
-                document.getElementById('snowForm').style.display = 'block';
-                document.getElementById('snowSuccess').style.display = 'none';
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2800);
-
+          // ↓↓↓ PUT YOUR CLOUDFLARE WORKER URL HERE ↓↓↓
+          const response = await fetch('https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+    
+          if (!response.ok) throw new Error('Network response was not ok');
+    
+          alert('✅ Thank you! Your roofing estimate request has been received. We’ll contact you shortly.');
+          document.getElementById('roofingForm').reset();
         } catch (err) {
-            console.error(err);
-            alert('Something went wrong. Please try again or call us directly.');
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+          console.error(err);
+          alert('Something went wrong. Please try again or call us at (705) 825-7196.');
+        } finally {
+          btn.textContent = originalText;
+          btn.disabled = false;
         }
-    });
+      });
     </script>
     <script src="Header/header.js"></script>
     <script src="Footer/footer.js"></script>
