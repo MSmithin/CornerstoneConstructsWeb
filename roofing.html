@@ -435,49 +435,68 @@
     </div>
     
     <script src="page-loader.js"></script>
-    <script>
-      document.getElementById('roofingForm').addEventListener('submit', async function (e) {
-        e.preventDefault();
-    
-        const btn = document.getElementById('submitBtn');
-        const originalText = btn.textContent;
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-    
-        const formData = {
-          formType: 'roofing',          // ← tells the Worker which form this is
-          name: document.getElementById('name').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          address: document.getElementById('address').value.trim(),
-          postal: document.getElementById('postal').value.trim(),
-          material: document.getElementById('material').value,
-          urgency: document.getElementById('urgency').value,
-          message: document.getElementById('message').value.trim()
-        };
-    
-        try {
-          // ↓↓↓ PUT YOUR CLOUDFLARE WORKER URL HERE ↓↓↓
-          const response = await fetch('snow-remocal-form.cornerstoneconstructs.workers.dev', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          });
-    
-          if (!response.ok) throw new Error('Network response was not ok');
-    
-          alert('✅ Thank you! Your roofing estimate request has been received. We’ll contact you shortly.');
-          document.getElementById('roofingForm').reset();
-        } catch (err) {
-          console.error(err);
-          alert('Something went wrong. Please try again or call us at (705) 825-7196.');
-        } finally {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }
-      });
-    </script>
     <script src="Header/header.js"></script>
     <script src="Footer/footer.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('roofingForm');
+    if (!form) {
+      console.error('roofingForm not found');
+      return;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const formData = {
+        formType: 'roofing',
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        address: document.getElementById('address').value.trim(),
+        postal: document.getElementById('postal').value.trim(),
+        material: document.getElementById('material').value,
+        urgency: document.getElementById('urgency').value,
+        message: document.getElementById('message').value.trim()
+      };
+
+      // Temporary debug – remove later
+      console.log('Sending to Worker:', formData);
+
+      try {
+        // ↓↓↓ Make sure this is your REAL Worker URL ↓↓↓
+        const response = await fetch('snow-remocal-form.cornerstoneconstructs.workers.dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        console.log('Response status:', response.status);
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Worker error:', errorText);
+          throw new Error('Network response was not ok: ' + response.status);
+        }
+
+        alert('✅ Thank you! Your roofing estimate request has been received. We’ll contact you shortly.');
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong. Please try again or call us at (705) 825-7196.');
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
 </body>
 </html>
