@@ -470,14 +470,18 @@
     
           try {
             // ↓↓↓ Make sure this is your REAL Worker URL ↓↓↓
-            const response = await fetch('snow-remocal-form.cornerstoneconstructs.workers.dev', {
+            const workerUrl = 'snow-remocal-form.cornerstoneconstructs.workers.dev';  // ← real URL
+            console.log('About to fetch:', workerUrl);
+            
+            const response = await fetch(workerUrl, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify(formData)
             });
-    
+            
+            console.log('Final response URL:', response.url);
             console.log('Response status:', response.status);
     
             if (!response.ok) {
