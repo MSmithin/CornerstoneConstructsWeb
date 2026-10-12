@@ -1520,45 +1520,7 @@
         }, 6000);
 overlay.addEventListener('click', closeMenu);
  
-            // Submenu toggles (Services top level now works better)
-            mobileDropdowns.forEach(dropdown => {
-                const dropbtn = dropdown.querySelector('.mobile-dropbtn');
-                if (dropbtn) {
-                    dropbtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        dropdown.classList.toggle('active');
-                    });
-                }
-              
-                // Individual category toggles (Exterior, Interior, Landscaping)
-                const titles = dropdown.querySelectorAll('.mobile-submenu-title');
-                titles.forEach(title => {
-                    title.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                      
-                        const subItem = title.parentElement; // .mobile-subitem
-                        subItem.classList.toggle('active');
-                    });
-                });
-            });
- 
-            // Close menu when clicking a main link
-            document.querySelectorAll('.mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!link.classList.contains('mobile-submenu-title') && !link.classList.contains('mobile-dropbtn')) {
-                        closeMenu();
-                    }
-                });
-            });
- 
-            // Close on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
+            
     </script>
     <script src="Header/header.js"></script>
 </body>
