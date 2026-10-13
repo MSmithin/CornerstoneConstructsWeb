@@ -368,73 +368,62 @@
         <div class="estimate-form">
             <h2>Request Your Flooring Estimate</h2>
             
-            <form action="https://formspree.io/f/mojbqwyj" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="Flooring Estimate Request">
-                <input type="hidden" name="_next" value="https://yourdomain.com/flooring.html?success=1">
-                <input type="hidden" name="_captcha" value="false">
-
+            <form id="flooringForm">
+              <div class="form-group">
+                <label>Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-row">
                 <div class="form-group">
-                    <label>Name <span class="required">*</span></label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Phone Number <span class="required">*</span></label>
-                        <input type="tel" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address <span class="required">*</span></label>
-                        <input type="email" name="email" required>
-                    </div>
+                  <label>Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label>Service Address (optional)</label>
-                    <input type="text" name="address">
+                  <label>Email Address <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" required>
                 </div>
-                <div class="form-group">
-                    <label>Postal Code <span class="required">*</span></label>
-                    <input type="text" name="postal" required placeholder="P1B 1A1">
-                </div>
-                <div class="form-group">
-                    <label>Flooring Material <span class="required">*</span></label>
-                    <select name="material" required>
-                        <option value="">-- Select Material --</option>
-                        <option value="Luxury Vinyl Plank (LVP)">Luxury Vinyl Plank (LVP)</option>
-                        <option value="Laminate Flooring">Laminate Flooring</option>
-                        <option value="Hardwood Solid">Hardwood - Solid</option>
-                        <option value="Hardwood Engineered">Hardwood - Engineered</option>
-                        <option value="Tiles Ceramic">Tiles - Ceramic</option>
-                        <option value="Tiles Porcelain">Tiles - Porcelain</option>
-                        <option value="Carpet">Carpet</option>
-                        <option value="Repair only">Repair Only</option>
-                        <option value="Not Sure">Not Sure / Consultation Needed</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Project Urgency <span class="required">*</span></label>
-                    <select name="urgency" required>
-                        <option value="">-- Select Urgency --</option>
-                        <option value="Emergency">Emergency</option>
-                        <option value="Within 1 month">Within 1 month</option>
-                        <option value="3–6 months">3–6 months</option>
-                        <option value="6 months - 1 year">6 months - 1 year</option>
-                        <option value="Just researching">Just researching</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Anything else we should know? (optional)</label>
-                    <textarea name="message" rows="4" placeholder="Room sizes, existing floor condition, style preferences, etc."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Upload Photos (optional)</label>
-                    <input type="file" name="photos" multiple accept="image/*">
-                    <p style="font-size:0.95rem; color:#666; margin-top:0.4rem;">
-                        Photos of the current flooring and rooms help us provide a more accurate estimate.
-                    </p>
-                </div>
-
-                <button type="submit" class="btn-submit">Submit Estimate Request</button>
+              </div>
+              <div class="form-group">
+                <label>Service Address (optional)</label>
+                <input type="text" id="address" name="address">
+              </div>
+              <div class="form-group">
+                <label>Postal Code <span class="required">*</span></label>
+                <input type="text" id="postal" name="postal" required placeholder="P1B 1A1">
+              </div>
+              <div class="form-group">
+                <label>Flooring Material <span class="required">*</span></label>
+                <select id="material" name="material" required>
+                  <option value="">-- Select Material --</option>
+                  <option value="Luxury Vinyl Plank (LVP)">Luxury Vinyl Plank (LVP)</option>
+                  <option value="Laminate Flooring">Laminate Flooring</option>
+                  <option value="Hardwood Solid">Hardwood - Solid</option>
+                  <option value="Hardwood Engineered">Hardwood - Engineered</option>
+                  <option value="Tiles Ceramic">Tiles - Ceramic</option>
+                  <option value="Tiles Porcelain">Tiles - Porcelain</option>
+                  <option value="Carpet">Carpet</option>
+                  <option value="Repair only">Repair Only</option>
+                  <option value="Not Sure">Not Sure / Consultation Needed</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project Urgency <span class="required">*</span></label>
+                <select id="urgency" name="urgency" required>
+                  <option value="">-- Select Urgency --</option>
+                  <option value="Emergency">Emergency</option>
+                  <option value="Within 1 month">Within 1 month</option>
+                  <option value="3–6 months">3–6 months</option>
+                  <option value="6 months - 1 year">6 months - 1 year</option>
+                  <option value="Just researching">Just researching</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Anything else we should know? (optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Room sizes, existing floor condition, style preferences, etc."></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="submitBtn">Submit Estimate Request</button>
             </form>
+            
         </div>
     </div>
 
@@ -468,10 +457,45 @@
     <script src="Header/header.js"></script>
     <script src="Footer/footer.js"></script>
     <script>
-        // Success message
-        if (window.location.search.includes("success=1")) {
-            alert("✅ Thank you! Your flooring estimate request has been received. We'll contact you shortly.");
-        }
-    </script>
+          document.getElementById('flooringForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+        
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+        
+            const formData = {
+              formType: 'flooring',
+              name: document.getElementById('name').value.trim(),
+              phone: document.getElementById('phone').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              address: document.getElementById('address').value.trim(),
+              postal: document.getElementById('postal').value.trim(),
+              material: document.getElementById('material').value,
+              urgency: document.getElementById('urgency').value,
+              message: document.getElementById('message').value.trim()
+            };
+        
+            try {
+              const response = await fetch('https://snow-remocal-form.cornerstoneconstructs.workers.dev', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+              });
+        
+              if (!response.ok) throw new Error('Network response was not ok');
+        
+              alert('✅ Thank you! Your flooring estimate request has been received. We’ll contact you shortly.');
+              document.getElementById('flooringForm').reset();
+            } catch (err) {
+              console.error(err);
+              alert('Something went wrong. Please try again or call us at (705) 825-7196.');
+            } finally {
+              btn.textContent = originalText;
+              btn.disabled = false;
+            }
+          });
+        </script>
 </body>
 </html>
