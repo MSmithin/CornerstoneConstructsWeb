@@ -263,18 +263,13 @@
     <script src="Footer/footer.js"></script>
     <script>
             
-        function handleSubmit(e) {
-            e.preventDefault();
-           
-            const firstName = document.getElementById('firstName').value;
-            if (!firstName) {
-                alert("Please enter your first name.");
-                return;
-            }
-           
-            alert(`Thank you, ${firstName}! Your application has been received. We will review it and contact you shortly.`);
-            document.getElementById('careersForm').reset();
-        }
+        
+      function handleSubmit(e) {
+        e.preventDefault();
+    
+        alert("We're currently experiencing technical difficulties. Please email us your application details instead. :)");
+      }
+
     </script>
     
 </body>
