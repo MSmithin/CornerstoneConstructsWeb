@@ -1213,11 +1213,16 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="snow-form-group">
-                        <label for="address">Service Address *</label>
-                        <!-- Hidden field stores the selected address for form submit -->
-                        <input type="hidden" id="address" name="address" required>
-                        <!-- Places API (New) widget is injected here when the modal opens -->
+                        <label for="addressInput">Service Address *</label>
+                        <!-- Desktop: new PlaceAutocompleteElement gets injected here -->
                         <div id="addressAutocompleteHost" class="address-autocomplete-host"></div>
+                        <!-- Mobile: normal input (hidden on desktop) -->
+                        <input type="text" id="addressInput" name="addressInput" 
+                               placeholder="Start typing a Canadian address…" 
+                               autocomplete="off"
+                               style="display:none; width:100%; padding:0.7rem 0.9rem; border:1.5px solid #ddd; border-radius:6px; font-size:16px; font-family:inherit;">
+                        <!-- Hidden field the form actually submits -->
+                        <input type="hidden" id="address" name="address" required>
                         <p id="addressHint" class="address-hint">Start typing a Canadian address…</p>
                     </div>
                     <div class="snow-form-group">
@@ -1261,19 +1266,70 @@
             }, 1600);
         });
 
-        // Places API (New) – PlaceAutocompleteElement (Canada only)
+        // Places API – dual version (new web component on desktop, classic Autocomplete on mobile)
         let addressAutocompleteReady = false;
+        let classicAutocomplete = null;
+
+        function isMobile() {
+            return window.matchMedia('(max-width: 768px)').matches || 
+                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
 
         async function initAddressAutocomplete() {
             if (addressAutocompleteReady) return;
 
-            const host = document.getElementById('addressAutocompleteHost');
+            const host   = document.getElementById('addressAutocompleteHost');
+            const input  = document.getElementById('addressInput');
             const hidden = document.getElementById('address');
-            const hint = document.getElementById('addressHint');
-            if (!host || !hidden) return;
+            const hint   = document.getElementById('addressHint');
+
+            if (!host || !hidden inter) return;
+
+            // ---------- MOBILE: classic Autocomplete ----------
+            if (isMobile()) {
+                host.style.display = 'none';
+                input.style.display = 'block';
+
+                if (!window.google?.maps?.places) {
+                    if (hint) {
+                        hint.textContent = 'Address lookup unavailable. Type details in the notes field.';
+                        hint.classList.add('error');
+                    }
+                    return;
+                }
+
+                classicAutocomplete = new google.maps.places.Autocomplete(input, {
+                    componentRestrictions: { country: 'ca' },
+                    fields: ['formatted_address'],
+                    types: ['address']
+                });
+
+                classicAutocomplete.addListener('place_changed', () => {
+                    const place = classicAutocomplete.getPlace();
+                    if (place?.formatted_address) {
+                        hidden.value = place.formatted_address;
+                        if (hint) {
+                            hint.textContent = 'Address selected ✓';
+                            hint.classList.remove('error');
+                        }
+                    } else {
+                        hidden.value = '';
+                        if (hint) {
+                            hint.textContent = 'Please select an address from the list.';
+                            hint.classList.add('error');
+                        }
+                    }
+                });
+
+                addressAutocompleteReady = true;
+                return;
+            }
+
+            // ---------- DESKTOP: new PlaceAutocompleteElement ----------
+            input.style.display = 'none';
+            host.style.display = 'block';
 
             if (!window.google || !google.maps) {
-                console.warn('Google Maps JS not loaded – check API key injection and network.');
                 if (hint) {
                     hint.textContent = 'Address lookup unavailable. You can still type details in the notes field.';
                     hint.classList.add('error');
@@ -1291,7 +1347,6 @@
                 });
                 placeAutocomplete.id = 'addressWidget';
                 placeAutocomplete.setAttribute('placeholder', 'Start typing your address...');
-                // Match the white form fields (official supported properties)
                 placeAutocomplete.style.colorScheme = 'light';
                 placeAutocomplete.style.backgroundColor = '#ffffff';
                 placeAutocomplete.style.color = '#222222';
@@ -1309,7 +1364,7 @@
                         const prediction = event.placePrediction;
                         if (!prediction) return;
                         const place = prediction.toPlace();
-                        await place.fetchFields({ fields: ['formattedAddress', 'addressComponents'] });
+                        await place.fetchFields({ fields: ['formattedAddress'] });
                         hidden.value = place.formattedAddress || '';
                         if (hint) {
                             hint.textContent = hidden.value ? 'Address selected ✓' : 'Start typing a Canadian address…';
@@ -1324,7 +1379,7 @@
             } catch (err) {
                 console.error('Places Autocomplete init failed:', err);
                 if (hint) {
-                    hint.textContent = 'Address lookup failed to load. Check Places API (New) is enabled.';
+                    hint.textContent = 'Address lookup failed to load.';
                     hint.classList.add('error');
                 }
             }
@@ -1431,8 +1486,11 @@
                 document.getElementById('snowForm').reset();
                 // Reset Places widget so a fresh one is created next open
                 addressAutocompleteReady = false;
+                classicAutocomplete = null;
                 const host = document.getElementById('addressAutocompleteHost');
+                const input = document.getElementById('addressInput');
                 if (host) host.innerHTML = '';
+                if (input) input.value = '';
                 if (hint) {
                     hint.textContent = 'Start typing a Canadian address…';
                     hint.classList.remove('error');
